@@ -1,0 +1,67 @@
+"""Rpi device door api."""
+
+import asyncio
+from typing import Any, Optional
+
+from .device import RaspberryPiDevice
+
+
+class RaspberryPiSwitch(RaspberryPiDevice):
+    """RaspberryPiSwitch component."""
+
+    SWITCH_SERVICE = "pi.virtual.switch"
+    SET_SWITCH_METHOD = "transition_switch_state"
+
+    async def get_switch_state(self) -> None:
+        """Get switch state."""
+        self._state = await self._query_helper(self.SWITCH_SERVICE, "get_switch_state")
+
+    @property
+    def switch_state(self) -> dict[str, str]:
+        """Query the switch state."""
+        switch_state = self.sys_info["switch_state"]
+        if switch_state is None:
+            raise ValueError(
+                "The device has no switch_state or you have not called update()"
+            )
+
+        return switch_state
+
+    @property
+    def is_on(self) -> bool:
+        """Return True is the switch is on."""
+        switch_state = self.switch_state
+        return bool(switch_state.get("is_on"))
+
+    async def turn_on(self):
+        """Turn on the switch."""
+        _state = {"on_off": 1}
+
+        switch_state = await self._query_helper(
+            self.SWITCH_SERVICE, self.SET_SWITCH_METHOD, _state
+        )
+
+        return switch_state
+
+    async def turn_off(self):
+        """Turn off the switch."""
+        _state = {"on_off": 0}
+
+        switch_state = await self._query_helper(
+            self.SWITCH_SERVICE, self.SET_SWITCH_METHOD, _state
+        )
+
+        return switch_state
+
+
+async def main():
+    device = RaspberryPiSwitch("127.0.0.1", 9999)
+    await device.update()
+    print(device.is_on)
+    await device.turn_on()
+    await device.update()
+    print(device.is_on)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

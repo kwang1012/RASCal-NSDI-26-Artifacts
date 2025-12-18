@@ -1,0 +1,3 @@
+[submodule "rasc-core"]
+	path = rasc-core
+	url = git@github.com:kwang1012/rasc-core.git
