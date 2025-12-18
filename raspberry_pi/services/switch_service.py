@@ -1,16 +1,11 @@
 from __future__ import annotations
-from datetime import datetime
-import math
 from typing import Any
 import uuid
-import numpy as np
-import asyncio
 
-from raspberry_pi.utils import Device, load_dataset, get_logger
+from raspberry_pi.server import DeviceServerConfig
+from raspberry_pi.utils import get_logger
 
 INITIAL_STATE = {}
-
-LOGGER = get_logger(__name__)
 
 class SwitchService:
 
@@ -19,17 +14,18 @@ class SwitchService:
     SWITCH_SERVICE = "pi.virtual.switch"
     SET_SWITCH_METHOD = "transition_switch_state"
 
-    def __init__(self, loop, entity_id=None) -> None:
+    def __init__(self, loop, config: DeviceServerConfig) -> None:
         self.loop = loop
         self._state = {}
-        self.entity_id = entity_id
+        self.entity_id = config.entity_id
+        self.logger = get_logger(config.entity_id, config.log_dir)
 
         self._attr_is_on = False
         self._mac = hex(uuid.getnode())
 
         self._update_attributes()
 
-        LOGGER.info("Initialize switch service. Entity ID: %s", self.entity_id)
+        self.logger.info("Initialize switch service. Entity ID: %s", self.entity_id)
 
     def handle(self, request):
         if "system" in request:

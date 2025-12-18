@@ -6,11 +6,11 @@ import uuid
 import numpy as np
 import asyncio
 
-from raspberry_pi.utils import Device, load_dataset, get_logger
+from rasc.datasets import Device, load_dataset
+from raspberry_pi.server import DeviceServerConfig
+from raspberry_pi.utils import get_logger
 
 INITIAL_STATE = {}
-
-LOGGER = get_logger(__name__)
 
 class ShadeService:
 
@@ -23,12 +23,13 @@ class ShadeService:
     SHADE_SERVICE = "pi.virtual.shade"
     SET_SHADE_METHOD = "transition_shade_state"
 
-    def __init__(self, loop, entity_id=None) -> None:
+    def __init__(self, loop, config: DeviceServerConfig) -> None:
         self.loop = loop
         self._state = {}
         self.cover_tasks: set[asyncio.Task] = set()
         self.tilt_tasks = set()
-        self.entity_id = entity_id
+        self.entity_id = config.entity_id
+        self.logger = get_logger(config.entity_id, config.log_dir)
 
         self._attr_is_closed = True
         self._attr_current_cover_position = 0 if self._attr_is_closed else 100
@@ -38,7 +39,7 @@ class ShadeService:
 
         self._dataset = load_dataset(Device.SHADE)
 
-        LOGGER.info("Initialize shade service. Entity ID: %s", self.entity_id)
+        self.logger.info("Initialize shade service. Entity ID: %s", self.entity_id)
 
     def handle(self, request):
         if "system" in request:
@@ -133,8 +134,8 @@ class ShadeService:
                 action_length = np.random.choice(self._dataset["down"])
             step = (target_position - self._attr_current_cover_position) / action_length
             # todo: interruption: based on precentage of action length
-            print(f"{action_length=}")
-            print(f"Transition {action_name} starts: {datetime.now().strftime('%F %T.%f')[:-3]}")
+            self.logger.debug("Action length: %s", action_length)
+            self.logger.info("Transition %s starts: %s", action_name, datetime.now().strftime('%F %T.%f')[:-3])
             middle = math.floor(action_length/2)
             count = 0
             while True:
@@ -144,12 +145,12 @@ class ShadeService:
                 if self._attr_current_cover_position >= 100:
                     self._attr_current_cover_position = 100
                     self._open_cover()
-                    print(f"action finished at {datetime.now().strftime('%F %T.%f')[:-3]}")
+                    self.logger.info("action finished at %s", datetime.now().strftime('%F %T.%f')[:-3])
                     break
                 if self._attr_current_cover_position <= 0:
                     self._attr_current_cover_position = 0
                     self._close_cover()
-                    print(f"action finished at {datetime.now().strftime('%F %T.%f')[:-3]}")
+                    self.logger.info("action finished at %s", datetime.now().strftime('%F %T.%f')[:-3])
                     break
                 self._update_attributes()
                 await asyncio.sleep(1)

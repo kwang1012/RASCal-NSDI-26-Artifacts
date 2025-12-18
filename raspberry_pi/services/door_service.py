@@ -6,11 +6,11 @@ import uuid
 import numpy as np
 import asyncio
 
-from raspberry_pi.utils import Device, load_dataset, get_logger
+from rasc.datasets import Device, load_dataset
+from raspberry_pi.server import DeviceServerConfig
+from raspberry_pi.utils import get_logger
 
 INITIAL_STATE = {}
-
-LOGGER = get_logger(__name__)
 
 class DoorService:
 
@@ -22,11 +22,11 @@ class DoorService:
     DOOR_SERVICE = "pi.virtual.door"
     SET_DOOR_METHOD = "transition_door_state"
 
-    def __init__(self, loop, entity_id=None) -> None:
+    def __init__(self, loop, config: DeviceServerConfig) -> None:
         self.loop = loop
         self._state = {}
         self.tasks: set[asyncio.Task] = set()
-        self.entity_id = entity_id
+        self.entity_id = config.entity_id
 
         self._attr_is_closed = True
         self._attr_current_door_position = 0 if self._attr_is_closed else 100
@@ -35,8 +35,9 @@ class DoorService:
         self._update_attributes()
 
         self._dataset = load_dataset(Device.DOOR)
+        self.logger = get_logger(self.entity_id, log_dir=config.log_dir)
 
-        LOGGER.info("Initialize door service. Entity ID: %s", self.entity_id)
+        self.logger.info("Initialize door service. Entity ID: %s", self.entity_id)
 
     def handle(self, request):
         if "system" in request:
@@ -119,14 +120,15 @@ class DoorService:
 
     async def _start_operation(self, interruption_level: float | None = None, action_name: str = ""):
         action_length = np.random.choice(self._dataset["close"])
-        print(f"{action_length=}")
-        print(f"Transition {action_name} starts: {datetime.now().strftime('%F %T.%f')[:-3]}")
+        self.logger.debug("Action length: %s", action_length)
+        self.logger.info("Transition %s starts: %s", action_name, datetime.now().strftime('%F %T.%f')[:-3])
         try:
             if self._attr_is_opening:
                 target_position = 100.0
             elif self._attr_is_closing:
                 target_position = 0.0
-            step = (target_position - self._attr_current_door_position) / action_length
+            step = (target_position -
+                    self._attr_current_door_position) / action_length
             # todo: interruption: based on precentage of action length
             middle = math.floor(action_length/2)
             count = 0
@@ -137,12 +139,12 @@ class DoorService:
                 if self._attr_current_door_position >= 100:
                     self._attr_current_door_position = 100
                     self._open_door()
-                    print(f"action finished at {datetime.now().strftime('%F %T.%f')[:-3]}")
+                    self.logger.info("action finished at %s", datetime.now().strftime('%F %T.%f')[:-3])
                     break
                 if self._attr_current_door_position <= 0:
                     self._attr_current_door_position = 0
                     self._close_door()
-                    print(f"action finished at {datetime.now().strftime('%F %T.%f')[:-3]}")
+                    self.logger.info("action finished at %s", datetime.now().strftime('%F %T.%f')[:-3])
                     break
                 self._update_attributes()
                 await asyncio.sleep(1)
@@ -160,14 +162,16 @@ class DoorService:
         """Open the door."""
         interruption_level = kwargs.get("interruption_level")
         self._opening()
-        task = self.loop.create_task(self._start_operation(interruption_level, action_name="open"))
+        task = self.loop.create_task(self._start_operation(
+            interruption_level, action_name="open"))
         self.tasks.add(task)
 
     def close_door(self, **kwargs: Any) -> None:
         """Close the door."""
         interruption_level = kwargs.get("interruption_level")
         self._closing()
-        task = self.loop.create_task(self._start_operation(interruption_level, action_name="close"))
+        task = self.loop.create_task(self._start_operation(
+            interruption_level, action_name="close"))
         self.tasks.add(task)
 
     def stop_door(self) -> None:

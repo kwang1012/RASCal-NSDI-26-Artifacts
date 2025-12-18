@@ -1,16 +1,12 @@
 from __future__ import annotations
-from datetime import datetime
-import math
 from typing import Any
 import uuid
-import numpy as np
 import asyncio
 
-from raspberry_pi.utils import Device, load_dataset, get_logger
+from raspberry_pi.services.elevator_service import DeviceServerConfig
+from raspberry_pi.utils import get_logger
 
 INITIAL_STATE = {}
-
-LOGGER = get_logger(__name__)
 
 class FanService:
 
@@ -24,12 +20,12 @@ class FanService:
     FAN_SERVICE = "pi.virtual.fan"
     SET_FAN_METHOD = "transition_fan_state"
 
-    def __init__(self, loop, entity_id=None) -> None:
+    def __init__(self, loop, config: DeviceServerConfig) -> None:
         self.loop = loop
         self._state = {}
         self.tasks: set[asyncio.Task] = set()
-        self.entity_id = entity_id
-
+        self.entity_id = config.entity_id
+        
         self._attr_preset_mode = None
         self._attr_preset_modes = ["Breeze", "Normal", "Sleep"]
         self._attr_percentage = 0
@@ -38,8 +34,9 @@ class FanService:
         self._mac = hex(uuid.getnode())
 
         self._update_attributes()
+        self.logger = get_logger(config.entity_id, config.log_dir)
 
-        LOGGER.info("Initialize fan service. Entity ID: %s", self.entity_id)
+        self.logger.info("Initialize fan service. Entity ID: %s", self.entity_id)
 
     def handle(self, request):
         if "system" in request:

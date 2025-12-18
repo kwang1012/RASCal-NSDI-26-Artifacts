@@ -1,0 +1,116 @@
+[32m[INFO] Initialize door service. Entity ID: cover.rpi_device_door[0m
+[32m[INFO] Initialize door service. Entity ID: cover.rpi_device_shade[0m
+[32m[INFO] Initialize door service. Entity ID: cover.rpi_device_shade[0m
+[32m[INFO] Initialize door service. Entity ID: cover.rpi_device_door[0m
+[33m[DEBUG] Action length: 4.51[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:36:09.083[0m
+[33m[DEBUG] Action length: 4.34[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:36:13.203[0m
+[33m[DEBUG] Action length: 4.49[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:36:17.243[0m
+[33m[DEBUG] Action length: 4.37[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:36:21.265[0m
+[33m[DEBUG] Action length: 4.44[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:36:25.295[0m
+[33m[DEBUG] Action length: 4.37[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:36:29.306[0m
+[33m[DEBUG] Action length: 4.56[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:36:33.327[0m
+[33m[DEBUG] Action length: 4.39[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:36:37.881[0m
+[33m[DEBUG] Action length: 4.56[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:36:42.555[0m
+[33m[DEBUG] Action length: 4.44[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:36:46.596[0m
+[33m[DEBUG] Action length: 4.52[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:36:50.629[0m
+[33m[DEBUG] Action length: 4.37[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:36:54.665[0m
+[33m[DEBUG] Action length: 4.34[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:36:58.684[0m
+[33m[DEBUG] Action length: 4.44[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:37:02.705[0m
+[33m[DEBUG] Action length: 4.54[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:37:06.739[0m
+[33m[DEBUG] Action length: 4.49[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:37:10.754[0m
+[33m[DEBUG] Action length: 4.44[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:37:15.467[0m
+[33m[DEBUG] Action length: 4.46[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:37:20.037[0m
+[32m[INFO] Initialize door service. Entity ID: cover.rpi_device_shade[0m
+[32m[INFO] Initialize door service. Entity ID: cover.rpi_device_door[0m
+[32m[INFO] Initialize door service. Entity ID: cover.rpi_device_door[0m
+[32m[INFO] Initialize door service. Entity ID: cover.rpi_device_shade[0m
+[33m[DEBUG] Action length: 4.49[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:39:33.083[0m
+[32m[INFO] action finished at 2025-12-18 20:39:37.088[0m
+[33m[DEBUG] Action length: 4.41[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:39:37.182[0m
+[32m[INFO] action finished at 2025-12-18 20:39:41.185[0m
+[33m[DEBUG] Action length: 4.42[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:39:41.215[0m
+[32m[INFO] action finished at 2025-12-18 20:39:45.220[0m
+[33m[DEBUG] Action length: 4.42[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:39:45.227[0m
+[32m[INFO] action finished at 2025-12-18 20:39:49.232[0m
+[33m[DEBUG] Action length: 4.56[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:39:49.247[0m
+[32m[INFO] action finished at 2025-12-18 20:39:53.251[0m
+[33m[DEBUG] Action length: 4.57[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:39:53.800[0m
+[32m[INFO] action finished at 2025-12-18 20:39:57.805[0m
+[33m[DEBUG] Action length: 4.56[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:39:57.815[0m
+[32m[INFO] action finished at 2025-12-18 20:40:01.819[0m
+[33m[DEBUG] Action length: 4.31[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:40:01.851[0m
+[32m[INFO] action finished at 2025-12-18 20:40:05.856[0m
+[33m[DEBUG] Action length: 4.46[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:40:06.529[0m
+[32m[INFO] action finished at 2025-12-18 20:40:10.533[0m
+[33m[DEBUG] Action length: 4.59[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:40:10.555[0m
+[32m[INFO] action finished at 2025-12-18 20:40:14.560[0m
+[33m[DEBUG] Action length: 4.59[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:40:14.602[0m
+[32m[INFO] action finished at 2025-12-18 20:40:18.606[0m
+[33m[DEBUG] Action length: 4.46[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:40:18.622[0m
+[32m[INFO] action finished at 2025-12-18 20:40:22.627[0m
+[33m[DEBUG] Action length: 4.34[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:40:22.656[0m
+[32m[INFO] action finished at 2025-12-18 20:40:26.660[0m
+[33m[DEBUG] Action length: 4.47[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:40:26.675[0m
+[32m[INFO] action finished at 2025-12-18 20:40:30.679[0m
+[33m[DEBUG] Action length: 4.49[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:40:30.699[0m
+[32m[INFO] action finished at 2025-12-18 20:40:34.702[0m
+[33m[DEBUG] Action length: 4.49[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:40:35.272[0m
+[32m[INFO] action finished at 2025-12-18 20:40:39.277[0m
+[33m[DEBUG] Action length: 4.54[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:40:39.292[0m
+[32m[INFO] action finished at 2025-12-18 20:40:43.297[0m
+[33m[DEBUG] Action length: 4.57[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:40:43.333[0m
+[32m[INFO] action finished at 2025-12-18 20:40:47.338[0m
+[33m[DEBUG] Action length: 4.46[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:40:47.346[0m
+[32m[INFO] action finished at 2025-12-18 20:40:51.351[0m
+[33m[DEBUG] Action length: 4.37[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:40:51.379[0m
+[32m[INFO] action finished at 2025-12-18 20:40:55.382[0m
+[33m[DEBUG] Action length: 4.42[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:40:55.389[0m
+[32m[INFO] action finished at 2025-12-18 20:40:59.393[0m
+[33m[DEBUG] Action length: 4.47[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:41:25.827[0m
+[32m[INFO] action finished at 2025-12-18 20:41:29.832[0m
+[33m[DEBUG] Action length: 4.44[0m
+[32m[INFO] Transition open starts: 2025-12-18 20:41:53.650[0m
+[32m[INFO] action finished at 2025-12-18 20:41:57.654[0m
+[33m[DEBUG] Action length: 4.44[0m
+[32m[INFO] Transition close starts: 2025-12-18 20:42:24.091[0m
+[32m[INFO] action finished at 2025-12-18 20:42:28.095[0m

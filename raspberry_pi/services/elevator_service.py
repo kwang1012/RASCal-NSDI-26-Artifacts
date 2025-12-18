@@ -6,11 +6,11 @@ import uuid
 import numpy as np
 import asyncio
 
-from raspberry_pi.utils import Device, load_dataset, get_logger
+from rasc.datasets import Device, load_dataset
+from raspberry_pi.server import DeviceServerConfig
+from raspberry_pi.utils import get_logger
 
 INITIAL_STATE = {}
-
-LOGGER = get_logger(__name__)
 
 class ElevatorService:
 
@@ -22,12 +22,12 @@ class ElevatorService:
     ELEVATOR_SERVICE = "pi.virtual.elevator"
     SET_ELEVATOR_METHOD = "transition_elevator_state"
 
-    def __init__(self, loop, entity_id=None) -> None:
+    def __init__(self, loop, config: DeviceServerConfig) -> None:
         self.loop = loop
         self._state = {}
         self.cover_tasks: set[asyncio.Task] = set()
         self.tilt_tasks = set()
-        self.entity_id = entity_id
+        self.entity_id = config.entity_id
 
         self._attr_is_closed = True
         self._attr_current_cover_position = 0 if self._attr_is_closed else 100
@@ -36,8 +36,9 @@ class ElevatorService:
         self._update_attributes()
 
         self._dataset = load_dataset(Device.ELEVATOR)
+        self.logger = get_logger(config.entity_id, config.log_dir)
 
-        LOGGER.info("Initialize elevator service. Entity ID: %s", self.entity_id)
+        self.logger.info("Initialize elevator service. Entity ID: %s", self.entity_id)
 
     def handle(self, request):
         if "system" in request:
@@ -90,10 +91,10 @@ class ElevatorService:
                 name: value
                 for name, value in (
                     ("current_position", self._attr_current_cover_position),
-                    (
-                        "current_tilt_position",
-                        self._attr_current_cover_tilt_position,
-                    ),
+                    # (
+                    #     "current_tilt_position",
+                    #     self._attr_current_cover_tilt_position,
+                    # ),
                     ("closed", self._attr_is_closed),
                     ("opening", self._attr_is_opening),
                     ("closing", self._attr_is_closing),
@@ -135,6 +136,8 @@ class ElevatorService:
                 target_position = 100.0
             elif self._attr_is_closing:
                 target_position = 0.0
+            else:
+                raise ValueError("No operation in progress")
             step = (target_position - self._attr_current_cover_position) / action_length
             # todo: interruption: based on precentage of action length
             middle = math.floor(action_length / 2)

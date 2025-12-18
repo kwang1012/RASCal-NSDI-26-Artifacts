@@ -6,7 +6,7 @@ The experiments in the papers use multiple Raspberry PIs and real devices. For t
 We use [uv](https://docs.astral.sh/uv/getting-started/installation/) to manage Python environment.
 
 ```bash
-uv sync
+./scripts/setup.sh
 ```
 
 ### 2. Reproduce the results

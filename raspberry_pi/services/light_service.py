@@ -1,16 +1,12 @@
 from __future__ import annotations
-from datetime import datetime
 import math
-from typing import Any
 import uuid
-import numpy as np
 import asyncio
 from enum import IntFlag, StrEnum
-from raspberry_pi.utils import Device, load_dataset, get_logger
+from raspberry_pi.server import DeviceServerConfig
+from raspberry_pi.utils import get_logger
 
 INITIAL_STATE = {}
-
-LOGGER = get_logger(__name__)
 
 class LightEntityFeature(IntFlag):
     """Supported features of the light entity."""
@@ -62,12 +58,12 @@ class LightService:
     LIGHT_SERVICE = "pi.virtual.light"
     SET_LIGHT_METHOD = "transition_light_state"
 
-    def __init__(self, loop, entity_id=None) -> None:
+    def __init__(self, loop, config: DeviceServerConfig) -> None:
         self.loop = loop
         self._state = {}
         self._task: set[asyncio.Task] | None = None
-        self.entity_id = entity_id
-
+        self.entity_id = config.entity_id
+        
         self._attr_supported_color_modes = {ColorMode.ONOFF}
         self._attr_supported_features = 0
         self._attr_transition: bool | None = None
@@ -86,8 +82,9 @@ class LightService:
         self._mac = hex(uuid.getnode())
 
         self._update_attributes()
+        self.logger = get_logger(config.entity_id, config.log_dir)
 
-        LOGGER.info("Initialize light service. Entity ID: %s", self.entity_id)
+        self.logger.info("Initialize light service. Entity ID: %s", self.entity_id)
 
     def handle(self, request):
         if "system" in request:
@@ -120,7 +117,7 @@ class LightService:
             return {LightService.LIGHT_SERVICE: {"get_light_state": self._state}}
         if LightService.SET_LIGHT_METHOD in cmd_obj:
             args = cmd_obj[LightService.SET_LIGHT_METHOD]
-            LOGGER.debug(f"{self.entity_id}: cmd {args}")
+            self.logger.debug(f"{self.entity_id}: cmd {args}")
             if args["on_off"] == 1:
                 self.turn_on(**args)
             elif args["on_off"] == 0:
@@ -151,7 +148,7 @@ class LightService:
         """Turn the light on."""
         transition = kwargs.get("transition")
         hs_color = kwargs.get("hs_color", None)
-        LOGGER.info("%s: Turn on light with kwargs: %s", self.entity_id, kwargs)
+        self.logger.info("%s: Turn on light with kwargs: %s", self.entity_id, kwargs)
         if (
             hs_color is not None
             and ColorMode.COLOR_TEMP in self._attr_supported_color_modes
@@ -175,7 +172,7 @@ class LightService:
             ):
                 if self._task is not None:
                     if not self._task.done():
-                        LOGGER.error(
+                        self.logger.error(
                             f'Previous brightness transition task is still running on {self.entity_id}. Cancelling it.')
                     self._task.cancel()
                 self._task = asyncio.create_task(
@@ -208,11 +205,11 @@ class LightService:
         step = (brightness - self._attr_brightness) / transition
         step = -math.ceil(abs(step)) if step < 0 else math.ceil(step)
         increasing = step > 0
-        LOGGER.debug("%s starts async brightness transition from %s to %s with step %s", self.entity_id, self._attr_brightness, brightness, step)
+        self.logger.debug("%s starts async brightness transition from %s to %s with step %s", self.entity_id, self._attr_brightness, brightness, step)
         try:
             while True:
                 self._attr_brightness += step
-                LOGGER.debug("%s: Current brightness %s", self.entity_id, self._attr_brightness)
+                self.logger.debug("%s: Current brightness %s", self.entity_id, self._attr_brightness)
                 if not increasing and self._attr_brightness <= brightness:
                     self._attr_brightness = brightness
                     self._update_attributes()

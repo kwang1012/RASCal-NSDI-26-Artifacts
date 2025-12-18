@@ -1,3 +1,3 @@
 cover.rpi_device_door
 cover.rpi_device_shade
-cover.rpi_device_thermostat
+climate.rpi_device_thermostat

@@ -1,15 +1,8 @@
 import json
-import math
-import sys
-sys.path.insert(0, "..")
-import os
-from rasc.rasc_polling import get_detection_time, get_polls, get_uniform_polls
-from legacy.eval_dist import get_best_distribution
-import matplotlib.pyplot as plt
+from rasc.rasc_polling import get_best_distribution, get_polls, get_uniform_polls
 import numpy as np
-import glob
 
-from parse_thermostat_data import get_thermo_datasets
+from rasc.datasets import Device, load_dataset
 
 
 class VirtualDevice:
@@ -42,7 +35,7 @@ def run(datasets, i, uniform=False):
         dist = get_best_distribution(data)
         worst_q = 30
         if uniform:
-            L = get_uniform_polls(dist.ppf(0.99), worst_case_delta=worst_q)
+            L = get_uniform_polls(dist.ppf(0.99), worst_case_delta=worst_q) # type: ignore
         else:
             L = get_polls(dist, worst_case_delta=worst_q, SLO=0.9)
         # used_poll = 
@@ -55,6 +48,7 @@ def run(datasets, i, uniform=False):
                 L.append(L[-1] + min(2**i, worst_q))
         avg_detection_time = []
         avg_used_polls = []
+        action_length = None
         for _ in range(100):
             action_length = d.action()
             for i, l in enumerate(L):
@@ -109,7 +103,7 @@ def run(datasets, i, uniform=False):
     return trial
 
 def main():
-    datasets = get_thermo_datasets()
+    datasets = load_dataset(Device.THERMOSTAT)
     run(datasets, 1)
     run(datasets, 1, True)
     # files = glob.glob('results/trials/*')

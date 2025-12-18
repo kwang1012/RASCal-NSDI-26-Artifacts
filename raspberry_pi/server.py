@@ -3,11 +3,10 @@ import json
 import pickle
 import socket
 import struct
-import sys
-import argparse
 from dataclasses import dataclass
 
-from raspberry_pi.utils import Device
+from rasc.datasets import Device
+
 
 @dataclass
 class DeviceServerConfig:
@@ -16,6 +15,7 @@ class DeviceServerConfig:
     device: Device
     entity_id: str
     device_config: dict | None = None
+    log_dir: str | None = None
 
 def create_socket(host, start_port):
     """
@@ -81,16 +81,19 @@ class DeviceServer:
         else:
             raise ValueError("Devicecd class not found")
         assert device_cls is not None
-        self.device = device_cls(self.loop, config.entity_id)
+        self.device = device_cls(self.loop, config)
 
     @classmethod
     def from_args(cls, args):
+        if args.device == "climate":
+            args.device = "thermostat"
         
         config = DeviceServerConfig(
             host=args.host,
             port=args.port,
             device=Device(args.device),
-            entity_id=args.entity_id
+            entity_id=args.entity_id,
+            log_dir=args.log_dir,
         )
         return cls(config)
 

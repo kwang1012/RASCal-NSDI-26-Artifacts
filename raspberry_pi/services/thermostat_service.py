@@ -7,11 +7,11 @@ import uuid
 import numpy as np
 import asyncio
 
-from raspberry_pi.utils import Device, load_dataset, get_logger
+from rasc.datasets import Device, load_dataset
+from raspberry_pi.server import DeviceServerConfig
+from raspberry_pi.utils import get_logger
 
 INITIAL_STATE = {}
-
-LOGGER = get_logger(__name__)
 
 class HVACMode(StrEnum):
     """HVAC mode for climate devices."""
@@ -50,10 +50,11 @@ class ThermostatService:
     _attr_min_temp = 62.0
     _attr_max_temp = 85.0
 
-    def __init__(self, loop, entity_id=None) -> None:
+    def __init__(self, loop, config: DeviceServerConfig) -> None:
         self.loop = loop
         self._state = {}
-        self.entity_id = entity_id
+        self.entity_id = config.entity_id
+        self.logger = get_logger(config.entity_id, config.log_dir)
         self._mac = hex(uuid.getnode())
 
         self._attr_hvac_modes = [HVACMode.HEAT, HVACMode.OFF]
@@ -69,7 +70,7 @@ class ThermostatService:
         self._update_attributes()
         self._dataset = load_dataset(Device.THERMOSTAT)
 
-        LOGGER.info("Initialize thermostat service. Entity ID: %s", self.entity_id)
+        self.logger.info("Initialize thermostat service. Entity ID: %s", self.entity_id)
 
     @property
     def min_temp(self):
@@ -174,13 +175,11 @@ class ThermostatService:
                     max_action_length / (max_target - start) * (target - start)
                 )
         interruption_moment = interruption_moment or 0.5
-        print(f"{action_length=}")
-        print(f"{interruption_level=}")
-        print(f"{interruption_time=}")
-        print(f"{interruption_moment=}")
-        print(
-            f"Transition from {start} to {target}: {datetime.now().strftime('%F %T.%f')[:-3]}"
-        )
+        self.logger.debug("Action length: %s", action_length)
+        self.logger.debug("Interruption level: %s", interruption_level)
+        self.logger.debug("Interruption time: %s", interruption_time)
+        self.logger.debug("Interruption moment: %s", interruption_moment)
+        self.logger.info("Transition from %s to %s at %s", start, target, datetime.now().strftime('%F %T.%f')[:-3])
         try:
             step = (target_temperature - self._attr_current_temperature) / action_length
             step = -math.ceil(abs(step)) if step < 0 else math.ceil(step)
@@ -188,17 +187,15 @@ class ThermostatService:
             count = 0
             while True:
                 if count == middle and interruption_level is not None:
-                    print(f"Action interrupted for {interruption_level * action_length} seconds!")
+                    self.logger.info("Action interrupted for %s seconds!", interruption_level * action_length)
                     await asyncio.sleep(interruption_level * action_length)
                 elif count == middle and interruption_time is not None:
-                    print(f"Action interrupted for {interruption_time} seconds!")
+                    self.logger.info("Action interrupted for %s seconds!", interruption_time)
                     await asyncio.sleep(interruption_time)
                 self._attr_current_temperature += step
                 if increasing and self._attr_current_temperature >= target_temperature:
                     self._attr_current_temperature = target_temperature
-                    print(
-                        f"action finished at {datetime.now().strftime('%F %T.%f')[:-3]}"
-                    )
+                    self.logger.info("action finished at %s", datetime.now().strftime('%F %T.%f')[:-3])
                     self._update_attributes()
                     break
                 if (
@@ -207,9 +204,7 @@ class ThermostatService:
                 ):
                     self._attr_current_temperature = target_temperature
                     self._update_attributes()
-                    print(
-                        f"action finished at {datetime.now().strftime('%F %T.%f')[:-3]}"
-                    )
+                    self.logger.info("action finished at %s", datetime.now().strftime('%F %T.%f')[:-3])
                     break
                 self._update_attributes()
                 await asyncio.sleep(1)

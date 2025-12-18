@@ -1,18 +1,56 @@
 """ Module for loading action datasets. """
 import csv
+from enum import StrEnum
+import json
 import math
 
 
-def get_thermo_datasets():
-    """ Loads HVAC action datasets from CSV file. """
-    with open("datasets/hvac-actions.csv", 'r', encoding='utf-8') as f:
+class Device(StrEnum):
+    """Dataset enum."""
+
+    THERMOSTAT = "thermostat"
+    DOOR = "door"
+    COVER = "cover"
+    ELEVATOR = "elevator"
+    PROJECTOR = "projector"
+    SHADE = "shade"
+    LIGHT = "light"
+    SWITCH = "switch"
+    LOCK = "lock"
+    FAN = "fan"
+
+def load_dataset(name: Device, action: str | None = None):
+    """Load dataset."""
+    if name.value == "thermostat":
+        dataset = _get_thermo_datasets()
+    else:
+        with open(
+            f"datasets/{name.value}.json",
+            encoding="utf-8",
+        ) as f:
+            dataset = json.load(f)
+
+    if action is None:
+        return dataset
+
+    if action not in dataset:
+        print(
+            "Action not found! Available actions:\n%s", "\n".join(list(dataset.keys()))
+        )
+    return dataset[action]
+
+
+def _get_thermo_datasets():
+    with open(
+        "datasets/hvac-actions.csv", encoding="utf-8"
+    ) as f:
         reader = csv.reader(f)
 
         src_dst_map = {}
 
         for row in reader:
             start, target, length = row
-            if start == 'temp_start':
+            if start == "temp_start":
                 continue
             key = f"{math.floor(float(start))},{math.floor(float(target))}"
 

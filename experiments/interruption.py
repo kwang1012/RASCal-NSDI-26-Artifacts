@@ -1,7 +1,7 @@
 import numpy as np
 import json
 
-from parse_thermostat_data import get_thermo_datasets
+from rasc.datasets import load_dataset, Device
 from rasc.rasc_polling import get_best_distribution, get_polls, get_uniform_polls
 
 RUNS = 100
@@ -65,7 +65,7 @@ def run(interruption_interval, datasets, uniform=False):
     dist = get_best_distribution(data)
     worst_q = 30
     if uniform:
-        L = get_uniform_polls(dist.ppf(0.99), worst_case_delta=worst_q)
+        L = get_uniform_polls(dist.ppf(0.99), worst_case_delta=worst_q) # type: ignore
     else:
         L = get_polls(dist, worst_case_delta=worst_q, SLO=0.9)
     max_polls = len(L)
@@ -107,7 +107,7 @@ def run(interruption_interval, datasets, uniform=False):
 
 
 def main():
-    datasets = get_thermo_datasets()
+    datasets = load_dataset(Device.THERMOSTAT)
     result = {
         "detection_time": [],
         "failed_rate": [],

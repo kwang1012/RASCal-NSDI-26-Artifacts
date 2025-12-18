@@ -1,17 +1,14 @@
 from __future__ import annotations
-from datetime import datetime
-import math
 from typing import Any
 import uuid
-import numpy as np
 import asyncio
 from enum import IntFlag
+import random
 
-from raspberry_pi.utils import Device, load_dataset, get_logger
+from raspberry_pi.server import DeviceServerConfig
+from raspberry_pi.utils import get_logger
 
 INITIAL_STATE = {}
-
-LOGGER = get_logger(__name__)
 
 class LockEntityFeature(IntFlag):
     """Supported features of the lock entity."""
@@ -34,12 +31,12 @@ class LockService:
     LOCK_SERVICE = "pi.virtual.lock"
     SET_LOCK_METHOD = "transition_lock_state"
 
-    def __init__(self, loop: asyncio.AbstractEventLoop, entity_id=None, **kwargs) -> None:
+    def __init__(self, loop: asyncio.AbstractEventLoop, config: DeviceServerConfig, **kwargs) -> None:
         self.loop = loop
         self._state = {}
 
         self._task: asyncio.Task | None = None
-        self.entity_id = entity_id
+        self.entity_id = config.entity_id
         
         self._change_time = kwargs.get("locking_time", 3)
         self._test_jamming = 0
@@ -49,8 +46,10 @@ class LockService:
         self._mac = hex(uuid.getnode())
 
         self._update_attributes()
+        
+        self.logger = get_logger(config.entity_id, config.log_dir)
 
-        LOGGER.info("Initialize lock service. Entity ID: %s", self.entity_id)
+        self.logger.info("Initialize lock service. Entity ID: %s", self.entity_id)
 
     def handle(self, request):
         if "system" in request:

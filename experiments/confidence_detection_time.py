@@ -3,9 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import multiprocessing as mp
 
-from rasc.rasc_polling import get_polls, get_uniform_polls, get_detection_time
-from legacy.eval_dist import get_best_distribution
-from parse_thermostat_data import get_thermo_datasets
+from rasc.rasc_polling import get_best_distribution, get_polls
+from rasc.datasets import load_dataset, Device
 
 
 def worker(params):
@@ -25,9 +24,8 @@ def main():
     SLOs = np.linspace(0.8, 0.99, num)
     worst_case_delta = [30, 40, 50, 60, 70, 80, 90]
     print(SLOs)
-    colors = ["g", "r", "b"]
 
-    datasets = get_thermo_datasets()
+    datasets = load_dataset(Device.THERMOSTAT)
     dist = get_best_distribution(datasets["68,68"])
     fig, ax = plt.subplots()
 

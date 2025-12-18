@@ -6,11 +6,11 @@ import uuid
 import numpy as np
 import asyncio
 
-from raspberry_pi.utils import Device, load_dataset, get_logger
+from rasc.datasets import Device, load_dataset
+from raspberry_pi.server import DeviceServerConfig
+from raspberry_pi.utils import get_logger
 
 INITIAL_STATE = {}
-
-LOGGER = get_logger(__name__)
 
 class ProjectorService:
 
@@ -23,12 +23,13 @@ class ProjectorService:
     DOOR_SERVICE = "pi.virtual.door"
     SET_DOOR_METHOD = "transition_door_state"
 
-    def __init__(self, loop, entity_id=None) -> None:
+    def __init__(self, loop, config: DeviceServerConfig) -> None:
         self.loop = loop
         self._state = {}
         self.cover_tasks: set[asyncio.Task] = set()
         self.tilt_tasks = set()
-        self.entity_id = entity_id
+        self.entity_id = config.entity_id
+        self.logger = get_logger(config.entity_id, config.log_dir)
 
         self._attr_is_closed = True
         self._attr_current_cover_position = 0 if self._attr_is_closed else 100
@@ -38,7 +39,7 @@ class ProjectorService:
 
         self._dataset = load_dataset(Device.PROJECTOR)
 
-        LOGGER.info("Initialize projector service. Entity ID: %s", self.entity_id)
+        self.logger.info("Initialize projector service. Entity ID: %s", self.entity_id)
 
     def handle(self, request):
         if "system" in request:
