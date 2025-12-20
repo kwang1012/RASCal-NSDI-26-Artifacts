@@ -16,4 +16,4 @@ cd ..
 
 pkill -f "uv run -m raspberry_pi.run_service"
 # 3. Parse the logs to extract detection times
-# uv run experiments/parse_log.py
+uv run experiments/parse_7_3_result.py

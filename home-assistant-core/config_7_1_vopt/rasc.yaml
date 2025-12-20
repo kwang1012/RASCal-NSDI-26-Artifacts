@@ -1,0 +1,28 @@
+enabled: true
+use_vopt: true
+climate:
+  worst_q: 30
+  slo: 0.9
+cover:
+  worst_q: 1
+  slo: 0.9
+detection_time_exps:
+  - entity_id: cover.rpi_device_door
+    action:
+      service: open_cover
+    reset_action:
+      service: close_cover
+  - entity_id: climate.rpi_device_thermostat
+    action:
+      service: set_temperature
+      service_data:
+        temperature: 69
+    reset_action:
+      service: set_temperature
+      service_data:
+        temperature: 68
+  - entity_id: cover.rpi_device_shade
+    action:
+      service: open_cover
+    reset_action:
+      service: close_cover

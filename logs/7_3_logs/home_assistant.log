@@ -1,215 +1,1142 @@
-2025-12-19 00:17:02.447 WARNING (Recorder) [homeassistant.components.recorder.util] The system could not validate that the sqlite3 database at //home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/config_7_3/home-assistant_v2.db was shutdown cleanly
-2025-12-19 00:17:02.948 WARNING (MainThread) [py.warnings] /home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+2025-12-19 18:45:35.333 WARNING (Recorder) [homeassistant.components.recorder.util] The system could not validate that the sqlite3 database at //home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/config_7_3/home-assistant_v2.db was shutdown cleanly
+2025-12-19 18:45:35.344 WARNING (Recorder) [homeassistant.components.recorder.util] Ended unfinished session (id=72 from 2025-12-20 00:42:37.818316)
+2025-12-19 18:45:35.829 WARNING (MainThread) [py.warnings] /home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   import pkg_resources
 
-2025-12-19 00:17:06.130 ERROR (MainThread) [homeassistant.config_entries] Error setting up entry Raspberry Pi Devices for rpi_device
-Traceback (most recent call last):
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/config_entries.py", line 399, in async_setup
-    result = await component.async_setup_entry(hass, self)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/rpi_device/__init__.py", line 57, in async_setup_entry
-    devices: list[RaspberryPiDevice] = await Discover.discover_all(hosts)
-                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/rpi_device/api/discover.py", line 33, in discover_all
-    device = await Discover.discover_single(host, port=port)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/rpi_device/api/discover.py", line 52, in discover_single
-    info = await device.query(
-           ^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/rpi_device/api/device.py", line 185, in query
-    return await self._query(request, retry_count, timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/rpi_device/api/device.py", line 200, in _query
-    await self._connect(timeout)
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/rpi_device/api/device.py", line 271, in _connect
-    self.reader, self.writer = await task
-                               ^^^^^^^^^^
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/streams.py", line 48, in open_connection
-    transport, _ = await loop.create_connection(
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 1069, in create_connection
-    sock = await self._connect_sock(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 973, in _connect_sock
-    await self.sock_connect(sock, address)
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/selector_events.py", line 634, in sock_connect
-    return await fut
-           ^^^^^^^^^
-asyncio.exceptions.CancelledError: Final process shutdown
-2025-12-19 00:17:06.134 ERROR (MainThread) [homeassistant.config_entries] Error setting up entry Radio Browser for radio_browser
-Traceback (most recent call last):
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/runner.py", line 186, in run
-    return loop.run_until_complete(setup_and_run_hass(runtime_config))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 640, in run_until_complete
-    self.run_forever()
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 607, in run_forever
-    self._run_once()
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 1922, in _run_once
-    handle._run()
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/events.py", line 80, in _run
-    self._context.run(self._callback, *self._args)
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/helpers/entity_platform.py", line 757, in _async_add_entity
-    await entity.add_to_platform_finish()
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/helpers/entity.py", line 1031, in add_to_platform_finish
-    await self.async_added_to_hass()
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/automation/__init__.py", line 678, in async_added_to_hass
-    self._routine = create_routine(
-                    ^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/rasc/scheduler.py", line 196, in create_routine
-    leaf_nodes = _create_routine(
-                 ^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/rasc/scheduler.py", line 294, in _create_routine
-    estimated_stc_sec = rasc.get_action_length_estimate(
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/rasc/abstraction.py", line 162, in get_action_length_estimate
-    dist = get_best_distribution(history)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/helpers/dynamic_polling.py", line 139, in get_best_distribution
-    param = dist.fit(data)
-            ^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/stats/_continuous_distns.py", line 3662, in fit
-    return super().fit(data, *args, **kwds)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/stats/_distn_infrastructure.py", line 2759, in fit
-    vals = optimizer(func, x0, args=(data,), disp=0)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 687, in fmin
-    res = _minimize_neldermead(func, x0, args, callback=callback, **opts)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 913, in _minimize_neldermead
-    fxcc = func(xcc)
-           ^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 560, in function_wrapper
-    fx = function(np.copy(x), *(wrapper_args + args))
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/stats/_distn_infrastructure.py", line 2433, in _penalized_nnlf
-    if not self._argcheck(*args) or scale <= 0:
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/stats/_distn_infrastructure.py", line 1003, in _argcheck
-    cond = logical_and(cond, (asarray(arg) > 0))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
+2025-12-19 18:45:43.523 WARNING (MainThread) [py.warnings] /home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/stats/_continuous_distns.py:3098: RuntimeWarning: overflow encountered in exp
+  Cx = (1+np.exp(-x))**(-c)
 
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/config_entries.py", line 399, in async_setup
-    result = await component.async_setup_entry(hass, self)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/radio_browser/__init__.py", line 26, in async_setup_entry
-    await radios.stats()
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/radios/radio_browser.py", line 124, in stats
-    response = await self._request("stats")
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/backoff/_async.py", line 151, in retry
-    ret = await target(*args, **kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/radios/radio_browser.py", line 89, in _request
-    response = await self.session.request(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 536, in _request
-    conn = await self._connector.connect(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 540, in connect
-    proto = await self._create_connection(req, traces, timeout)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 901, in _create_connection
-    _, proto = await self._create_direct_connection(req, traces, timeout)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1178, in _create_direct_connection
-    transp, proto = await self._wrap_create_connection(
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 980, in _wrap_create_connection
-    return await self._loop.create_connection(*args, **kwargs)  # type: ignore[return-value]  # noqa
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 1069, in create_connection
-    sock = await self._connect_sock(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 973, in _connect_sock
-    await self.sock_connect(sock, address)
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/selector_events.py", line 634, in sock_connect
-    return await fut
-           ^^^^^^^^^
-asyncio.exceptions.CancelledError: Final process shutdown
-2025-12-19 00:17:06.144 ERROR (MainThread) [root] Uncaught exception
-Traceback (most recent call last):
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/bin/hass", line 10, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/__main__.py", line 204, in main
-    exit_code = runner.run(runtime_conf)
-                ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/runner.py", line 189, in run
-    _cancel_all_tasks_with_timeout(loop, TASK_CANCELATION_TIMEOUT)
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/runner.py", line 208, in _cancel_all_tasks_with_timeout
-    loop.run_until_complete(asyncio.wait(to_cancel, timeout=timeout))
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 640, in run_until_complete
-    self.run_forever()
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 607, in run_forever
-    self._run_once()
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 1922, in _run_once
-    handle._run()
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/events.py", line 80, in _run
-    self._context.run(self._callback, *self._args)
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/setup.py", line 288, in _async_setup_component
-    result = await task
-             ^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/automation/__init__.py", line 353, in async_setup
-    await _async_process_config(hass, config, component)
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/automation/__init__.py", line 1141, in _async_process_config
-    await component.async_add_entities(entities)
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/helpers/entity_platform.py", line 510, in async_add_entities
-    await asyncio.gather(*tasks)
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/runner.py", line 186, in run
-    return loop.run_until_complete(setup_and_run_hass(runtime_config))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 640, in run_until_complete
-    self.run_forever()
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 607, in run_forever
-    self._run_once()
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 1922, in _run_once
-    handle._run()
-  File "/home/kw37/.local/share/uv/python/cpython-3.11.4-linux-x86_64-gnu/lib/python3.11/asyncio/events.py", line 80, in _run
-    self._context.run(self._callback, *self._args)
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/helpers/entity_platform.py", line 757, in _async_add_entity
-    await entity.add_to_platform_finish()
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/helpers/entity.py", line 1031, in add_to_platform_finish
-    await self.async_added_to_hass()
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/automation/__init__.py", line 678, in async_added_to_hass
-    self._routine = create_routine(
-                    ^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/rasc/scheduler.py", line 196, in create_routine
-    leaf_nodes = _create_routine(
-                 ^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/rasc/scheduler.py", line 294, in _create_routine
-    estimated_stc_sec = rasc.get_action_length_estimate(
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/components/rasc/abstraction.py", line 162, in get_action_length_estimate
-    dist = get_best_distribution(history)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/homeassistant/helpers/dynamic_polling.py", line 139, in get_best_distribution
-    param = dist.fit(data)
-            ^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/stats/_continuous_distns.py", line 3662, in fit
-    return super().fit(data, *args, **kwds)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/stats/_distn_infrastructure.py", line 2759, in fit
-    vals = optimizer(func, x0, args=(data,), disp=0)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 687, in fmin
-    res = _minimize_neldermead(func, x0, args, callback=callback, **opts)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 913, in _minimize_neldermead
-    fxcc = func(xcc)
-           ^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 560, in function_wrapper
-    fx = function(np.copy(x), *(wrapper_args + args))
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/stats/_distn_infrastructure.py", line 2433, in _penalized_nnlf
-    if not self._argcheck(*args) or scale <= 0:
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kw37/RASCal-NSDI-26-Artifacts/home-assistant-core/.venv/lib/python3.11/site-packages/scipy/stats/_distn_infrastructure.py", line 1003, in _argcheck
-    cond = logical_and(cond, (asarray(arg) > 0))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
+2025-12-19 18:46:16.080 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHD0G6VJVKH4HSY6912MW): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=0.0, interruption_moment=0.5>
+2025-12-19 18:46:16.090 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:16.090 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:16.154 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:17.080 DEBUG (MainThread) [rasc.abstraction] Max polls: 15
+2025-12-19 18:46:17.080 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000087
+2025-12-19 18:46:17.106 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:17.106 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:17.106
+2025-12-19 18:46:17.107 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:17.112 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHE0RMA4PPGMKMJMPE2CP): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:17.117 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:17.117 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:17.117 DEBUG (MainThread) [rasc.abstraction] No history found, polling statically.
+2025-12-19 18:46:17.117 DEBUG (MainThread) [rasc.abstraction] No history found, polling statically.
+2025-12-19 18:46:17.117 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:02
+2025-12-19 18:46:19.118 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:19.119 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:19.119
+2025-12-19 18:46:19.119 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:19.119 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHFZF0TBAQ4R0NESGTN9X): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=21.601223910957348, interruption_moment=0.5>
+2025-12-19 18:46:19.122 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:19.122 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:19.159 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:19.959 DEBUG (MainThread) [rasc.abstraction] Max polls: 15
+2025-12-19 18:46:19.960 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000089
+2025-12-19 18:46:19.961 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:19.961 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:19.961
+2025-12-19 18:46:19.962 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:19.962 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHGSTTCB99VDCCA14M10T): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:19.964 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:19.964 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:19.964 DEBUG (MainThread) [rasc.abstraction] Only one data in history, polling exactly on that moment.
+2025-12-19 18:46:19.964 DEBUG (MainThread) [rasc.abstraction] Only one data in history, polling exactly on that moment.
+2025-12-19 18:46:19.964 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000023
+2025-12-19 18:46:19.966 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:19.966 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:19.966
+2025-12-19 18:46:19.966 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:19.966 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHGSYVD8AD4WZEXYVTC2D): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=43.1881279903406, interruption_moment=0.5>
+2025-12-19 18:46:19.968 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:19.968 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:20.008 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:20.786 DEBUG (MainThread) [rasc.abstraction] Max polls: 15
+2025-12-19 18:46:20.786 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000089
+2025-12-19 18:46:20.787 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:20.787 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:20.787
+2025-12-19 18:46:20.788 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:20.788 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHHKMM4WGZRQBZR7RBRP7): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:20.790 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:20.790 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:20.836 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:20.880 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:20.881 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000031
+2025-12-19 18:46:20.882 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:20.882 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:20.882
+2025-12-19 18:46:20.882 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:20.882 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHHPJVP78AWWGHJ0KK58P): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=64.76154829214728, interruption_moment=0.5>
+2025-12-19 18:46:20.884 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:20.884 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:20.922 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:21.704 DEBUG (MainThread) [rasc.abstraction] Max polls: 15
+2025-12-19 18:46:21.705 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000089
+2025-12-19 18:46:21.707 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:21.707 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:21.707
+2025-12-19 18:46:21.708 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:21.708 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHJGCE8023CWXJ9GPFJ1F): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:21.711 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:21.711 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:21.776 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:21.836 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:21.836 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000031
+2025-12-19 18:46:21.837 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:21.837 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:21.837
+2025-12-19 18:46:21.837 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:21.837 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHJMDDFDJ6X7RCNPRJ4BG): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=86.32223422679003, interruption_moment=0.5>
+2025-12-19 18:46:21.839 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:21.839 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:21.867 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:22.620 DEBUG (MainThread) [rasc.abstraction] Max polls: 14
+2025-12-19 18:46:22.620 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000088
+2025-12-19 18:46:22.622 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:22.622 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:22.622
+2025-12-19 18:46:22.623 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:22.623 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHKCZ52QMV96EB2V4DMBT): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:22.625 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:22.625 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:22.691 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:22.729 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:22.729 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000028
+2025-12-19 18:46:22.730 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:22.730 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:22.730
+2025-12-19 18:46:22.730 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:22.731 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHKGB5TZS9K42RR8Q2ZGF): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=107.87086155902895, interruption_moment=0.5>
+2025-12-19 18:46:22.733 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:22.733 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:22.771 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:23.502 DEBUG (MainThread) [rasc.abstraction] Max polls: 14
+2025-12-19 18:46:23.502 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000088
+2025-12-19 18:46:23.503 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:23.503 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:23.503
+2025-12-19 18:46:23.503 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:23.504 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHM8GR7KMYT6Y55HMRYYM): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:23.506 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:23.506 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:23.571 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:23.607 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:23.607 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000026
+2025-12-19 18:46:23.608 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:23.608 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:23.608
+2025-12-19 18:46:23.609 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:23.609 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHMBSZBGW1V5Y5FTRQBV7): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=129.4080423199184, interruption_moment=0.5>
+2025-12-19 18:46:23.611 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:23.611 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:23.642 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:24.390 DEBUG (MainThread) [rasc.abstraction] Max polls: 14
+2025-12-19 18:46:24.391 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000087
+2025-12-19 18:46:24.392 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:24.392 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:24.392
+2025-12-19 18:46:24.392 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:24.393 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHN498C36BAJ73WT6S7P9): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:24.394 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:24.394 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:24.463 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:24.482 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:24.482 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000024
+2025-12-19 18:46:24.483 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:24.483 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:24.483
+2025-12-19 18:46:24.484 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:24.484 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHN74Q8DQV42RPMV6VKMT): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=150.934334756125, interruption_moment=0.5>
+2025-12-19 18:46:24.487 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:24.487 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:24.517 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:25.257 DEBUG (MainThread) [rasc.abstraction] Max polls: 14
+2025-12-19 18:46:25.258 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000087
+2025-12-19 18:46:25.259 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:25.259 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:25.259
+2025-12-19 18:46:25.259 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:25.259 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHNZB4FWNGK43SQPFRWRV): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:25.262 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:25.262 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:25.325 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:25.360 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:25.360 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000023
+2025-12-19 18:46:25.361 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:25.361 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:25.361
+2025-12-19 18:46:25.361 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:25.361 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHP2HRYMXESJ5911F8Q9P): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=172.45024861031104, interruption_moment=0.5>
+2025-12-19 18:46:25.363 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:25.363 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:25.395 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:26.148 DEBUG (MainThread) [rasc.abstraction] Max polls: 14
+2025-12-19 18:46:26.149 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000087
+2025-12-19 18:46:26.150 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:26.150 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:26.150
+2025-12-19 18:46:26.151 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:26.151 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHPV7QM1ZAY91C72GEF3A): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:26.153 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:26.153 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:26.220 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:26.259 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:26.259 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000022
+2025-12-19 18:46:26.261 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:26.261 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:26.261
+2025-12-19 18:46:26.261 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:26.263 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHPYQEXQQ0WAN2WZT7JZH): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=193.95625279081855, interruption_moment=0.5>
+2025-12-19 18:46:26.265 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:26.265 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:26.300 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:26.944 DEBUG (MainThread) [rasc.abstraction] Max polls: 13
+2025-12-19 18:46:26.945 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000087
+2025-12-19 18:46:26.947 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:26.947 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:26.947
+2025-12-19 18:46:26.948 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:26.948 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHQM43F4G6B0M86GE8B06): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:26.949 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:26.949 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:27.008 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:27.051 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:27.051 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000021
+2025-12-19 18:46:27.052 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:27.052 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:27.052
+2025-12-19 18:46:27.052 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:27.052 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHQQCVV0P89SHFE1S9DH8): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=215.45278002185557, interruption_moment=0.5>
+2025-12-19 18:46:27.054 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:27.054 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:27.093 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:27.760 DEBUG (MainThread) [rasc.abstraction] Max polls: 13
+2025-12-19 18:46:27.760 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000087
+2025-12-19 18:46:27.762 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:27.762 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:27.762
+2025-12-19 18:46:27.762 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:27.762 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHRDJAFSCVPE4EFKNQ45Z): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:27.765 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:27.765 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:27.819 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:27.856 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:27.856 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000021
+2025-12-19 18:46:27.857 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:27.857 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:27.857
+2025-12-19 18:46:27.858 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:27.858 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHRGJZPXY8V1C59HP9S7W): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=236.94023028802212, interruption_moment=0.5>
+2025-12-19 18:46:27.861 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:27.861 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:27.900 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:28.544 DEBUG (MainThread) [rasc.abstraction] Max polls: 13
+2025-12-19 18:46:28.545 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000087
+2025-12-19 18:46:28.546 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:28.546 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:28.546
+2025-12-19 18:46:28.546 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:28.547 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHS63JEH9461N11SW8J3M): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:28.548 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:28.548 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:28.602 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:28.639 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:28.639 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000021
+2025-12-19 18:46:28.640 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:28.640 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:28.640
+2025-12-19 18:46:28.640 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:28.640 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHS904EZSDGBEMJ1TDVYJ): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=258.41897607515216, interruption_moment=0.5>
+2025-12-19 18:46:28.642 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:28.642 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:28.683 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:29.270 DEBUG (MainThread) [rasc.abstraction] Max polls: 13
+2025-12-19 18:46:29.270 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000087
+2025-12-19 18:46:29.271 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:29.271 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:29.271
+2025-12-19 18:46:29.272 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:29.272 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHSWR6ZY09RV7JKCWGRXM): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:29.274 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:29.274 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:29.337 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:29.373 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:29.373 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000022
+2025-12-19 18:46:29.374 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:29.374 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:29.374
+2025-12-19 18:46:29.375 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:29.375 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHSZZ4A1M05TFTS1PDAN8): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=279.8893645518029, interruption_moment=0.5>
+2025-12-19 18:46:29.377 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:29.377 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:29.417 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:30.054 DEBUG (MainThread) [rasc.abstraction] Max polls: 13
+2025-12-19 18:46:30.054 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000087
+2025-12-19 18:46:30.057 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:30.057 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:30.057
+2025-12-19 18:46:30.058 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:30.058 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHTNA0Y6N159RWGHZ7FBC): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:30.060 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:30.060 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:30.122 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:30.158 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:30.158 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000022
+2025-12-19 18:46:30.159 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:30.159 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:30.159
+2025-12-19 18:46:30.160 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:30.160 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHTRG0CKYC91E4XMAJXPK): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=301.3517190958114, interruption_moment=0.5>
+2025-12-19 18:46:30.162 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:30.162 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:30.203 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:30.855 DEBUG (MainThread) [rasc.abstraction] Max polls: 13
+2025-12-19 18:46:30.855 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:30.856 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:30.856 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:30.856
+2025-12-19 18:46:30.857 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:30.857 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHVE9Z61ABHQ4S5DVT82X): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:30.859 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:30.859 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:30.921 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:30.958 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:30.958 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000022
+2025-12-19 18:46:30.959 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:30.959 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:30.959
+2025-12-19 18:46:30.959 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:30.959 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHVHFGATRQ8XDQ6CT8SAT): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=322.80634343086587, interruption_moment=0.5>
+2025-12-19 18:46:30.961 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:30.961 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:31.005 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:31.646 DEBUG (MainThread) [rasc.abstraction] Max polls: 13
+2025-12-19 18:46:31.646 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:31.647 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:31.647 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:31.647
+2025-12-19 18:46:31.648 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:31.648 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHW7097BN9RSCP8KP3D51): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:31.650 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:31.650 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:31.713 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:31.750 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:31.750 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000022
+2025-12-19 18:46:31.751 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:31.751 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:31.751
+2025-12-19 18:46:31.751 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:31.751 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHWA7ZPFBRP3VC57P2Q4H): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=344.25352369527434, interruption_moment=0.5>
+2025-12-19 18:46:31.753 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:31.753 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:31.795 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:32.426 DEBUG (MainThread) [rasc.abstraction] Max polls: 13
+2025-12-19 18:46:32.426 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:32.429 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:32.429 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:32.429
+2025-12-19 18:46:32.429 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:32.429 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHWZDENPQ0RN6AD8FG9MY): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:32.431 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:32.431 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:32.508 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:32.546 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:32.546 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000021
+2025-12-19 18:46:32.547 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:32.547 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:32.547
+2025-12-19 18:46:32.548 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:32.548 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHX34J5QZ393CC2K4GJY4): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=365.6935275623085, interruption_moment=0.5>
+2025-12-19 18:46:32.550 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:32.550 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:32.594 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:33.243 DEBUG (MainThread) [rasc.abstraction] Max polls: 13
+2025-12-19 18:46:33.244 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:33.245 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:33.245 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:33.245
+2025-12-19 18:46:33.245 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:33.246 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHXRYTEDFDDJE4XSEAVH7): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:33.248 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:33.248 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:33.312 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:33.350 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:33.350 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000021
+2025-12-19 18:46:33.351 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:33.351 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:33.351
+2025-12-19 18:46:33.352 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:33.352 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHXW8PDP7T1AH2HJ798RC): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=387.1266091400161, interruption_moment=0.5>
+2025-12-19 18:46:33.353 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:33.353 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:33.397 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:34.001 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:34.002 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:34.003 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:34.003 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:34.003
+2025-12-19 18:46:34.003 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:34.003 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHYGK40XFEYRWD6ZQQXZ7): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:34.005 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:34.005 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:34.070 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:34.107 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:34.107 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000021
+2025-12-19 18:46:34.108 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:34.108 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:34.108
+2025-12-19 18:46:34.108 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:34.108 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHYKWT1EX838SGYZ3YMHG): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=408.5530077389435, interruption_moment=0.5>
+2025-12-19 18:46:34.110 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:34.110 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:34.153 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:34.744 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:34.744 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:34.746 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:34.746 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:34.746
+2025-12-19 18:46:34.747 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:34.749 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHZ7XNPSJ3J6N5V36XTDH): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:34.750 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:34.751 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:34.813 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:34.850 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:34.850 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000021
+2025-12-19 18:46:34.852 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:34.852 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:34.852
+2025-12-19 18:46:34.853 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:34.853 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHZB572JV48QD5V54Y7QF): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=429.97295052825046, interruption_moment=0.5>
+2025-12-19 18:46:34.856 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:34.856 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:34.900 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:35.466 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:35.467 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:35.469 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:35.469 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:35.469
+2025-12-19 18:46:35.469 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:35.469 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKHZYDENFX6EPRGAE9CEK2): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:35.472 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:35.472 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:35.536 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:35.574 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:35.574 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000020
+2025-12-19 18:46:35.575 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:35.575 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:35.575
+2025-12-19 18:46:35.575 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:35.576 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ01R0RCMTHYTJAVFNV02): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=0.0, interruption_moment=0.8>
+2025-12-19 18:46:35.578 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:35.578 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:35.622 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:36.208 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:36.208 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:36.210 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:36.210 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:36.210
+2025-12-19 18:46:36.210 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:36.210 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ0NJ2ETY3690GWK0AQ2Q): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:36.212 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:36.213 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:36.277 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:36.313 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:36.313 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000020
+2025-12-19 18:46:36.313 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:36.313 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:36.313
+2025-12-19 18:46:36.314 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:36.314 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ0RTP1212FTD7564104E): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=21.490650847703265, interruption_moment=0.8>
+2025-12-19 18:46:36.316 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:36.316 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:36.360 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:36.962 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:36.963 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:36.964 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:36.964 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:36.964
+2025-12-19 18:46:36.964 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:36.966 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ1D6Y1YKQYED5G04S7EC): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:36.968 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:36.968 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:37.033 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:37.070 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:37.070 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000020
+2025-12-19 18:46:37.071 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:37.071 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:37.071
+2025-12-19 18:46:37.071 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:37.072 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ1GGWTF8RBW81E1KZM7W): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=42.97357754428036, interruption_moment=0.8>
+2025-12-19 18:46:37.075 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:37.075 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:37.119 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:37.716 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:37.716 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:37.795 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:37.795 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:37.795
+2025-12-19 18:46:37.796 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:37.796 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ274KRWRZ1EBB22P3550): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:37.800 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:37.800 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:37.863 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:37.900 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:37.900 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000020
+2025-12-19 18:46:37.901 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:37.901 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:37.901
+2025-12-19 18:46:37.902 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:37.902 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ2AEXKWGH3Y5RNHSYTQB): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=64.44903852389346, interruption_moment=0.8>
+2025-12-19 18:46:37.905 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:37.905 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:37.950 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:38.552 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:38.552 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:38.553 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:38.553 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:38.553
+2025-12-19 18:46:38.554 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:38.554 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ2YTWNKN23XXA4WDXFZR): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:38.556 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:38.556 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:38.621 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:38.659 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:38.659 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000019
+2025-12-19 18:46:38.660 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:38.660 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:38.660
+2025-12-19 18:46:38.660 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:38.660 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ3248W8659XP3AK2GQYH): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=85.91727910757547, interruption_moment=0.8>
+2025-12-19 18:46:38.662 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:38.662 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:38.707 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:39.300 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:39.301 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:39.302 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:39.302 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:39.302
+2025-12-19 18:46:39.302 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:39.302 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ3P6ES6A40QN4JH2XKWH): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:39.304 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:39.304 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:39.369 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:39.407 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:39.407 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000019
+2025-12-19 18:46:39.407 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:39.407 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:39.407
+2025-12-19 18:46:39.408 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:39.408 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ3SG13WZ5KM59XT7ZFCZ): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=107.37853239452221, interruption_moment=0.8>
+2025-12-19 18:46:39.411 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:39.411 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:39.455 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:39.758 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:39.758 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:39.759 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:39.759 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:39.759
+2025-12-19 18:46:39.759 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:39.760 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ44GPG1WNNQGMMJ4BG3G): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:39.762 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:39.762 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:39.824 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:39.861 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:39.861 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000019
+2025-12-19 18:46:39.862 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:39.862 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:39.862
+2025-12-19 18:46:39.863 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:39.863 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ47Q6PBX5T0B6NWWYRD5): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=128.83302035116884, interruption_moment=0.8>
+2025-12-19 18:46:39.865 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:39.865 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:39.909 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:40.224 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:40.225 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:40.225 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:40.225 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:40.225
+2025-12-19 18:46:40.226 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:40.226 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ4K27TMEJF34DYQ1YVG5): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:40.228 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:40.228 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:40.292 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:40.329 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:40.329 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000019
+2025-12-19 18:46:40.330 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:40.330 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:40.330
+2025-12-19 18:46:40.330 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:40.330 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ4PAV43N2H4DZQP4XQAN): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=150.28095443396217, interruption_moment=0.8>
+2025-12-19 18:46:40.332 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:40.332 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:40.376 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:40.694 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:40.694 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:40.695 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:40.696 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:40.696
+2025-12-19 18:46:40.696 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:40.696 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ51R07HD9FZ3J2XFBVFV): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:40.698 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:40.698 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:40.767 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:40.804 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:40.804 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000019
+2025-12-19 18:46:40.805 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:40.805 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:40.805
+2025-12-19 18:46:40.805 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:40.805 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ5554EMVC484SJ62KEWY): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=171.72253617970802, interruption_moment=0.8>
+2025-12-19 18:46:40.807 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:40.807 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:40.852 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:41.177 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:41.178 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:41.179 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:41.179 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:41.179
+2025-12-19 18:46:41.179 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:41.179 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ5GVF7N52FGSRT54B7Y2): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:41.181 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:41.181 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:41.246 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:41.282 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:41.282 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:41.283 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:41.283 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:41.283
+2025-12-19 18:46:41.284 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:41.284 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ5M420RKEDPG2JZNY7HY): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=193.1579583102018, interruption_moment=0.8>
+2025-12-19 18:46:41.286 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:41.286 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:41.333 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:41.667 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:41.667 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:41.668 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:41.668 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:41.668
+2025-12-19 18:46:41.669 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:41.669 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ605ZBK7RB6FRNYEFQ74): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:41.671 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:41.671 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:41.737 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:41.774 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:41.774 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:41.775 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:41.775 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:41.775
+2025-12-19 18:46:41.776 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:41.776 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ63GTBW91VN7X9GBSB0G): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=214.58740477962343, interruption_moment=0.8>
+2025-12-19 18:46:41.778 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:41.778 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:41.825 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:42.136 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:42.136 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:42.137 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:42.137 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:42.137
+2025-12-19 18:46:42.138 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:42.138 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ6ETQJRJJG670RT6GMD7): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:42.140 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:42.140 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:42.205 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:42.244 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:42.244 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:42.245 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:42.245 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:42.245
+2025-12-19 18:46:42.245 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:42.245 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ6J5SZX4Z6VR2AV95C8M): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=236.01105178755694, interruption_moment=0.8>
+2025-12-19 18:46:42.247 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:42.247 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:42.293 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:42.627 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:42.627 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:42.628 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:42.628 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:42.628
+2025-12-19 18:46:42.629 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:42.629 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ6Y5F58W9ZM426BG5YPK): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:42.631 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:42.631 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:42.697 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:42.734 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:42.735 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:42.737 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:42.737 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:42.737
+2025-12-19 18:46:42.738 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:42.738 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ71JZHDXHTZMNVZADVT4): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=257.4290678586883, interruption_moment=0.8>
+2025-12-19 18:46:42.739 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:42.740 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:42.796 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:43.124 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:43.124 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:43.126 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:43.126 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:43.126
+2025-12-19 18:46:43.127 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:43.127 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ7DQW9R2E00HTVCP6XV6): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:43.129 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:43.129 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:43.197 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:43.235 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:43.235 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:43.236 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:43.236 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:43.236
+2025-12-19 18:46:43.236 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:43.237 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ7H54BXTEWE4VV4HM2TW): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=278.8416145854844, interruption_moment=0.8>
+2025-12-19 18:46:43.239 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:43.239 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:43.284 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:43.606 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:43.606 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:43.607 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:43.607 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:43.607
+2025-12-19 18:46:43.607 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:43.608 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ7WREZ2JFKD9FSFERHRR): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:43.610 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:43.610 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:43.674 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:43.713 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:43.714 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:43.715 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:43.715 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:43.715
+2025-12-19 18:46:43.715 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:43.715 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ8032KPXHVHTZK08FDWF): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=300.248846720824, interruption_moment=0.8>
+2025-12-19 18:46:43.717 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:43.717 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:43.762 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:44.074 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:44.074 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:44.076 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:44.076 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:44.076
+2025-12-19 18:46:44.076 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:44.076 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ8BCRTH9F98Y1QXD4HPE): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:44.078 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:44.079 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:44.144 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:44.182 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:44.182 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:44.182 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:44.182 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:44.182
+2025-12-19 18:46:44.183 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:44.183 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ8EQ182FTFNVNE7EHXHK): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=321.650912804074, interruption_moment=0.8>
+2025-12-19 18:46:44.185 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:44.185 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:44.230 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:44.557 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:44.558 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:44.559 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:44.559 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:44.559
+2025-12-19 18:46:44.559 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:44.560 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ8TG7J6BNSHVAPT88VTE): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:44.561 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:44.561 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:44.625 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:44.664 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:44.664 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:44.665 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:44.665 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:44.665
+2025-12-19 18:46:44.665 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:44.665 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ8XSCBZCCXTPRMCA5Y0R): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=343.0479560410406, interruption_moment=0.8>
+2025-12-19 18:46:44.667 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:44.667 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:44.711 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:45.043 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:45.043 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:45.044 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:45.044 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:45.044
+2025-12-19 18:46:45.045 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:45.045 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ99N75ZRSHTN0N25V1YG): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:45.047 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:45.047 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:45.115 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:45.152 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:45.152 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:45.153 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:45.153 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:45.153
+2025-12-19 18:46:45.154 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:45.154 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ9D2ECAFFYBF8CCY560D): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=364.4401130627687, interruption_moment=0.8>
+2025-12-19 18:46:45.156 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:45.156 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:45.200 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:45.527 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:45.527 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:45.528 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:45.528 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:45.528
+2025-12-19 18:46:45.529 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:45.529 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ9RSEV8P5WW9V4K7MCGR): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:45.531 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:45.531 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:45.594 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:45.632 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:45.632 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:45.633 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:45.633 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:45.633
+2025-12-19 18:46:45.633 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:45.634 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJ9W2GQ45EMKJFGJ5P4JH): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=385.827515519899, interruption_moment=0.8>
+2025-12-19 18:46:45.635 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:45.635 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:45.679 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:46.001 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:46.001 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:46.002 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:46.002 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:46.002
+2025-12-19 18:46:46.003 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:46.003 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJA7KWN54S74H9KN4GA25): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:46.005 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:46.005 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:46.070 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:46.107 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:46.107 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:46.109 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:46.109 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:46.109
+2025-12-19 18:46:46.110 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:46.111 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJAAZB656E529KB1K4NY0): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=407.21029081941356, interruption_moment=0.8>
+2025-12-19 18:46:46.112 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:46.113 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:46.157 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:46.488 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:46.488 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:46.489 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:46.489 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:46.489
+2025-12-19 18:46:46.490 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:46.490 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJAPTQZ8WRNH31BT87B28): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:46.492 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:46.492 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:46.556 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:46.593 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:46.593 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:46.594 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:46.594 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:46.594
+2025-12-19 18:46:46.595 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:46.595 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJAT3AC6AMSH5GM2ZFHSY): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=428.5885618128289, interruption_moment=0.8>
+2025-12-19 18:46:46.597 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:46.597 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:46.637 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:46.941 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:46.941 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:46.942 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:46.942 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:46.942
+2025-12-19 18:46:46.943 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:46.943 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJB4Z6WT2H0MF98BYJNY7): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:46.945 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:46.945 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:47.010 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:47.047 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:47.047 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:47.048 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:47.048 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:47.048
+2025-12-19 18:46:47.049 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:47.049 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJB89SXV595EGP9S5E0C9): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=0.0, interruption_moment=0.9>
+2025-12-19 18:46:47.051 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:47.051 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:47.091 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:47.627 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:47.627 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:47.629 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:47.629 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:47.629
+2025-12-19 18:46:47.629 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:47.630 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJBTEKHGM0JP38K868C3E): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:47.631 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:47.631 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:47.698 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:47.736 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:47.736 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:47.738 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:47.738 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:47.738
+2025-12-19 18:46:47.738 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:47.739 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJBXVT89MFYMF2RH40PPP): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=21.424639555405903, interruption_moment=0.9>
+2025-12-19 18:46:47.741 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:47.741 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:47.788 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:48.141 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:48.141 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:48.142 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:48.142 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:48.142
+2025-12-19 18:46:48.143 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:48.143 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJCAFE6VAAWYS01N9AQ6H): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:48.145 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:48.145 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:48.210 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:48.248 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:48.248 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:48.249 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:48.249 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:48.249
+2025-12-19 18:46:48.249 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:48.249 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJCDSA23AAYSM0RQ2CCYX): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=42.84417282751649, interruption_moment=0.9>
+2025-12-19 18:46:48.251 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:48.251 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:48.291 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:48.605 DEBUG (MainThread) [rasc.abstraction] Max polls: 9
+2025-12-19 18:46:48.605 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:48.607 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:48.607 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:48.607
+2025-12-19 18:46:48.607 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:48.608 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJCS0MR5NFNZ6X93NANQP): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:48.610 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:48.610 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:48.675 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:48.712 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:48.712 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:48.713 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:48.713 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:48.713
+2025-12-19 18:46:48.713 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:48.714 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJCWAGZF57J8BBTD8AHHV): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=64.25873070818103, interruption_moment=0.9>
+2025-12-19 18:46:48.716 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:48.716 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:48.756 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:49.276 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:49.276 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:49.277 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:49.277 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:49.277
+2025-12-19 18:46:49.278 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:49.278 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJDDYDN3WQEKVK4QTZH77): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:49.280 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:49.280 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:49.346 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:49.384 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:49.384 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:49.385 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:49.385 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:49.385
+2025-12-19 18:46:49.385 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:49.385 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJDH9XPRKE8PB9P7SPZGC): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=85.67074869200225, interruption_moment=0.9>
+2025-12-19 18:46:49.387 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:49.387 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:49.427 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:49.976 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:49.976 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:49.977 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:49.977 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:49.977
+2025-12-19 18:46:49.977 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:49.978 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJE3TC60MTAGN510286CN): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:49.980 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:49.980 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:50.046 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:50.084 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:50.084 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:50.085 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:50.085 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:50.085
+2025-12-19 18:46:50.085 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:50.085 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJE757NHS97RWHC984CBM): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=107.08012395558326, interruption_moment=0.9>
+2025-12-19 18:46:50.087 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:50.087 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:50.126 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:50.664 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:50.665 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:50.666 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:50.666 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:50.666
+2025-12-19 18:46:50.666 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:50.666 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJESADVDWZN9T3ZWHTSFG): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:50.669 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:50.669 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:50.735 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:50.772 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:50.773 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:50.773 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:50.773 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:50.773
+2025-12-19 18:46:50.774 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:50.774 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJEWPK9FZ1TSPQDAPTF5K): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=128.48549030929442, interruption_moment=0.9>
+2025-12-19 18:46:50.776 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:50.776 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:50.816 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:51.341 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:51.341 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:51.342 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:51.342 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:51.342
+2025-12-19 18:46:51.343 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:51.343 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJFEFTNY5BP5NMER5W13E): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:51.345 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:51.345 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:51.410 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:51.449 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:51.449 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:51.450 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:51.450 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:51.450
+2025-12-19 18:46:51.450 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:51.450 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJFHTVQQKWD2ESSMMF8CQ): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=149.88784573918736, interruption_moment=0.9>
+2025-12-19 18:46:51.452 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:51.452 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:51.491 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:52.031 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:52.031 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:52.032 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:52.032 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:52.032
+2025-12-19 18:46:52.033 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:52.033 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJG41QRHXKYE7V4Z5DYNF): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:52.034 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:52.035 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:52.099 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:52.136 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:52.136 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:52.136 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:52.137 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:52.137
+2025-12-19 18:46:52.137 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:52.137 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJG79E5DN67PDTJKQSV4M): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=171.28683455385183, interruption_moment=0.9>
+2025-12-19 18:46:52.139 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:52.139 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:52.183 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:52.696 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:52.697 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000086
+2025-12-19 18:46:52.698 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:52.698 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:52.698
+2025-12-19 18:46:52.698 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:52.698 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJGRTQMZMAB7RJEE56TRB): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:52.700 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:52.700 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:52.765 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:52.803 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:52.803 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:52.805 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:52.805 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:52.805
+2025-12-19 18:46:52.806 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:52.806 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJGW6W15Z1WVCME2BSCEZ): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=192.68395665245293, interruption_moment=0.9>
+2025-12-19 18:46:52.808 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:52.808 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:52.883 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:53.455 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:53.455 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000129
+2025-12-19 18:46:53.456 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:53.456 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:53.456
+2025-12-19 18:46:53.457 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:53.457 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJHGHCQMQ1DC9WFEMTD8W): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:53.460 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:53.460 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:53.530 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:53.570 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:53.570 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:53.571 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:53.571 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:53.571
+2025-12-19 18:46:53.572 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:53.572 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJHM4MW1QMGC0D3FN5XWW): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=214.07674813666432, interruption_moment=0.9>
+2025-12-19 18:46:53.574 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:53.574 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:53.643 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:54.171 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:54.171 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000128
+2025-12-19 18:46:54.173 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:54.173 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:54.173
+2025-12-19 18:46:54.173 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:54.174 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJJ6YHJ6DZ376MP24MRDG): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:54.176 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:54.176 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:54.243 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:54.281 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:54.281 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:54.282 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:54.282 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:54.282
+2025-12-19 18:46:54.282 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:54.283 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJJAB10GPT22ETZKH80S0): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=235.46927282885235, interruption_moment=0.9>
+2025-12-19 18:46:54.285 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:54.285 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:54.350 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:54.899 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:54.899 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000128
+2025-12-19 18:46:54.900 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:54.900 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:54.900
+2025-12-19 18:46:54.901 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:54.901 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJJXNQX20A7FWJGVQT2QN): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:54.903 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:54.903 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:54.970 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:55.008 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:55.009 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:55.009 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:55.010 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:55.010
+2025-12-19 18:46:55.010 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:55.010 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJK12716R0X40D1E08BQW): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=256.8550530993196, interruption_moment=0.9>
+2025-12-19 18:46:55.012 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:55.012 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:55.078 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:55.626 DEBUG (MainThread) [rasc.abstraction] Max polls: 12
+2025-12-19 18:46:55.626 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000127
+2025-12-19 18:46:55.627 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:55.627 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:55.627
+2025-12-19 18:46:55.628 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:55.628 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJKMC017E7H2JZ7JY796G): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:55.630 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:55.630 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:55.694 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:55.732 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:55.732 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:55.733 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:55.733 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:55.733
+2025-12-19 18:46:55.734 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:55.734 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJKQPB36JGKGXXEN28SSZ): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=278.23924566889343, interruption_moment=0.9>
+2025-12-19 18:46:55.736 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:55.736 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:55.783 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:56.084 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:56.084 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000127
+2025-12-19 18:46:56.086 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:56.086 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:56.086
+2025-12-19 18:46:56.086 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:56.087 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJM2QWBCMBJ49MN77WRJV): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:56.088 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:56.088 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:56.155 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:56.192 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:56.192 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:56.193 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:56.193 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:56.193
+2025-12-19 18:46:56.194 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:56.194 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJM62Y8GQKCXBG0M40PFV): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=299.62237379637594, interruption_moment=0.9>
+2025-12-19 18:46:56.195 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:56.195 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:56.261 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:56.566 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:56.566 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000127
+2025-12-19 18:46:56.567 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:56.567 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:56.567
+2025-12-19 18:46:56.568 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:56.568 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJMHRN8T9Y6AJJ23K41XS): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:56.570 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:56.570 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:56.635 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:56.673 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:56.673 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:56.674 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:56.674 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:56.674
+2025-12-19 18:46:56.674 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:56.675 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJMN3VMX9BNF599CXF6V0): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=321.003537091476, interruption_moment=0.9>
+2025-12-19 18:46:56.676 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:56.676 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:56.741 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:57.046 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:57.047 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000126
+2025-12-19 18:46:57.048 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:57.048 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:57.048
+2025-12-19 18:46:57.048 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:57.049 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJN0SZJXHEG07TPXQPDJ6): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:57.051 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:57.051 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:57.115 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:57.153 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:57.153 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:57.154 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:57.154 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:57.154
+2025-12-19 18:46:57.155 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:57.155 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJN4333R8GA454ZFR8N5F): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=342.3814319202738, interruption_moment=0.9>
+2025-12-19 18:46:57.157 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:57.157 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:57.223 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:57.527 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:57.527 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000125
+2025-12-19 18:46:57.528 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:57.528 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:57.528
+2025-12-19 18:46:57.528 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:57.529 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJNFSNE343ECGF54XB2E9): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:57.531 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:57.531 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:57.600 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:57.631 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:57.631 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:57.632 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:57.632 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:57.632
+2025-12-19 18:46:57.633 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:57.633 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJNK19AGDH4M6ZHP76W63): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=363.7569035843266, interruption_moment=0.9>
+2025-12-19 18:46:57.635 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:57.635 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:57.700 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:57.996 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:57.996 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000125
+2025-12-19 18:46:57.998 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:57.998 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:57.998
+2025-12-19 18:46:57.999 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:57.999 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJNYFVDE6K5AH3SNHP75D): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:58.001 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:58.001 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:58.076 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:58.110 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:58.110 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:58.111 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:58.111 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:58.111
+2025-12-19 18:46:58.112 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:58.112 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJP209PN9CKBPE7QRW901): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=385.1243156247938, interruption_moment=0.9>
+2025-12-19 18:46:58.114 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:58.114 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:58.187 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:58.478 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:58.478 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000125
+2025-12-19 18:46:58.479 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:58.479 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:58.479
+2025-12-19 18:46:58.480 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:58.480 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJPDGVDSDBCF4J7W00P2D): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:58.482 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:58.482 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:58.548 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:58.578 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:58.578 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:58.579 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:58.579 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:58.579
+2025-12-19 18:46:58.579 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:58.579 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJPGKHR5KWJ3213R6GA97): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=406.49597143139647, interruption_moment=0.9>
+2025-12-19 18:46:58.581 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:58.581 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:58.647 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:58.949 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:58.949 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000124
+2025-12-19 18:46:58.950 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:58.950 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:58.950
+2025-12-19 18:46:58.951 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:58.951 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJPW7AQGS3ZMKJ06J6SPJ): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:58.953 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:58.953 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:59.019 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:59.058 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:59.058 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:59.059 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:59.059 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:59.059
+2025-12-19 18:46:59.060 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:59.060 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJPZMCPK1EC7G33W5YE2S): temperature=69, entity_id=climate.rpi_device_thermostat, interruption_time=427.8674877162938, interruption_moment=0.9>
+2025-12-19 18:46:59.062 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:59.062 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:59.128 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:59.431 DEBUG (MainThread) [rasc.abstraction] Max polls: 10
+2025-12-19 18:46:59.431 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000124
+2025-12-19 18:46:59.432 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:59.432 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:59.432
+2025-12-19 18:46:59.432 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete
+2025-12-19 18:46:59.432 DEBUG (MainThread) [rasc.abstraction] Execute service: <ServiceCall climate.set_temperature (c:01KCWKJQB8P21BSWVT4FM761K2): temperature=68, entity_id=climate.rpi_device_thermostat>
+2025-12-19 18:46:59.435 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : ack
+2025-12-19 18:46:59.435 DEBUG (MainThread) [rasc.abstraction] Start tracking climate.rpi_device_thermostat
+2025-12-19 18:46:59.499 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:59.529 DEBUG (MainThread) [rasc.abstraction] Max polls: 1
+2025-12-19 18:46:59.529 DEBUG (MainThread) [rasc.abstraction] Next polling interval for climate.rpi_device_thermostat: 0:00:00.000018
+2025-12-19 18:46:59.530 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : start
+2025-12-19 18:46:59.530 DEBUG (MainThread) [rasc.abstraction] # polls used: 1, current_time: 2025-12-19 18:46:59.530
+2025-12-19 18:46:59.530 DEBUG (MainThread) [rasc.abstraction] climate.rpi_device_thermostat set_temperature : complete

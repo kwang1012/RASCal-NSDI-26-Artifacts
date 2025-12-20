@@ -14,7 +14,7 @@ INITIAL_STATE = {}
 
 class DoorService:
 
-    _attr_current_door_position: int | None = None
+    _attr_current_door_position: int
     _attr_is_closed: bool | None = None
     _attr_is_closing: bool | None = None
     _attr_is_opening: bool | None = None
@@ -127,6 +127,8 @@ class DoorService:
                 target_position = 100.0
             elif self._attr_is_closing:
                 target_position = 0.0
+            else:
+                raise ValueError("Door is neither opening nor closing.")
             step = (target_position -
                     self._attr_current_door_position) / action_length
             # todo: interruption: based on precentage of action length

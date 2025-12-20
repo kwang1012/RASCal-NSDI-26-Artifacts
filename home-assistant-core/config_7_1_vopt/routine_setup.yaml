@@ -1,0 +1,74 @@
+light.first_floor_lights:
+  - service: turn_on
+    brightness: 255
+light.ground_floor_lights:
+  - service: turn_on
+    brightness: 1
+  - service: turn_off
+light.living_room:
+  - service: turn_on
+    brightness: 1
+light.bedroom:
+  - service: turn_on
+    brightness: 255
+  - service: turn_off
+light.xmas_tree:
+  - service: turn_on
+    brightness: 1
+  - service: turn_off
+light.slight_firstfl_act01:
+  - service: turn_on
+    brightness: 1
+  - service: turn_off
+light.slight_firstfl_corridor:
+  - service: turn_on
+    brightness_pct: 30
+light.slight_kidsroom_act01:
+  - service: turn_on
+    brightness_pct: 70
+  - service: turn_off
+light.slight_kidsroom_02:
+  - service: turn_on
+    brightness_pct: 50
+light.front_door_light:
+  - service: turn_on
+    brightness_pct: 10
+  - service: turn_off
+light.garden_door_light:
+  - service: turn_on
+    brightness_pct: 90
+  - service: turn_off
+switch.harmony_hub:
+  - service: turn_on
+switch.garage_door_switch:
+  - service: turn_off
+cover.shade_as_trash_can:
+  - service: open_cover
+cover.balcony:
+  - service: close_cover
+cover.second_floor_balcony:
+  - service: close_cover
+cover.garage_door:
+  - service: close_cover
+cover.interior_door:
+  - service: open_cover
+cover.front_door:
+  - service: open_cover
+cover.main_door:
+  - service: open_cover
+cover.living_room_window:
+  - service: close_cover
+lock.main_door_lock:
+  - service: lock
+lock.garage_door_lock:
+  - service: lock
+lock.front_door_lock:
+  - service: unlock
+lock.interior_door_lock:
+  - service: unlock
+# climate.main_thermostat:
+#   # target_temperature: 68
+#   # current_temperature: 68
+fan.living_room_fan:
+  - service: turn_on
+    percentage: 67

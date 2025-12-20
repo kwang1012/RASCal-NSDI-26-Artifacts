@@ -14,7 +14,7 @@ INITIAL_STATE = {}
 
 class ShadeService:
 
-    _attr_current_cover_position: int | None = None
+    _attr_current_cover_position: int
     _attr_current_cover_tilt_position: int | None = None
     _attr_is_closed: bool | None = None
     _attr_is_closing: bool | None = None
@@ -132,6 +132,8 @@ class ShadeService:
             elif self._attr_is_closing:
                 target_position = 0.0
                 action_length = np.random.choice(self._dataset["down"])
+            else:
+                raise ValueError("Shade is neither opening nor closing.")
             step = (target_position - self._attr_current_cover_position) / action_length
             # todo: interruption: based on precentage of action length
             self.logger.debug("Action length: %s", action_length)

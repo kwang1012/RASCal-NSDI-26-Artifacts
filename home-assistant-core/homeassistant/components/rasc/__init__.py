@@ -228,6 +228,7 @@ def run_experiments(hass: HomeAssistant, rasc: RASCAbstraction):
         if RASC_DETECTION_TIME_EXPS in rasc.config:
             settings = rasc.config[RASC_DETECTION_TIME_EXPS]
             for setting in settings:
+                # TODO: skip for vopt if the action is set_temperature
                 entity_id = setting[RASC_ENTITY_ID]
                 device = entity_id.split(".")[0]
                 action = setting[RASC_ACTION]["service"]

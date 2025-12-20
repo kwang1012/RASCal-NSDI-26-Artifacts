@@ -9,4 +9,5 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 rasc: !include rasc.yaml
-rpi_device: 127.0.0.1
+rpi_device: 
+  nodes_file: homeassistant/components/rpi_device/nodes.txt

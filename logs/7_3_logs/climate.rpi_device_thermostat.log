@@ -36,3 +36,1211 @@
 [33m[DEBUG] Interruption moment: 0.5[0m
 [32m[INFO] Transition from 68 to 69 at 2025-12-18 23:41:49.086[0m
 [32m[INFO] Initialize thermostat service. Entity ID: climate.rpi_device_thermostat[0m
+[32m[INFO] Initialize thermostat service. Entity ID: climate.rpi_device_thermostat[0m
+[33m[DEBUG] Action length: 700.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 0.0[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:38:01.085[0m
+[32m[INFO] Initialize thermostat service. Entity ID: climate.rpi_device_thermostat[0m
+[33m[DEBUG] Action length: 614.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 0.0[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:19.087[0m
+[32m[INFO] action finished at 2025-12-19 18:43:19.087[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:20.097[0m
+[32m[INFO] action finished at 2025-12-19 18:43:20.097[0m
+[33m[DEBUG] Action length: 278.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 21.601223910957348[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:22.105[0m
+[32m[INFO] action finished at 2025-12-19 18:43:22.106[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:22.948[0m
+[32m[INFO] action finished at 2025-12-19 18:43:22.948[0m
+[33m[DEBUG] Action length: 377.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 43.1881279903406[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:22.952[0m
+[32m[INFO] action finished at 2025-12-19 18:43:22.952[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:23.765[0m
+[32m[INFO] action finished at 2025-12-19 18:43:23.765[0m
+[33m[DEBUG] Action length: 348.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 64.76154829214728[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:23.859[0m
+[32m[INFO] action finished at 2025-12-19 18:43:23.859[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:24.677[0m
+[32m[INFO] action finished at 2025-12-19 18:43:24.677[0m
+[33m[DEBUG] Action length: 327.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 86.32223422679003[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:24.807[0m
+[32m[INFO] action finished at 2025-12-19 18:43:24.807[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:25.595[0m
+[32m[INFO] action finished at 2025-12-19 18:43:25.595[0m
+[33m[DEBUG] Action length: 298.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 107.87086155902895[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:25.687[0m
+[32m[INFO] action finished at 2025-12-19 18:43:25.687[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:26.520[0m
+[32m[INFO] action finished at 2025-12-19 18:43:26.520[0m
+[33m[DEBUG] Action length: 376.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 129.4080423199184[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:26.626[0m
+[32m[INFO] action finished at 2025-12-19 18:43:26.626[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:27.396[0m
+[32m[INFO] action finished at 2025-12-19 18:43:27.396[0m
+[33m[DEBUG] Action length: 267.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 150.934334756125[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:27.479[0m
+[32m[INFO] action finished at 2025-12-19 18:43:27.479[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:28.231[0m
+[32m[INFO] action finished at 2025-12-19 18:43:28.231[0m
+[33m[DEBUG] Action length: 260.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 172.45024861031104[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:28.323[0m
+[32m[INFO] action finished at 2025-12-19 18:43:28.323[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:29.103[0m
+[32m[INFO] action finished at 2025-12-19 18:43:29.103[0m
+[33m[DEBUG] Action length: 325.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 193.95625279081855[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:29.192[0m
+[32m[INFO] action finished at 2025-12-19 18:43:29.192[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:29.866[0m
+[32m[INFO] action finished at 2025-12-19 18:43:29.866[0m
+[33m[DEBUG] Action length: 321.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 215.45278002185557[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:29.971[0m
+[32m[INFO] action finished at 2025-12-19 18:43:29.971[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:30.665[0m
+[32m[INFO] action finished at 2025-12-19 18:43:30.665[0m
+[33m[DEBUG] Action length: 465.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 236.94023028802212[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:30.768[0m
+[32m[INFO] action finished at 2025-12-19 18:43:30.768[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:31.449[0m
+[32m[INFO] action finished at 2025-12-19 18:43:31.449[0m
+[33m[DEBUG] Action length: 298.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 258.41897607515216[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:31.540[0m
+[32m[INFO] action finished at 2025-12-19 18:43:31.540[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:32.166[0m
+[32m[INFO] action finished at 2025-12-19 18:43:32.166[0m
+[33m[DEBUG] Action length: 399.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 279.8893645518029[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:32.263[0m
+[32m[INFO] action finished at 2025-12-19 18:43:32.263[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:32.952[0m
+[32m[INFO] action finished at 2025-12-19 18:43:32.952[0m
+[33m[DEBUG] Action length: 353.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 301.3517190958114[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:33.047[0m
+[32m[INFO] action finished at 2025-12-19 18:43:33.047[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:33.745[0m
+[32m[INFO] action finished at 2025-12-19 18:43:33.745[0m
+[33m[DEBUG] Action length: 425.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 322.80634343086587[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:33.839[0m
+[32m[INFO] action finished at 2025-12-19 18:43:33.839[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:34.521[0m
+[32m[INFO] action finished at 2025-12-19 18:43:34.521[0m
+[33m[DEBUG] Action length: 254.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 344.25352369527434[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:34.626[0m
+[32m[INFO] action finished at 2025-12-19 18:43:34.626[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:35.302[0m
+[32m[INFO] action finished at 2025-12-19 18:43:35.302[0m
+[33m[DEBUG] Action length: 268.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 365.6935275623085[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:35.408[0m
+[32m[INFO] action finished at 2025-12-19 18:43:35.408[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:36.096[0m
+[32m[INFO] action finished at 2025-12-19 18:43:36.096[0m
+[33m[DEBUG] Action length: 363.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 387.1266091400161[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:36.189[0m
+[32m[INFO] action finished at 2025-12-19 18:43:36.189[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:36.828[0m
+[32m[INFO] action finished at 2025-12-19 18:43:36.828[0m
+[33m[DEBUG] Action length: 2814.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 408.5530077389435[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:36.922[0m
+[32m[INFO] action finished at 2025-12-19 18:43:36.922[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:37.562[0m
+[32m[INFO] action finished at 2025-12-19 18:43:37.562[0m
+[33m[DEBUG] Action length: 405.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 429.97295052825046[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:37.657[0m
+[32m[INFO] action finished at 2025-12-19 18:43:37.657[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:38.274[0m
+[32m[INFO] action finished at 2025-12-19 18:43:38.274[0m
+[33m[DEBUG] Action length: 280.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 0.0[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:38.377[0m
+[32m[INFO] action finished at 2025-12-19 18:43:38.377[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:39.009[0m
+[32m[INFO] action finished at 2025-12-19 18:43:39.009[0m
+[33m[DEBUG] Action length: 254.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 21.490650847703265[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:39.111[0m
+[32m[INFO] action finished at 2025-12-19 18:43:39.111[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:39.756[0m
+[32m[INFO] action finished at 2025-12-19 18:43:39.756[0m
+[33m[DEBUG] Action length: 393.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 42.97357754428036[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:39.851[0m
+[32m[INFO] action finished at 2025-12-19 18:43:39.851[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:40.495[0m
+[32m[INFO] action finished at 2025-12-19 18:43:40.495[0m
+[33m[DEBUG] Action length: 270.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 64.44903852389346[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:40.622[0m
+[32m[INFO] action finished at 2025-12-19 18:43:40.622[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:41.268[0m
+[32m[INFO] action finished at 2025-12-19 18:43:41.268[0m
+[33m[DEBUG] Action length: 769.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 85.91727910757547[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:41.364[0m
+[32m[INFO] action finished at 2025-12-19 18:43:41.364[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:42.002[0m
+[32m[INFO] action finished at 2025-12-19 18:43:42.002[0m
+[33m[DEBUG] Action length: 207.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 107.37853239452221[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:42.105[0m
+[32m[INFO] action finished at 2025-12-19 18:43:42.105[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:42.457[0m
+[32m[INFO] action finished at 2025-12-19 18:43:42.457[0m
+[33m[DEBUG] Action length: 466.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 128.83302035116884[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:42.562[0m
+[32m[INFO] action finished at 2025-12-19 18:43:42.562[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:42.931[0m
+[32m[INFO] action finished at 2025-12-19 18:43:42.931[0m
+[33m[DEBUG] Action length: 288.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 150.28095443396217[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:43.039[0m
+[32m[INFO] action finished at 2025-12-19 18:43:43.039[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:43.406[0m
+[32m[INFO] action finished at 2025-12-19 18:43:43.406[0m
+[33m[DEBUG] Action length: 427.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 171.72253617970802[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:43.511[0m
+[32m[INFO] action finished at 2025-12-19 18:43:43.511[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:43.891[0m
+[32m[INFO] action finished at 2025-12-19 18:43:43.891[0m
+[33m[DEBUG] Action length: 405.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 193.1579583102018[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:43.984[0m
+[32m[INFO] action finished at 2025-12-19 18:43:43.985[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:44.368[0m
+[32m[INFO] action finished at 2025-12-19 18:43:44.368[0m
+[33m[DEBUG] Action length: 404.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 214.58740477962343[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:44.464[0m
+[32m[INFO] action finished at 2025-12-19 18:43:44.464[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:44.821[0m
+[32m[INFO] action finished at 2025-12-19 18:43:44.821[0m
+[33m[DEBUG] Action length: 444.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 236.01105178755694[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:44.928[0m
+[32m[INFO] action finished at 2025-12-19 18:43:44.928[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:45.315[0m
+[32m[INFO] action finished at 2025-12-19 18:43:45.315[0m
+[33m[DEBUG] Action length: 422.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 257.4290678586883[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:45.421[0m
+[32m[INFO] action finished at 2025-12-19 18:43:45.421[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:45.789[0m
+[32m[INFO] action finished at 2025-12-19 18:43:45.789[0m
+[33m[DEBUG] Action length: 546.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 278.8416145854844[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:45.914[0m
+[32m[INFO] action finished at 2025-12-19 18:43:45.914[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:46.289[0m
+[32m[INFO] action finished at 2025-12-19 18:43:46.289[0m
+[33m[DEBUG] Action length: 453.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 300.248846720824[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:46.383[0m
+[32m[INFO] action finished at 2025-12-19 18:43:46.383[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:46.747[0m
+[32m[INFO] action finished at 2025-12-19 18:43:46.747[0m
+[33m[DEBUG] Action length: 360.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 321.650912804074[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:46.843[0m
+[32m[INFO] action finished at 2025-12-19 18:43:46.843[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:47.224[0m
+[32m[INFO] action finished at 2025-12-19 18:43:47.224[0m
+[33m[DEBUG] Action length: 453.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 343.0479560410406[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:47.320[0m
+[32m[INFO] action finished at 2025-12-19 18:43:47.320[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:47.713[0m
+[32m[INFO] action finished at 2025-12-19 18:43:47.714[0m
+[33m[DEBUG] Action length: 461.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 364.4401130627687[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:47.807[0m
+[32m[INFO] action finished at 2025-12-19 18:43:47.807[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:48.193[0m
+[32m[INFO] action finished at 2025-12-19 18:43:48.193[0m
+[33m[DEBUG] Action length: 453.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 385.827515519899[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:48.287[0m
+[32m[INFO] action finished at 2025-12-19 18:43:48.287[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:48.660[0m
+[32m[INFO] action finished at 2025-12-19 18:43:48.660[0m
+[33m[DEBUG] Action length: 370.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 407.21029081941356[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:48.764[0m
+[32m[INFO] action finished at 2025-12-19 18:43:48.765[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:49.143[0m
+[32m[INFO] action finished at 2025-12-19 18:43:49.143[0m
+[33m[DEBUG] Action length: 225.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 428.5885618128289[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:49.250[0m
+[32m[INFO] action finished at 2025-12-19 18:43:49.250[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:49.599[0m
+[32m[INFO] action finished at 2025-12-19 18:43:49.599[0m
+[33m[DEBUG] Action length: 308.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 0.0[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:49.694[0m
+[32m[INFO] action finished at 2025-12-19 18:43:49.694[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:50.273[0m
+[32m[INFO] action finished at 2025-12-19 18:43:50.274[0m
+[33m[DEBUG] Action length: 215.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 21.424639555405903[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:50.387[0m
+[32m[INFO] action finished at 2025-12-19 18:43:50.387[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:50.785[0m
+[32m[INFO] action finished at 2025-12-19 18:43:50.785[0m
+[33m[DEBUG] Action length: 207.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 42.84417282751649[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:50.902[0m
+[32m[INFO] action finished at 2025-12-19 18:43:50.902[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:51.266[0m
+[32m[INFO] action finished at 2025-12-19 18:43:51.266[0m
+[33m[DEBUG] Action length: 235.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 64.25873070818103[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:51.361[0m
+[32m[INFO] action finished at 2025-12-19 18:43:51.361[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:51.922[0m
+[32m[INFO] action finished at 2025-12-19 18:43:51.922[0m
+[33m[DEBUG] Action length: 270.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 85.67074869200225[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:52.028[0m
+[32m[INFO] action finished at 2025-12-19 18:43:52.028[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:43:52.624[0m
+[32m[INFO] action finished at 2025-12-19 18:43:52.624[0m
+[33m[DEBUG] Action length: 266.0[0m
+[33m[DEBUG] Interruption level: None[0m
+[33m[DEBUG] Interruption time: 107.08012395558326[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:43:52.730[0m
+[32m[INFO] action finished at 2025-12-19 18:43:52.730[0m
+[32m[INFO] Initialize thermostat service. Entity ID: climate.rpi_device_thermostat[0m
+[33m[DEBUG] Action length: 270.0[0m
+[33m[DEBUG] Interruption time: 0.0[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:16.089[0m
+[32m[INFO] action finished at 2025-12-19 18:46:16.089[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:17.115[0m
+[32m[INFO] action finished at 2025-12-19 18:46:17.115[0m
+[33m[DEBUG] Action length: 298.0[0m
+[33m[DEBUG] Interruption time: 21.601223910957348[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:19.121[0m
+[32m[INFO] action finished at 2025-12-19 18:46:19.121[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:19.964[0m
+[32m[INFO] action finished at 2025-12-19 18:46:19.964[0m
+[33m[DEBUG] Action length: 225.0[0m
+[33m[DEBUG] Interruption time: 43.1881279903406[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:19.968[0m
+[32m[INFO] action finished at 2025-12-19 18:46:19.968[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:20.790[0m
+[32m[INFO] action finished at 2025-12-19 18:46:20.790[0m
+[33m[DEBUG] Action length: 404.0[0m
+[33m[DEBUG] Interruption time: 64.76154829214728[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:20.884[0m
+[32m[INFO] action finished at 2025-12-19 18:46:20.884[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:21.709[0m
+[32m[INFO] action finished at 2025-12-19 18:46:21.709[0m
+[33m[DEBUG] Action length: 959.0[0m
+[33m[DEBUG] Interruption time: 86.32223422679003[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:21.838[0m
+[32m[INFO] action finished at 2025-12-19 18:46:21.838[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:22.625[0m
+[32m[INFO] action finished at 2025-12-19 18:46:22.625[0m
+[33m[DEBUG] Action length: 364.0[0m
+[33m[DEBUG] Interruption time: 107.87086155902895[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:22.733[0m
+[32m[INFO] action finished at 2025-12-19 18:46:22.733[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:23.505[0m
+[32m[INFO] action finished at 2025-12-19 18:46:23.505[0m
+[33m[DEBUG] Action length: 423.0[0m
+[33m[DEBUG] Interruption time: 129.4080423199184[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:23.611[0m
+[32m[INFO] action finished at 2025-12-19 18:46:23.611[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:24.394[0m
+[32m[INFO] action finished at 2025-12-19 18:46:24.394[0m
+[33m[DEBUG] Action length: 563.0[0m
+[33m[DEBUG] Interruption time: 150.934334756125[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:24.486[0m
+[32m[INFO] action finished at 2025-12-19 18:46:24.486[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:25.261[0m
+[32m[INFO] action finished at 2025-12-19 18:46:25.262[0m
+[33m[DEBUG] Action length: 699.0[0m
+[33m[DEBUG] Interruption time: 172.45024861031104[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:25.363[0m
+[32m[INFO] action finished at 2025-12-19 18:46:25.363[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:26.153[0m
+[32m[INFO] action finished at 2025-12-19 18:46:26.153[0m
+[33m[DEBUG] Action length: 423.0[0m
+[33m[DEBUG] Interruption time: 193.95625279081855[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:26.264[0m
+[32m[INFO] action finished at 2025-12-19 18:46:26.264[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:26.949[0m
+[32m[INFO] action finished at 2025-12-19 18:46:26.949[0m
+[33m[DEBUG] Action length: 405.0[0m
+[33m[DEBUG] Interruption time: 215.45278002185557[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:27.054[0m
+[32m[INFO] action finished at 2025-12-19 18:46:27.054[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:27.764[0m
+[32m[INFO] action finished at 2025-12-19 18:46:27.764[0m
+[33m[DEBUG] Action length: 329.0[0m
+[33m[DEBUG] Interruption time: 236.94023028802212[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:27.860[0m
+[32m[INFO] action finished at 2025-12-19 18:46:27.860[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:28.548[0m
+[32m[INFO] action finished at 2025-12-19 18:46:28.548[0m
+[33m[DEBUG] Action length: 308.0[0m
+[33m[DEBUG] Interruption time: 258.41897607515216[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:28.642[0m
+[32m[INFO] action finished at 2025-12-19 18:46:28.642[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:29.273[0m
+[32m[INFO] action finished at 2025-12-19 18:46:29.273[0m
+[33m[DEBUG] Action length: 258.0[0m
+[33m[DEBUG] Interruption time: 279.8893645518029[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:29.376[0m
+[32m[INFO] action finished at 2025-12-19 18:46:29.377[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:30.060[0m
+[32m[INFO] action finished at 2025-12-19 18:46:30.060[0m
+[33m[DEBUG] Action length: 396.0[0m
+[33m[DEBUG] Interruption time: 301.3517190958114[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:30.161[0m
+[32m[INFO] action finished at 2025-12-19 18:46:30.161[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:30.859[0m
+[32m[INFO] action finished at 2025-12-19 18:46:30.859[0m
+[33m[DEBUG] Action length: 357.0[0m
+[33m[DEBUG] Interruption time: 322.80634343086587[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:30.961[0m
+[32m[INFO] action finished at 2025-12-19 18:46:30.961[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:31.649[0m
+[32m[INFO] action finished at 2025-12-19 18:46:31.650[0m
+[33m[DEBUG] Action length: 225.0[0m
+[33m[DEBUG] Interruption time: 344.25352369527434[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:31.753[0m
+[32m[INFO] action finished at 2025-12-19 18:46:31.753[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:32.430[0m
+[32m[INFO] action finished at 2025-12-19 18:46:32.430[0m
+[33m[DEBUG] Action length: 260.0[0m
+[33m[DEBUG] Interruption time: 365.6935275623085[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:32.550[0m
+[32m[INFO] action finished at 2025-12-19 18:46:32.550[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:33.247[0m
+[32m[INFO] action finished at 2025-12-19 18:46:33.247[0m
+[33m[DEBUG] Action length: 444.0[0m
+[33m[DEBUG] Interruption time: 387.1266091400161[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:33.353[0m
+[32m[INFO] action finished at 2025-12-19 18:46:33.353[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:34.005[0m
+[32m[INFO] action finished at 2025-12-19 18:46:34.005[0m
+[33m[DEBUG] Action length: 278.0[0m
+[33m[DEBUG] Interruption time: 408.5530077389435[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:34.110[0m
+[32m[INFO] action finished at 2025-12-19 18:46:34.110[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:34.750[0m
+[32m[INFO] action finished at 2025-12-19 18:46:34.750[0m
+[33m[DEBUG] Action length: 456.0[0m
+[33m[DEBUG] Interruption time: 429.97295052825046[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:34.855[0m
+[32m[INFO] action finished at 2025-12-19 18:46:34.855[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:35.471[0m
+[32m[INFO] action finished at 2025-12-19 18:46:35.471[0m
+[33m[DEBUG] Action length: 800.0[0m
+[33m[DEBUG] Interruption time: 0.0[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:35.578[0m
+[32m[INFO] action finished at 2025-12-19 18:46:35.578[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:36.212[0m
+[32m[INFO] action finished at 2025-12-19 18:46:36.212[0m
+[33m[DEBUG] Action length: 284.0[0m
+[33m[DEBUG] Interruption time: 21.490650847703265[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:36.316[0m
+[32m[INFO] action finished at 2025-12-19 18:46:36.316[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:36.967[0m
+[32m[INFO] action finished at 2025-12-19 18:46:36.967[0m
+[33m[DEBUG] Action length: 563.0[0m
+[33m[DEBUG] Interruption time: 42.97357754428036[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:37.074[0m
+[32m[INFO] action finished at 2025-12-19 18:46:37.074[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:37.799[0m
+[32m[INFO] action finished at 2025-12-19 18:46:37.800[0m
+[33m[DEBUG] Action length: 394.0[0m
+[33m[DEBUG] Interruption time: 64.44903852389346[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:37.904[0m
+[32m[INFO] action finished at 2025-12-19 18:46:37.904[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:38.556[0m
+[32m[INFO] action finished at 2025-12-19 18:46:38.556[0m
+[33m[DEBUG] Action length: 538.0[0m
+[33m[DEBUG] Interruption time: 85.91727910757547[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:38.662[0m
+[32m[INFO] action finished at 2025-12-19 18:46:38.662[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:39.304[0m
+[32m[INFO] action finished at 2025-12-19 18:46:39.304[0m
+[33m[DEBUG] Action length: 513.0[0m
+[33m[DEBUG] Interruption time: 107.37853239452221[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:39.410[0m
+[32m[INFO] action finished at 2025-12-19 18:46:39.410[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:39.761[0m
+[32m[INFO] action finished at 2025-12-19 18:46:39.761[0m
+[33m[DEBUG] Action length: 295.0[0m
+[33m[DEBUG] Interruption time: 128.83302035116884[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:39.864[0m
+[32m[INFO] action finished at 2025-12-19 18:46:39.865[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:40.228[0m
+[32m[INFO] action finished at 2025-12-19 18:46:40.228[0m
+[33m[DEBUG] Action length: 519.0[0m
+[33m[DEBUG] Interruption time: 150.28095443396217[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:40.332[0m
+[32m[INFO] action finished at 2025-12-19 18:46:40.332[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:40.698[0m
+[32m[INFO] action finished at 2025-12-19 18:46:40.698[0m
+[33m[DEBUG] Action length: 215.0[0m
+[33m[DEBUG] Interruption time: 171.72253617970802[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:40.807[0m
+[32m[INFO] action finished at 2025-12-19 18:46:40.807[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:41.181[0m
+[32m[INFO] action finished at 2025-12-19 18:46:41.181[0m
+[33m[DEBUG] Action length: 288.0[0m
+[33m[DEBUG] Interruption time: 193.1579583102018[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:41.286[0m
+[32m[INFO] action finished at 2025-12-19 18:46:41.286[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:41.671[0m
+[32m[INFO] action finished at 2025-12-19 18:46:41.671[0m
+[33m[DEBUG] Action length: 299.0[0m
+[33m[DEBUG] Interruption time: 214.58740477962343[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:41.778[0m
+[32m[INFO] action finished at 2025-12-19 18:46:41.778[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:42.140[0m
+[32m[INFO] action finished at 2025-12-19 18:46:42.140[0m
+[33m[DEBUG] Action length: 221.0[0m
+[33m[DEBUG] Interruption time: 236.01105178755694[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:42.247[0m
+[32m[INFO] action finished at 2025-12-19 18:46:42.247[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:42.630[0m
+[32m[INFO] action finished at 2025-12-19 18:46:42.631[0m
+[33m[DEBUG] Action length: 215.0[0m
+[33m[DEBUG] Interruption time: 257.4290678586883[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:42.739[0m
+[32m[INFO] action finished at 2025-12-19 18:46:42.739[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:43.128[0m
+[32m[INFO] action finished at 2025-12-19 18:46:43.128[0m
+[33m[DEBUG] Action length: 318.0[0m
+[33m[DEBUG] Interruption time: 278.8416145854844[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:43.238[0m
+[32m[INFO] action finished at 2025-12-19 18:46:43.238[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:43.609[0m
+[32m[INFO] action finished at 2025-12-19 18:46:43.609[0m
+[33m[DEBUG] Action length: 356.0[0m
+[33m[DEBUG] Interruption time: 300.248846720824[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:43.717[0m
+[32m[INFO] action finished at 2025-12-19 18:46:43.717[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:44.078[0m
+[32m[INFO] action finished at 2025-12-19 18:46:44.078[0m
+[33m[DEBUG] Action length: 399.0[0m
+[33m[DEBUG] Interruption time: 321.650912804074[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:44.185[0m
+[32m[INFO] action finished at 2025-12-19 18:46:44.185[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:44.561[0m
+[32m[INFO] action finished at 2025-12-19 18:46:44.561[0m
+[33m[DEBUG] Action length: 359.0[0m
+[33m[DEBUG] Interruption time: 343.0479560410406[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:44.667[0m
+[32m[INFO] action finished at 2025-12-19 18:46:44.667[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:45.047[0m
+[32m[INFO] action finished at 2025-12-19 18:46:45.047[0m
+[33m[DEBUG] Action length: 654.0[0m
+[33m[DEBUG] Interruption time: 364.4401130627687[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:45.155[0m
+[32m[INFO] action finished at 2025-12-19 18:46:45.155[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:45.530[0m
+[32m[INFO] action finished at 2025-12-19 18:46:45.530[0m
+[33m[DEBUG] Action length: 512.0[0m
+[33m[DEBUG] Interruption time: 385.827515519899[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:45.635[0m
+[32m[INFO] action finished at 2025-12-19 18:46:45.635[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:46.004[0m
+[32m[INFO] action finished at 2025-12-19 18:46:46.005[0m
+[33m[DEBUG] Action length: 589.0[0m
+[33m[DEBUG] Interruption time: 407.21029081941356[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:46.112[0m
+[32m[INFO] action finished at 2025-12-19 18:46:46.112[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:46.492[0m
+[32m[INFO] action finished at 2025-12-19 18:46:46.492[0m
+[33m[DEBUG] Action length: 1115.0[0m
+[33m[DEBUG] Interruption time: 428.5885618128289[0m
+[33m[DEBUG] Interruption moment: 0.8[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:46.597[0m
+[32m[INFO] action finished at 2025-12-19 18:46:46.597[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:46.945[0m
+[32m[INFO] action finished at 2025-12-19 18:46:46.945[0m
+[33m[DEBUG] Action length: 442.0[0m
+[33m[DEBUG] Interruption time: 0.0[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:47.050[0m
+[32m[INFO] action finished at 2025-12-19 18:46:47.050[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:47.631[0m
+[32m[INFO] action finished at 2025-12-19 18:46:47.631[0m
+[33m[DEBUG] Action length: 245.0[0m
+[33m[DEBUG] Interruption time: 21.424639555405903[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:47.741[0m
+[32m[INFO] action finished at 2025-12-19 18:46:47.741[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:48.144[0m
+[32m[INFO] action finished at 2025-12-19 18:46:48.144[0m
+[33m[DEBUG] Action length: 290.0[0m
+[33m[DEBUG] Interruption time: 42.84417282751649[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:48.251[0m
+[32m[INFO] action finished at 2025-12-19 18:46:48.251[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:48.610[0m
+[32m[INFO] action finished at 2025-12-19 18:46:48.610[0m
+[33m[DEBUG] Action length: 412.0[0m
+[33m[DEBUG] Interruption time: 64.25873070818103[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:48.715[0m
+[32m[INFO] action finished at 2025-12-19 18:46:48.716[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:49.280[0m
+[32m[INFO] action finished at 2025-12-19 18:46:49.280[0m
+[33m[DEBUG] Action length: 61.0[0m
+[33m[DEBUG] Interruption time: 85.67074869200225[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:49.387[0m
+[32m[INFO] action finished at 2025-12-19 18:46:49.387[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:49.979[0m
+[32m[INFO] action finished at 2025-12-19 18:46:49.979[0m
+[33m[DEBUG] Action length: 361.0[0m
+[33m[DEBUG] Interruption time: 107.08012395558326[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:50.087[0m
+[32m[INFO] action finished at 2025-12-19 18:46:50.087[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:50.668[0m
+[32m[INFO] action finished at 2025-12-19 18:46:50.668[0m
+[33m[DEBUG] Action length: 400.0[0m
+[33m[DEBUG] Interruption time: 128.48549030929442[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:50.775[0m
+[32m[INFO] action finished at 2025-12-19 18:46:50.775[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:51.345[0m
+[32m[INFO] action finished at 2025-12-19 18:46:51.345[0m
+[33m[DEBUG] Action length: 205.0[0m
+[33m[DEBUG] Interruption time: 149.88784573918736[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:51.452[0m
+[32m[INFO] action finished at 2025-12-19 18:46:51.452[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:52.034[0m
+[32m[INFO] action finished at 2025-12-19 18:46:52.034[0m
+[33m[DEBUG] Action length: 225.0[0m
+[33m[DEBUG] Interruption time: 171.28683455385183[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:52.139[0m
+[32m[INFO] action finished at 2025-12-19 18:46:52.139[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:52.700[0m
+[32m[INFO] action finished at 2025-12-19 18:46:52.700[0m
+[33m[DEBUG] Action length: 318.0[0m
+[33m[DEBUG] Interruption time: 192.68395665245293[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:52.807[0m
+[32m[INFO] action finished at 2025-12-19 18:46:52.807[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:53.459[0m
+[32m[INFO] action finished at 2025-12-19 18:46:53.459[0m
+[33m[DEBUG] Action length: 235.0[0m
+[33m[DEBUG] Interruption time: 214.07674813666432[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:53.573[0m
+[32m[INFO] action finished at 2025-12-19 18:46:53.574[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:54.175[0m
+[32m[INFO] action finished at 2025-12-19 18:46:54.175[0m
+[33m[DEBUG] Action length: 915.0[0m
+[33m[DEBUG] Interruption time: 235.46927282885235[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:54.284[0m
+[32m[INFO] action finished at 2025-12-19 18:46:54.285[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:54.902[0m
+[32m[INFO] action finished at 2025-12-19 18:46:54.902[0m
+[33m[DEBUG] Action length: 376.0[0m
+[33m[DEBUG] Interruption time: 256.8550530993196[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:55.012[0m
+[32m[INFO] action finished at 2025-12-19 18:46:55.012[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:55.630[0m
+[32m[INFO] action finished at 2025-12-19 18:46:55.630[0m
+[33m[DEBUG] Action length: 329.0[0m
+[33m[DEBUG] Interruption time: 278.23924566889343[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:55.735[0m
+[32m[INFO] action finished at 2025-12-19 18:46:55.735[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:56.088[0m
+[32m[INFO] action finished at 2025-12-19 18:46:56.088[0m
+[33m[DEBUG] Action length: 335.0[0m
+[33m[DEBUG] Interruption time: 299.62237379637594[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:56.195[0m
+[32m[INFO] action finished at 2025-12-19 18:46:56.195[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:56.569[0m
+[32m[INFO] action finished at 2025-12-19 18:46:56.569[0m
+[33m[DEBUG] Action length: 414.0[0m
+[33m[DEBUG] Interruption time: 321.003537091476[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:56.676[0m
+[32m[INFO] action finished at 2025-12-19 18:46:56.676[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:57.050[0m
+[32m[INFO] action finished at 2025-12-19 18:46:57.050[0m
+[33m[DEBUG] Action length: 278.0[0m
+[33m[DEBUG] Interruption time: 342.3814319202738[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:57.157[0m
+[32m[INFO] action finished at 2025-12-19 18:46:57.157[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:57.530[0m
+[32m[INFO] action finished at 2025-12-19 18:46:57.531[0m
+[33m[DEBUG] Action length: 821.0[0m
+[33m[DEBUG] Interruption time: 363.7569035843266[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:57.635[0m
+[32m[INFO] action finished at 2025-12-19 18:46:57.635[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:58.000[0m
+[32m[INFO] action finished at 2025-12-19 18:46:58.001[0m
+[33m[DEBUG] Action length: 484.0[0m
+[33m[DEBUG] Interruption time: 385.1243156247938[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:58.113[0m
+[32m[INFO] action finished at 2025-12-19 18:46:58.113[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:58.482[0m
+[32m[INFO] action finished at 2025-12-19 18:46:58.482[0m
+[33m[DEBUG] Action length: 335.0[0m
+[33m[DEBUG] Interruption time: 406.49597143139647[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:58.581[0m
+[32m[INFO] action finished at 2025-12-19 18:46:58.581[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:58.953[0m
+[32m[INFO] action finished at 2025-12-19 18:46:58.953[0m
+[33m[DEBUG] Action length: 378.0[0m
+[33m[DEBUG] Interruption time: 427.8674877162938[0m
+[33m[DEBUG] Interruption moment: 0.9[0m
+[32m[INFO] Transition from 68 to 69 at 2025-12-19 18:46:59.062[0m
+[32m[INFO] action finished at 2025-12-19 18:46:59.062[0m
+[33m[DEBUG] Action length: 1[0m
+[33m[DEBUG] Interruption time: None[0m
+[33m[DEBUG] Interruption moment: 0.5[0m
+[32m[INFO] Transition from 69 to 68 at 2025-12-19 18:46:59.434[0m
+[32m[INFO] action finished at 2025-12-19 18:46:59.434[0m

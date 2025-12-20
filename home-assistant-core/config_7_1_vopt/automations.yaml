@@ -1,0 +1,612 @@
+- id: "1706641906108"
+  alias: Turn on Service
+  description: ""
+  trigger: []
+  condition: []
+  action:
+    - service: light.turn_on
+      data:
+        brightness_pct: 50
+        transition: 3
+      target:
+        entity_id:
+          - light.first_floor_lights
+          - light.xmas_tree
+  mode: single
+- id: "1714880467208"
+  alias: Alarm
+  description: ""
+  trigger: []
+  condition: []
+  action:
+    - service: light.turn_on
+      data:
+        brightness_pct: 50
+      target:
+        entity_id: light.slight_firstfl_act01
+  mode: single
+- id: 712ec364f7bd4290ad579e0bb5e3b52e
+  alias: Switch lights on at sunset
+  trigger: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.front_door_light
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.ground_floor_lights
+          - light.first_floor_lights
+- id: b438cb83bf414166bf478017f3095e9e
+  alias: Switch off GF lights when to bed
+  trigger: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.ground_floor_lights
+    - service: light.turn_on
+      data:
+        transition: 5
+        brightness_pct: 100
+      target:
+        entity_id:
+          - light.front_door_light
+          - light.garden_door_light
+- id: 60b9cb7a9c4e4311a27cd23267a427d7
+  alias: Switch off indoor lights when asleep
+  trigger: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.ground_floor_lights
+          - light.first_floor_lights
+- id: daa3f20af9ba46d4a41581af68a4255d
+  alias: Switch off GF lights when nobody home
+  trigger: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.ground_floor_lights
+    - service: light.turn_off
+      target:
+        entity_id: light.first_floor_lights
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.front_door_light
+          - light.garden_door_light
+- id: 60fc38a590204b2da454ea90c7f8fc56
+  alias: Switch off FF lights when nobody home
+  trigger: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.first_floor_lights
+- id: 67e1d02ebb094f1b8fbb8633f5364939
+  alias: Switch off lights when nobody home after midnight
+  trigger: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.ground_floor_lights
+          - light.first_floor_lights
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.front_door_light
+          - light.garden_door_light
+- id: 653ae47ad5964ee2ad013d45168e4e6b
+  alias: Switch lights off at sunrise
+  trigger: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.front_door_light
+          - light.garden_door_light
+      data: {}
+    - service: light.turn_on
+      target:
+        entity_id: light.ground_floor_lights
+      data: {}
+    - service: light.turn_on
+      target:
+        entity_id: light.first_floor_lights
+      data: {}
+- alias: Switch on xmas tree
+  trigger: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.xmas_tree
+  id: 8fc3a937a5804719a4200bb80c1ff619
+- id: 8fc3a937a5804719a4200bb80c1ff620
+  alias: FF Corridor Light Control
+  trigger: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.slight_firstfl_corridor
+- id: 8fc3a937a5804719a4200bb80c1ff621
+  alias: CR Bed Light Control
+  trigger: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.slight_kidsroom_02
+      data:
+        brightness_pct: 80
+        transition: 5
+- id: 8fc3a937a5804719a4200bb80c1ff622
+  alias: Lights on at night
+  trigger: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.bedroom
+          - light.living_room
+      data:
+        brightness_pct: 50
+  mode: single
+- id: 8fc3a937a5804719a4200bb80c1ff623
+  alias: Lights off at night
+  trigger: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.bedroom
+          - light.living_room
+  mode: single
+- id: 8fc3a937a5804719a4200bb80c1ff624
+  alias: Lights on at sunset
+  trigger: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.living_room
+      data:
+        brightness_pct: 100
+        transition: 10
+  mode: single
+- id: 8fc3a937a5804719a4200bb80c1ff625
+  alias: Harmony off lights off
+  trigger: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.living_room
+  mode: single
+- alias: MorningAction
+  trigger: []
+  action:
+    - service: cover.open_cover
+      depend_on:
+        - ack
+      target:
+        entity_id: cover.balcony
+    - service: cover.open_cover
+      target:
+        entity_id: cover.second_floor_balcony
+  id: bc1ac4bf0b54451882ca0b7033b7cfab
+- alias: SunsetAction
+  trigger: []
+  action:
+    - service: cover.close_cover
+      target:
+        entity_id: cover.balcony
+    - service: cover.close_cover
+      target:
+        entity_id: cover.second_floor_balcony
+  id: a2eb5a03211e48b98c4f49f002b6833b
+- id: a2eb5a03211e48b98c4f49f002b6833c
+  alias: Good Night House
+  trigger: []
+  action:
+    - service: lock.lock
+      target:
+        entity_id: lock.main_door_lock
+      data: {}
+    - service: light.turn_off
+      target:
+        entity_id: light.living_room
+      data: {}
+    - service: light.turn_on
+      target:
+        entity_id: light.front_door_light
+      data: {}
+- id: a2eb5a03211e48b98c4f49f002b6833d
+  alias: Whole House Fan
+  trigger: []
+  action:
+    - service: fan.turn_off
+      target:
+        entity_id: fan.living_room_fan
+      data: {}
+- id: "1715667183337"
+  alias: Test automation
+  description: ""
+  trigger: []
+  action: []
+  mode: single
+- id: "1715667183338"
+  alias: Whole House Fan Control
+  description: ""
+  trigger: []
+  action:
+    - service: fan.turn_on
+      target:
+        entity_id: fan.living_room_fan
+      data: {}
+  mode: single
+- id: "1715667183339"
+  alias: It's Too Hot
+  description: ""
+  trigger: []
+  action:
+    - service: fan.turn_on
+      target:
+        entity_id: fan.living_room_fan
+  mode: single
+- id: "1715667183340"
+  alias: Adjust thermostat based on weather
+  trigger: []
+  action:
+    - service: climate.set_temperature
+      target:
+        entity_id: climate.main_thermostat
+      data:
+        temperature: 72
+- id: "1715667183341"
+  alias: Thermostat Auto Off
+  trigger: []
+  action:
+    - service: climate.turn_off
+      target:
+        entity_id: climate.main_thermostat
+    - service: climate.turn_on
+      target:
+        entity_id: climate.main_thermostat
+- id: "1715667183342"
+  alias: Let There Be Dark
+  trigger: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.front_door_light
+  mode: single
+- id: "1715667183343"
+  alias: Let There Be Light
+  trigger: []
+  action:
+    - service: light.turn_on
+      data:
+        transition: 10
+        brightness_pct: 30
+      target:
+        entity_id: light.front_door_light
+    - service: light.turn_off
+      target:
+        entity_id: light.living_room
+  mode: single
+- id: "1715667183344"
+  alias: Door Open State to Color Light
+  trigger: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.xmas_tree
+      data:
+        transition: 1
+        rgb_color:
+          - 0
+          - 0
+          - 255
+- id: "1715677183344"
+  alias: Door Opening State to Color Light
+  trigger: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.xmas_tree
+      data:
+        transition: 1
+        rgb_color:
+          - 191
+          - 127
+          - 191
+- id: "1715687183344"
+  alias: Door Closed State to Color Light
+  trigger: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.xmas_tree
+      data:
+        transition: 1
+        rgb_color:
+          - 0
+          - 255
+          - 0
+- id: "1715697183344"
+  alias: Door Closing State to Color Light
+  trigger: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.xmas_tree
+      data:
+        transition: 1
+        rgb_color:
+          - 255
+          - 95
+          - 95
+- id: "1715707183344"
+  alias: Door Jammed State to Color Light
+  trigger: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.xmas_tree
+      data:
+        transition: 1
+        rgb_color:
+          - 255
+          - 0
+          - 0
+- id: "1715667183345"
+  alias: Enhanced Auto UnLock Door
+  trigger: []
+  action:
+    - service: lock.unlock
+      target:
+        entity_id: lock.interior_door_lock
+- id: "1715667184345"
+  alias: Enhanced Auto Lock Door
+  trigger: []
+  action:
+    - service: lock.lock
+      target:
+        entity_id: lock.interior_door_lock
+- id: "1715667183346"
+  alias: Brighten Dark Places
+  trigger: []
+  action:
+    - service: light.turn_on
+      data:
+        transition: 5
+        brightness_pct: 100
+      target:
+        entity_id: light.living_room
+- id: "1715667183347"
+  alias: Garage Door Opener
+  trigger: []
+  action:
+    - service: cover.open_cover
+      target:
+        entity_id: cover.garage_door
+    - service: switch.turn_off
+      target:
+        entity_id: switch.garage_door_switch
+- id: "1715667183348"
+  alias: Let There Be Light!
+  trigger: []
+  action:
+    - service: light.turn_on
+      data:
+        transition: 5
+        brightness_pct: 100
+      target:
+        entity_id: light.living_room
+- id: "1715667183349"
+  alias: Lock It When I Leave
+  trigger: []
+  action:
+    - service: lock.lock
+      target:
+        entity_id: lock.main_door_lock
+- id: "1715667183320"
+  alias: Unlock It When I Arrive
+  trigger: []
+  action:
+    - service: lock.unlock
+      target:
+        entity_id: lock.main_door_lock
+- id: "1715667183350"
+  alias: Car Arrives
+  trigger: []
+  action:
+    - service: cover.open_cover
+      target:
+        entity_id: cover.garage_door
+- id: "1715667183351"
+  alias: Car Departs
+  trigger: []
+  action:
+    - service: cover.close_cover
+      target:
+        entity_id: cover.garage_door
+- id: "1715667183352"
+  alias: Garage Door Opened
+  trigger: []
+  action:
+    - service: cover.close_cover
+      target:
+        entity_id: cover.garage_door
+- id: "1715667183353"
+  alias: Car Door Opened
+  trigger: []
+  action:
+    - service: cover.open_cover
+      target:
+        entity_id: cover.garage_door
+      data: {}
+- id: "1715667183354"
+  alias: Interior Door Closed
+  trigger: []
+  action:
+    - service: cover.close_cover
+      target:
+        entity_id: cover.garage_door
+- id: "1715667183355"
+  alias: Lock it at a specific time
+  trigger: []
+  action:
+    - service: cover.close_cover
+      target:
+        entity_id: cover.front_door
+    - service: lock.lock
+      target:
+        entity_id: lock.front_door_lock
+- id: "1715667183356"
+  alias: Keep Me Cozy II
+  trigger: []
+  action:
+    - service: climate.set_temperature
+      target:
+        entity_id: climate.main_thermostat
+      data_template:
+        temperature:
+          "{% set current_temp = states('sensor.temperature_sensor') | float
+          %} {% set heating_setpoint = states('input_number.heating_setpoint') | float
+          %} {% set cooling_setpoint = states('input_number.cooling_setpoint') | float
+          %} {% set thermostat_mode = states('climate.thermostat') %} {% if thermostat_mode
+          in ['cool', 'auto'] and current_temp - cooling_setpoint >= 1 %}\n  {{ current_temp
+          - 2 }}\n{% elif thermostat_mode in ['heat', 'auto'] and heating_setpoint -
+          current_temp >= 1 %}\n  {{ current_temp + 2 }}\n{% endif %}\n"
+- id: "1715721247625"
+  alias: Close and lock all door
+  description: ""
+  trigger: []
+  condition: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.living_room
+    - parallel:
+        - service: cover.close_cover
+          target:
+            entity_id: cover.balcony
+        - service: cover.close_cover
+          target:
+            entity_id: cover.second_floor_balcony
+        - sequence:
+            - service: cover.close_cover
+              target:
+                entity_id: cover.front_door
+            - service: lock.lock
+              target:
+                entity_id: lock.front_door_lock
+        - sequence:
+            - service: cover.close_cover
+              target:
+                entity_id: cover.interior_door
+            - service: lock.lock
+              target:
+                entity_id: lock.interior_door_lock
+        - sequence:
+            - service: cover.close_cover
+              target:
+                entity_id: cover.garage_door
+            - service: lock.lock
+              target:
+                entity_id: lock.garage_door_lock
+        - sequence:
+            - service: cover.close_cover
+              target:
+                entity_id: cover.main_door
+            - service: lock.lock
+              target:
+                entity_id: lock.main_door_lock
+    - service: light.turn_on
+      data:
+        brightness_pct: 10
+        transition: 10
+      target:
+        entity_id: light.front_door_light
+  mode: single
+- id: "1715737920668"
+  alias: Turn on thermostat when window starts closing
+  description: ""
+  trigger: []
+  condition: []
+  action:
+    - service: cover.close_cover
+      data: {}
+      target:
+        entity_id: cover.living_room_window
+    - service: climate.turn_on
+      depend_on: start
+      data: {}
+      target:
+        entity_id: climate.main_thermostat
+    - service: climate.set_temperature
+      data:
+        temperature: 72
+        hvac_mode: heat
+      target:
+        entity_id: climate.main_thermostat
+  mode: single
+- id: "1715797722148"
+  alias: Open garage door with S/C children
+  description: ""
+  trigger: []
+  condition: []
+  action:
+    - service: cover.open_cover
+      data: {}
+      target:
+        entity_id: cover.garage_door
+    - parallel:
+        - service: lock.lock
+          data: {}
+          target:
+            entity_id: lock.interior_door_lock
+        - service: cover.open_cover
+          data: {}
+          target:
+            entity_id: cover.shade_as_trash_can
+    - service: cover.close_cover
+      data: {}
+      target:
+        entity_id: cover.garage_door
+  mode: single
+- id: "1715802493830"
+  alias: Turn on thermostat when window starts closing and door closes
+  description: ""
+  trigger: []
+  condition: []
+  action:
+    - parallel:
+        - service: cover.close_cover
+          data: {}
+          target:
+            entity_id: cover.living_room_window
+        - service: cover.close_cover
+          data: {}
+          target:
+            entity_id: cover.balcony
+    - service: climate.set_temperature
+      data:
+        temperature: 72
+      depend_on:
+        - start
+        - complete
+      target:
+        entity_id: climate.main_thermostat
+  mode: single
+- id: "1726643616296"
+  alias: test timer
+  description: ""
+  trigger: []
+  condition: []
+  action:
+    - service: timer.start
+      target:
+        entity_id: timer.apartment_coffee_machine_0
+      data:
+        type: expresso
+  mode: single
