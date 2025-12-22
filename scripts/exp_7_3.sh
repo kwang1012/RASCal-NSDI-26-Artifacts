@@ -15,5 +15,9 @@ deactivate
 cd ..
 
 pkill -f "uv run -m raspberry_pi.run_service"
+
+# Run simulated experiments
+uv run -m experiments.exp_7_3_simulated
+
 # 3. Parse the logs to extract detection times
 uv run experiments/parse_7_3_result.py

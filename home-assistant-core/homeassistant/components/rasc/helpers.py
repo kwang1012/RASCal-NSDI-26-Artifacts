@@ -90,7 +90,6 @@ class OverheadMeasurement:
             cpu_usage = psutil.cpu_percent()
             # mem_usage = psutil.Process().memory_info().rss / 1024**2
             curr, peak = tracemalloc.get_traced_memory()
-            print(curr, peak)
             mem_usage = curr / 1024**2
             self._cpu_usage.append(cpu_usage)
             self._mem_usage.append(mem_usage)

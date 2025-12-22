@@ -143,12 +143,12 @@ class ProjectorService:
                 if self._attr_current_cover_position >= 100:
                     self._attr_current_cover_position = 100
                     self._open_cover()
-                    print(f"action finished at {datetime.now().strftime('%F %T.%f')[:-3]}")
+                    self.logger.info("action finished at %s", datetime.now().strftime('%F %T.%f')[:-3])
                     break
                 if self._attr_current_cover_position <= 0:
                     self._attr_current_cover_position = 0
                     self._close_cover()
-                    print(f"action finished at {datetime.now().strftime('%F %T.%f')[:-3]}")
+                    self.logger.info("action finished at %s", datetime.now().strftime('%F %T.%f')[:-3])
                     break
                 self._update_attributes()
                 await asyncio.sleep(1)

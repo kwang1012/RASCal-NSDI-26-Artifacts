@@ -2787,8 +2787,8 @@ class RascalRescheduler:
         old_so = self._scheduler.serialization_order.clone()
         self._scheduler.metrics.inc_version()
         old_lt.visualize()
-        print("Serialization order:",
-              "->".join(key[-5:] for key in old_so))
+        # print("Serialization order:",
+        #       "->".join(key[-5:] for key in old_so))
 
         action_lock = old_lt.lock_queues[entity_id][action_id]
 
@@ -2860,8 +2860,8 @@ class RascalRescheduler:
                 self._rescheduler.get_immutable_serialization_order(
                     old_end_time)
             )
-            print("Immutable serialization order:",
-                  "->".join(key[:5] for key in immutable_serialization_order))
+            # print("Immutable serialization order:",
+            #       "->".join(key[:5] for key in immutable_serialization_order))
 
             LOGGER.debug(
                 "Immutable serialization order: %s",
@@ -2883,8 +2883,8 @@ class RascalRescheduler:
         elif self._resched_policy in (EARLY_START):
             new_lt = self._rescheduler.early_start()
         elif self._resched_policy in (SJFWO, SJFW, OPTIMALW, OPTIMALWO):
-            print("Rescheduling action:",
-                  f"{action_id.split('.')[0][:5]}.{action_id.split('.')[-1]}")
+            # print("Rescheduling action:",
+            #       f"{action_id.split('.')[0][:5]}.{action_id.split('.')[-1]}")
             affected_actions = self._rescheduler.affected_actions_after_len_diff(
                 entity_id, action_id, min(new_end_time, old_end_time)
             )
@@ -2894,8 +2894,8 @@ class RascalRescheduler:
                     "No affected source actions found, nothing to reschedule")
                 self._apply_schedule(old_lt, old_so)
                 return
-            print("Affected actions:", ", ".join(sorted(
-                f"{aid.split('.')[0][-5:]}.{aid.split('.')[-1]}" for aid in affected_actions)))
+            # print("Affected actions:", ", ".join(sorted(
+            #     f"{aid.split('.')[0][-5:]}.{aid.split('.')[-1]}" for aid in affected_actions)))
 
             self._rescheduler.deschedule_affected_actions(
                 set(affected_actions.keys())

@@ -176,16 +176,14 @@ class ThermostatService:
                 )
         interruption_moment = interruption_moment or 0.5
         self.logger.debug("Action length: %s", action_length)
-        # self.logger.debug("Interruption level: %s", interruption_level)
+        self.logger.debug("Interruption level: %s", interruption_level)
         self.logger.debug("Interruption time: %s", interruption_time)
         self.logger.debug("Interruption moment: %s", interruption_moment)
         self.logger.info("Transition from %s to %s at %s", start, target, datetime.now().strftime('%F %T.%f')[:-3])
         step = (target_temperature - self._attr_current_temperature) / action_length
-        step = -math.ceil(abs(step)) if step < 0 else math.ceil(step)
         middle = math.floor(action_length * interruption_moment)
         count = 0
         increasing = step > 0
-        print(step, increasing)
         try:
             while True:
                 if count == middle and interruption_level is not None:

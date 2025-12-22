@@ -1,6 +1,7 @@
 """The rasc abstraction."""
 from __future__ import annotations
 
+import os
 import asyncio
 from collections.abc import Callable, Coroutine
 from datetime import datetime, timedelta
@@ -70,7 +71,7 @@ from .log import set_logger
 
 _R = TypeVar("_R")
 LOGGER = set_logger("abstraction")
-LOGGER.setLevel(logging.DEBUG)
+LOGGER.setLevel(logging.DEBUG if os.environ.get("RASC_DEBUG") else logging.INFO)
 
 
 class RASCAbstraction:

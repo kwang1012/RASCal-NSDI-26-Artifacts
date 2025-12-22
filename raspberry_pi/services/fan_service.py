@@ -42,7 +42,6 @@ class FanService:
         if "system" in request:
             cmd_obj: dict = request["system"]
             if "get_sysinfo" in cmd_obj:
-                print(f"{self._state=}")
                 return {
                     "system": {
                         "get_sysinfo": {
@@ -71,7 +70,6 @@ class FanService:
         
         if FanService.SET_FAN_METHOD in cmd_obj:
             args = cmd_obj[FanService.SET_FAN_METHOD]
-            print(f"{self.entity_id}: {args}")
             if "preset_mode" in args:
                 self.set_preset_mode(args["preset_mode"])
             elif "percentage" in args:
@@ -87,7 +85,6 @@ class FanService:
             elif "oscillating" in args:
                 self.oscillate(args["oscillating"])
                 
-            print(f"{self._state=}")
             return {FanService.FAN_SERVICE: {FanService.SET_FAN_METHOD: "ok"}}
         else:
             return {FanService.FAN_SERVICE: {"err_code": "cmd not found"}}
@@ -137,7 +134,6 @@ class FanService:
         if percentage is None:
             percentage = 67
         self.set_percentage(percentage)
-        print(self._state)
 
     def turn_off(self, **kwargs: Any) -> None:
         """Turn off the entity."""

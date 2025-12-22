@@ -15,7 +15,7 @@ class VirtualDevice:
         return np.random.choice(self.rvs)
 
 
-def run(interruption_interval, datasets, uniform=False):
+def run(interruption_moment, interruption_interval, datasets, uniform=False):
     d = VirtualDevice(datasets)
     data = [
         426.6,
@@ -65,7 +65,8 @@ def run(interruption_interval, datasets, uniform=False):
     dist = get_best_distribution(data)
     worst_q = 30
     if uniform:
-        L = get_uniform_polls(dist.ppf(0.99), worst_case_delta=worst_q) # type: ignore
+        L = get_uniform_polls(
+            dist.ppf(0.99), worst_case_delta=worst_q)  # type: ignore
     else:
         L = get_polls(dist, worst_case_delta=worst_q, SLO=0.9)
     max_polls = len(L)
@@ -85,7 +86,8 @@ def run(interruption_interval, datasets, uniform=False):
                 # check if it is failed
                 if i >= max_polls:
                     if (
-                        action_length * 0.8 + interruption_length - L[max_polls - 1]
+                        action_length * interruption_moment +
+                            interruption_length - L[max_polls - 1]
                         > 2 * worst_q + 1
                     ):
                         failed_count += 1
@@ -108,24 +110,31 @@ def run(interruption_interval, datasets, uniform=False):
 
 def main():
     datasets = load_dataset(Device.THERMOSTAT)
-    result = {
-        "detection_time": [],
-        "failed_rate": [],
-        "max_polls": [],
-        "used_polls": [],
-    }
-    for interruption_level in range(0, 105, 5):
-        print(f"Interruption level: {interruption_level}")
-        failed_rate, max_polls, used_polls, detection_time = run(
-            interruption_level, datasets
-        )
-        result["detection_time"].append(detection_time)
-        result["failed_rate"].append(failed_rate)
-        result["max_polls"].append(max_polls)
-        result["used_polls"].append(used_polls)
+    results = {}
+    for interruption_moment in [0.5, 0.8, 0.9]:
+        print(f"=== Interruption moment: {interruption_moment} ===")
+        result = {
+            "detection_time": [],
+            "failed_rate": [],
+            "max_polls": [],
+            "used_polls": [],
+        }
+        for interruption_level in range(0, 105, 5):
+            print(f"Interruption level: {interruption_level}")
+            failed_rate, max_polls, used_polls, detection_time = run(
+                interruption_moment,
+                interruption_level,
+                datasets
+            )
+            result["detection_time"].append(detection_time)
+            result["failed_rate"].append(failed_rate)
+            result["max_polls"].append(max_polls)
+            result["used_polls"].append(used_polls)
+        results[f"interruption_{int(interruption_moment*100)}"] = result
 
-    with open("experiments/interruption_80.json", "w") as f:
-        json.dump(result, f)
+    with open("results/7_3_simulated.json", "w") as f:
+        json.dump(results, f)
+
 
 if __name__ == "__main__":
     main()

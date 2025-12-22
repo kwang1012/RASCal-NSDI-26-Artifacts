@@ -522,8 +522,6 @@ def output_locks(locks: dict[str, str | None], filepath: str) -> None:
     with open(fp, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2)
 
-    # print(json.dumps(out, indent=2))  # noqa: T201
-
 
 def output_wait_queues(wait_queue: Queue[str, WaitRoutineInfo], filepath: str) -> None:
     """Output wait queues."""
@@ -535,8 +533,6 @@ def output_wait_queues(wait_queue: Queue[str, WaitRoutineInfo], filepath: str) -
     out = {"Type": "Wait Queue", "Wait Queue": routines}
     with open(fp, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2)
-
-    # print(json.dumps(out, indent=2))  # noqa: T201
 
 
 def output_lock_waitlist(lock_waitlist: dict[str, list[str]], filepath: str) -> None:
@@ -638,8 +634,6 @@ def output_free_slots(
 #         action_list.append(entity_json)
 
 #     out = {"Routine_id": routine_id, "Actions": action_list}
-
-#     print(json.dumps(out, indent=2))  # noqa: T201
 
 
 def output_preset(preset: set[str], filepath: str) -> None:
@@ -1001,7 +995,7 @@ class LineageTable:
 
     def visualize(self, granularity=timedelta(seconds=0.5)) -> None:
         """Visualize the lock queues in a table format."""
-        print("Visualized Lineage Table:")
+        # print("Visualized Lineage Table:")
         # Find global time bounds
         filtered_lock_queues = {
             eid: lq for eid, lq in self._lock_queues.items() if len(lq) > 0
@@ -1035,7 +1029,7 @@ class LineageTable:
                         :7]  # truncate or pad action id
                     for i in range(start_idx + 1, end_idx):
                         line[i] = "-"
-            print(f"{entity_id:<10}: " + "".join(line))
+            # print(f"{entity_id:<10}: " + "".join(line))
 
     def duplicate(self) -> LineageTable:
         """Get a duplicate of the lineage table."""
@@ -1767,7 +1761,6 @@ class BaseScheduler:
 
         next_end_time: datetime | None = datetime.now()
         for _, script in enumerate(routine.action_script):
-            # print("script:", script)
             if not next_end_time:
                 return False, None
 
@@ -1812,7 +1805,6 @@ class BaseScheduler:
         lock_leasing_status: dict[str, str],
     ) -> tuple[bool, datetime | None]:
         """Scheudle the given routine with the given script."""
-        # print("script:", script)
         next_end_time: datetime | None = prev_end_time
 
         if CONF_PARALLEL in script:
@@ -2401,7 +2393,6 @@ class TimeLineScheduler(BaseScheduler):
         postset = set[str]()
 
         for _, script in enumerate(routine.action_script):
-            # print("script:", script)
             if (
                 CONF_PARALLEL not in script
                 and CONF_SEQUENCE not in script
@@ -2459,7 +2450,6 @@ class TimeLineScheduler(BaseScheduler):
         postset: set[str],
     ) -> tuple[bool, datetime, Optional[set[str]]]:
         """Schedule the given routine with the given script."""
-        # print("script:", script)
         next_end_time = prev_end_time
 
         if CONF_PARALLEL in script:

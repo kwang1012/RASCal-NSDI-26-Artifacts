@@ -258,7 +258,7 @@ def run_experiments(hass: HomeAssistant, rasc: RASCAbstraction):
         elif RASC_INTERRUPTION_EXPS in rasc.config and rasc.config[RASC_INTERRUPTION_EXPS]:
             # interruption
             key = "climate.rpi_device_thermostat,set_temperature,68,69"
-            for interruption_moment in [0.5, 0.8, 0.9]:
+            for interruption_moment in [0.5, 0.8]:
                 for i, level in enumerate(range(0, 105, 5)):
                     LOGGER.debug("RUN: %d, level=%d", i + 1, level)
                     avg_complete_time = np.mean(rasc.get_history(key))
@@ -385,6 +385,7 @@ def examine_final_state(hass: HomeAssistant, config: ConfigType):
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Set up the RASC component."""
 
+    LOGGER.info("RASC config: %s", config[DOMAIN])
     # cpu/memory measurement
 
     om = OverheadMeasurement(hass, config[DOMAIN])
@@ -418,7 +419,6 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     component = hass.data[DOMAIN] = RASCAbstraction(
         LOGGER, DOMAIN, hass, config[DOMAIN]
     )
-    LOGGER.debug("RASC config: %s", config[DOMAIN])
     scheduler = hass.data[DOMAIN_RASCALSCHEDULER] = RascalScheduler(
         hass, config[DOMAIN], result_dir
     )
@@ -436,7 +436,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             EVENT_HOMEASSISTANT_STARTED, setup_routine(hass, config)
         )
 
-    if RASC_INTERRUPTION_EXPS in config[DOMAIN]:
+    if RASC_INTERRUPTION_EXPS in config[DOMAIN] or RASC_DETECTION_TIME_EXPS in config[DOMAIN]:
         hass.bus.async_listen_once(
             EVENT_HOMEASSISTANT_STARTED, run_experiments(hass, component)
         )

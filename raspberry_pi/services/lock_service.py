@@ -82,7 +82,6 @@ class LockService:
             return {LockService.LOCK_SERVICE: {"get_lock_state": self._state}}
         if LockService.SET_LOCK_METHOD in cmd_obj:
             args = cmd_obj[LockService.SET_LOCK_METHOD]
-            print(f"{self.entity_id}: {args}")
             if args["on_off"] == 1:
                 self.lock(**args)
             elif args["on_off"] == 0:

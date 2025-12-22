@@ -2,6 +2,12 @@
 
 The experiments in the papers use multiple Raspberry PIs and real devices. For the reproducability purpose, in this repo we simulate all the devices in a single node setting.
 
+### TODOs
+- [ ] 7_1 parsing script
+- [ ] 7_3 deployed parsing script
+- [ ] 7_4
+
+
 ### 1. Setup Environment
 We use [uv](https://docs.astral.sh/uv/getting-started/installation/) to manage Python environment.
 

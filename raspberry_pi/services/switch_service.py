@@ -58,7 +58,6 @@ class SwitchService:
             return {SwitchService.SWITCH_SERVICE: {"get_switch_state": self._state}}
         if SwitchService.SET_SWITCH_METHOD in cmd_obj:
             args = cmd_obj[SwitchService.SET_SWITCH_METHOD]
-            print(f"{self.entity_id}: {args}")
             if args["on_off"] == 1:
                 self.turn_on(**args)
             elif args["on_off"] == 0:

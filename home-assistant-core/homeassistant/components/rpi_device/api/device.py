@@ -110,7 +110,7 @@ class RaspberryPiDevice:
             )
 
         if ":" not in mac:
-            mac = ":".join(format(s, "02x") for s in bytes.fromhex(mac[2:]))
+            mac = ":".join(format(s, "02x") for s in bytes.fromhex(mac[2:].zfill(12)))
 
         return mac
 
