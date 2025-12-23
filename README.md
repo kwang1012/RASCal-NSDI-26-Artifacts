@@ -19,10 +19,10 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ./scripts/setup.sh
 ```
 
-### 2. Run the examples
-The examples are under folder `examples`. You confirm the environment has been created successfully, run:
+### 2. Run the example
+You confirm the environment has been created successfully, run:
 ```bash
-./examples/rasc.sh
+./hello_world.sh
 ```
 
 ### 3. Reproduce the results

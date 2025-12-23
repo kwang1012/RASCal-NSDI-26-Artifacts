@@ -9,21 +9,11 @@ scheduling_policy: tl # from tl, jit, fcfs, fcfs_post
 rescheduling_policy: sjfw # from sjfw, sjfwo, optimalw, optimalwo, rv, early_start, none
 rescheduling_trigger: proactive # from reactive, anticipatory, proactive
 optimal_schedule_metric: "min_avg_rtn_latency"
-# action_start_method: time
-# from min_length, min_avg_rtn_wait_time, min_p95_rtn_wait_time,
-# min_avg_rtn_latency, min_p95_rtn_latency, min_rtn_exect_time_std_dev,
-# min_avg_idle_time, min_p95_idle_time,
-# max_avg_parallelism, max_p05_parallelism
 rescheduling_window: 30
 routine_priority_policy: earliest # from shortest, longest, earliest, latest
-# record_results: false
-routine_arrival_filename: arrival_large.csv
+routine_arrival_filename: arrival_all.csv
 routine_setup_filename: !include routine_setup.yaml
 rasc_history_filename: rasc_history_exp.json
-# rescheduling_estimation: true
-# rescheduling_accuracy: "reschedule_all"
-# mthresh: 1
-# mithresh: 2
 overhead_measurement: true
-action_length_estimation: mean # mean, p50, p70, p80, p90, p95, p99
+action_length_estimation: p99 # mean, p50, p70, p80, p90, p95, p99
 do_comparison: false

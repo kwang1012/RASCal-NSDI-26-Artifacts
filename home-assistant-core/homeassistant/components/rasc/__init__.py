@@ -348,6 +348,8 @@ async def setup_routine(hass: HomeAssistant, config: ConfigType):
         print("Setup routine completed")
         hass.bus.async_fire("rasc_routine_setup")
 
+    if os.environ.get("RASC_IS_EXAMPLE"):
+        hass.stop()
 
 def examine_final_state(hass: HomeAssistant, config: ConfigType):
     routine_setup_conf = config[DOMAIN]["routine_setup_filename"]
@@ -432,7 +434,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     await component.async_load()
 
-    if config[DOMAIN].get(OVERHEAD_MEASUREMENT):
+    if config[DOMAIN].get("routine_setup_filename"):
         hass.bus.async_listen_once(
             EVENT_HOMEASSISTANT_STARTED, setup_routine(hass, config)
         )

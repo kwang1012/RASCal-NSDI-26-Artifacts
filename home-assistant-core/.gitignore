@@ -1,8 +1,6 @@
-config*/*
-!config*/automations.yaml
-!config*/configuration.yaml
-!config*/rasc.yaml
-!config*/routine_setup.yaml
+/config*/*
+!/config/configuration.yaml
+!/config/rasc.yaml
 
 tests/testing_config/deps
 tests/testing_config/home-assistant.log*

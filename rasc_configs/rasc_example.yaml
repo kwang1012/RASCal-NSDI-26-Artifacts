@@ -1,0 +1,9 @@
+enabled: true
+climate:
+  worst_q: 30
+  slo: 0.9
+cover:
+  worst_q: 1
+  slo: 0.9
+rasc_history_filename: rasc_history_exp.json
+routine_setup_filename: !include routine_setup.yaml
