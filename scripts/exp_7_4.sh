@@ -20,7 +20,7 @@ do
     # 2. Start home assistant
     cd home-assistant-core
     source .venv/bin/activate
-    rm ./logs/7_4_logs/home_assistant_${estimations[$i]}.log
+    rm ../logs/7_4_logs/home_assistant_${estimations[$i]}.log
     mkdir -p ./config_tmp
     cp ../rasc_configs/automations.yaml ./config_tmp/automations.yaml
     cp ../rasc_configs/configuration.yaml ./config_tmp/configuration.yaml
@@ -45,7 +45,7 @@ rm logs/7_4_baseline_logs/*.log
 # 2. Start home assistant
 cd home-assistant-core
 source .venv/bin/activate
-rm ./logs/7_4_logs/home_assistant_baseline.log
+rm ../logs/7_4_logs/home_assistant_baseline.log
 mkdir -p ./config_tmp
 cp ../rasc_configs/automations.yaml ./config_tmp/automations.yaml
 cp ../rasc_configs/configuration.yaml ./config_tmp/configuration.yaml
@@ -59,7 +59,7 @@ pkill -f "uv run -m raspberry_pi.run_service"
 
 # 2. Scheduling performance
 echo "Running scheduling performance experiments"
-scheduling_policies=(jit rv sjfw fcfs fcfs_post)
+scheduling_policies=(jit fcfs fcfs_post rv sjfw)
 
 for i in ${!scheduling_policies[@]}
 do
@@ -74,7 +74,7 @@ do
     # 2. Start home assistant
     cd home-assistant-core
     source .venv/bin/activate
-    rm .,/logs/7_4_logs/home_assistant_${scheduling_policies[$i]}.log
+    rm ../logs/7_4_logs/home_assistant_${scheduling_policies[$i]}.log
     mkdir -p ./config_tmp
     cp ../rasc_configs/automations.yaml ./config_tmp/automations.yaml
     cp ../rasc_configs/configuration.yaml ./config_tmp/configuration.yaml
@@ -98,7 +98,7 @@ done
 # # 2. Start home assistant
 # cd home-assistant-core
 # source .venv/bin/activate
-# rm ./logs/7_4_logs/home_assistant_scalability.log
+# rm ../logs/7_4_logs/home_assistant_scalability.log
 # mkdir -p ./config_tmp
 # cp ../rasc_configs/automations_large.yaml ./config_tmp/automations.yaml
 # cp ../rasc_configs/configuration.yaml ./config_tmp/configuration.yaml

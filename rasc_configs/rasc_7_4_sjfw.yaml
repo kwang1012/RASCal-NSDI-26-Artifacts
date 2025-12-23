@@ -17,3 +17,4 @@ rasc_history_filename: rasc_history_exp.json
 overhead_measurement: true
 action_length_estimation: mean # mean, p50, p70, p80, p90, p95, p99
 do_comparison: false
+record_results: true

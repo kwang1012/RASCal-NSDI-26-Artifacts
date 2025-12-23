@@ -2601,7 +2601,7 @@ class RascalScheduler(BaseScheduler):
     """A class for rascal scheduler."""
 
     def __init__(
-        self, hass: HomeAssistant, config: ConfigType, result_dir: str
+        self, hass: HomeAssistant, config: ConfigType
     ) -> None:
         """Initialize rascal scheduler."""
         self._hass = hass
@@ -2618,10 +2618,10 @@ class RascalScheduler(BaseScheduler):
             Callable[[Event], Coroutine[Any, Any, None]]
         ] = None
         self._metrics = ScheduleMetrics(
-            config[CONF_RESCHEDULING_POLICY], result_dir)
+            config[CONF_RESCHEDULING_POLICY], result_dir=config.get("results_dir"))
         self._record_results = config[CONF_RECORD_RESULTS]
         if self._record_results:
-            self._result_dir = result_dir
+            self._result_dir = config["results_dir"]
         self.action_start_method: str = config[CONF_ACTION_START_METHOD]
         self._hass.bus.async_listen(RASC_RESPONSE, self.handle_event)
 
@@ -3439,7 +3439,8 @@ class RascalScheduler(BaseScheduler):
                         ATTR_ENTITY_ID: entity_id,
                     }
                     event = Event("", event_data, time_fired=datetime.now())
-                    await self._reschedule_handler(event)
+                    if self._reschedule_handler:
+                        await self._reschedule_handler(event)
             await asyncio.sleep(0.1)
 
         action.start_requested = True
@@ -3519,17 +3520,18 @@ class RascalScheduler(BaseScheduler):
                 #     self._lineage_table.free_slots[entity_id],
                 #     entity_id,
                 # )
-                await self._reschedule_handler(
-                    Event(
-                        "",
-                        {
-                            CONF_TYPE: SCHEDULE_START,
-                            ATTR_ACTION_ID: action.action_id,
-                            ATTR_ENTITY_ID: entity_id,
-                        },
-                        time_fired=datetime.now(),
+                if self._reschedule_handler:
+                    await self._reschedule_handler(
+                        Event(
+                            "",
+                            {
+                                CONF_TYPE: SCHEDULE_START,
+                                ATTR_ACTION_ID: action.action_id,
+                                ATTR_ENTITY_ID: entity_id,
+                            },
+                            time_fired=datetime.now(),
+                        )
                     )
-                )
 
             action.start_requested = True
             self._hass.async_create_task(
@@ -3748,7 +3750,7 @@ class RascalScheduler(BaseScheduler):
 
             if event_type == RASC_COMPLETE:
                 self._metrics.record_action_end(
-                    event.time_fired, entity_id, action_id)
+                    datetime.now(), entity_id, action_id)
 
             if self._reschedule_handler is not None:
                 self.remove_time_slots_before_now(
@@ -3785,7 +3787,7 @@ class RascalScheduler(BaseScheduler):
             elif event_type == RASC_START:
                 if not self.is_action_start(action, entity_id):
                     self._metrics.record_action_start(
-                        event.time_fired, entity_id, action_id
+                        datetime.now(), entity_id, action_id
                     )
 
                     # update the action state
@@ -3823,7 +3825,7 @@ class RascalScheduler(BaseScheduler):
                 if not self.is_action_complete(action, entity_id):
                     if not self.is_action_start(action, entity_id):
                         self._metrics.record_action_start(
-                            event.time_fired, entity_id, action_id
+                            datetime.now(), entity_id, action_id
                         )
                         _LOGGER.debug(
                             "Action %s on entity %s is started", action_id, entity_id

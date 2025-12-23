@@ -2,6 +2,7 @@ import json
 from typing import Any
 from datetime import datetime
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def _parse_ha(ha_lines):
     runs = []
@@ -168,7 +169,7 @@ def parse_result():
     with open(f"results/7_1.json", "w") as f:
         json.dump(results, f, indent=4)
         
-    fig, ax = plt.subplots(figsize=(9, 4))
+    fig, ax = plt.subplots(figsize=(8, 3))
 
     # Plot adaptive (blue dots)
     for label, stats in results["rasc"].items():

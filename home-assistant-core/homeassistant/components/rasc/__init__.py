@@ -175,7 +175,7 @@ CONFIG_SCHEMA = vol.Schema(
                 vol.Optional(
                     CONF_ROUTINE_ARRIVAL_FILENAME, default="arrival_debug.csv"
                 ): cv.string,
-                vol.Optional(CONF_RECORD_RESULTS, default=True): cv.boolean,
+                vol.Optional(CONF_RECORD_RESULTS, default=False): cv.boolean,
                 vol.Optional(RESCHEDULING_ESTIMATION, default=True): cv.boolean,
                 vol.Optional(RESCHEDULING_ACCURACY, default=RESCHEDULE_ALL): vol.In(
                     supported_rescheduling_accuracies
@@ -291,12 +291,15 @@ def run_experiments(hass: HomeAssistant, rasc: RASCAbstraction):
     return wrapper
 
 
-def _create_result_dir() -> str:
+def _create_result_dir(config: ConfigType) -> str:
     """Create the result directory."""
     if not os.path.exists(CONF_RESULTS_DIR):
         os.mkdir(CONF_RESULTS_DIR)
 
-    result_dirname = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
+    result_dirname = config[CONF_ROUTINE_ARRIVAL_FILENAME].split(
+        ".")[0] + f"_{config[CONF_SCHEDULING_POLICY]}"
+    if config[CONF_RESCHEDULING_POLICY] != "none":
+        result_dirname += f"_{config[CONF_RESCHEDULING_POLICY]}"
     result_dirpath = os.path.join(CONF_RESULTS_DIR, result_dirname)
     if os.path.isdir(result_dirpath):
         shutil.rmtree(result_dirpath)
@@ -350,6 +353,7 @@ async def setup_routine(hass: HomeAssistant, config: ConfigType):
 
     if os.environ.get("RASC_IS_EXAMPLE"):
         hass.stop()
+
 
 def examine_final_state(hass: HomeAssistant, config: ConfigType):
     routine_setup_conf = config[DOMAIN]["routine_setup_filename"]
@@ -409,12 +413,14 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         )
         return True
 
-    result_dir = _create_result_dir()
-    _save_rasc_configs(config[DOMAIN], result_dir)
+    if config[DOMAIN][CONF_RECORD_RESULTS]:
+        config[DOMAIN]["results_dir"] = result_dir = _create_result_dir(
+            config[DOMAIN])
+        _save_rasc_configs(config[DOMAIN], result_dir)
 
     rasc_history_conf = config[DOMAIN].get("rasc_history_filename")
     path = "homeassistant/components/rasc/datasets"
-    
+
     storage_path = f"{hass.config.config_dir}/.storage"
     if rasc_history_conf:
         shutil.copy(os.path.join(path, rasc_history_conf), storage_path)
@@ -423,11 +429,11 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         LOGGER, DOMAIN, hass, config[DOMAIN]
     )
     scheduler = hass.data[DOMAIN_RASCALSCHEDULER] = RascalScheduler(
-        hass, config[DOMAIN], result_dir
+        hass, config[DOMAIN]
     )
     if config[DOMAIN][CONF_RESCHEDULING_POLICY] != NONE:
         hass.data[DOMAIN_RASCALRESCHEDULER] = RascalRescheduler(
-            hass, scheduler, config[DOMAIN], result_dir
+            hass, scheduler, config[DOMAIN]
         )
 
     hass.data["rasc_events"] = []

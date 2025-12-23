@@ -9,6 +9,7 @@ import json
 import logging
 from logging import Logger
 import math
+import os
 import sys
 import time
 import tracemalloc
@@ -98,6 +99,7 @@ class OverheadMeasurement:
     def stop(self) -> None:
         """Stop the measurement."""
         self._terminate_flag.set()
+        os.makedirs("results", exist_ok=True)
         with open("results/" + str(self) + ".json", "w", encoding="utf-8") as f:
             json.dump(
                 {

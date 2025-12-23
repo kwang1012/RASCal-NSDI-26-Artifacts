@@ -79,7 +79,7 @@ class ScheduleMetrics:
             result_dir: The directory to save the schedule metrics.
             sm: A `ScheduleMetrics` object to copy from.
         """
-        if rescheduling_policy and result_dir:
+        if rescheduling_policy:
             self._rescheduling_policy = rescheduling_policy
             self._result_dir = result_dir
             self._version = 0
@@ -699,6 +699,8 @@ class ScheduleMetrics:
 
     def save_metrics(self, final: bool = False) -> None:
         """Save the schedule metrics to a file."""
+        if not self._result_dir:
+            return
         if final:
             filename = "schedule_metrics"
         else:

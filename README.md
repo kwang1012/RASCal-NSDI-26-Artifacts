@@ -1,9 +1,9 @@
 # RASCal NSDI'26 Artifacts
 
-The experiments in the papers use multiple Raspberry PIs and real devices. For the reproducability purpose, in this repo we simulate all the devices in a single node setting. Due to some dependencies of home assistant, the published code can only run on Linux machine.
+The experiments in the papers use multiple Raspberry PIs and real devices. For the reproducability purpose, in this repo we simulate all the devices in a single node setting. Due to some dependencies of home assistant, the published code can only run on Linux machines.
 
 ### TODOs
-- [ ] 7_4
+- [ ] Fix 7.4 experiments bugs
 
 
 ### 1. Setup Environment
@@ -20,7 +20,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ### 2. Run the example
-You confirm the environment has been created successfully, run:
+You can confirm the environment has been created successfully, by running:
 ```bash
 ./hello_world.sh
 ```

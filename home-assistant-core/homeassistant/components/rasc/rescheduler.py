@@ -2658,7 +2658,6 @@ class RascalRescheduler:
         hass: HomeAssistant,
         scheduler: RascalScheduler,
         config: ConfigType,
-        result_dir: str,
     ) -> None:
         """Initialize the rescheduler."""
         self._hass = hass
@@ -2690,7 +2689,7 @@ class RascalRescheduler:
         }
         self._record_results = config[CONF_RECORD_RESULTS]
         if self._record_results:
-            self._result_dir = result_dir
+            self._result_dir = config["results_dir"]
         if self._estimation:
             self._mthresh: float = config["mthresh"]
             self._mithresh: float = config["mithresh"]
