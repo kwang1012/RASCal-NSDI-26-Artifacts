@@ -2491,6 +2491,14 @@
           426.7052783737744
         ]
       },
+      "climate.rpi_device_thermostat,set_temperature,69,68": {
+        "st_history": [
+          0
+        ],
+        "ct_history": [
+          1
+        ]
+      },
       "cover.rpi_device_shade,open_cover,0": {
         "st_history": [
           0.00006318092346191406,

@@ -1,21 +1,31 @@
 # RASCal NSDI'26 Artifacts
 
-The experiments in the papers use multiple Raspberry PIs and real devices. For the reproducability purpose, in this repo we simulate all the devices in a single node setting.
+The experiments in the papers use multiple Raspberry PIs and real devices. For the reproducability purpose, in this repo we simulate all the devices in a single node setting. Due to some dependencies of home assistant, the published code can only run on Linux machine.
 
 ### TODOs
-- [ ] 7_1 parsing script
-- [ ] 7_3 deployed parsing script
 - [ ] 7_4
 
 
 ### 1. Setup Environment
 We use [uv](https://docs.astral.sh/uv/getting-started/installation/) to manage Python environment.
 
+**(Optional) To install uv**
+```
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+**To setup the dependencies**
 ```bash
 ./scripts/setup.sh
 ```
 
-### 2. Reproduce the results
+### 2. Run the examples
+The examples are under folder `examples`. You confirm the environment has been created successfully, run:
+```bash
+./examples/rasc.sh
+```
+
+### 3. Reproduce the results
 
 To start the experiments included in the papers, please run the scripts under `scripts` folder. The results will be saved to `results`.
 

@@ -19,9 +19,15 @@ class ColorfulFormatter(logging.Formatter):
         logging.ERROR: red + FORMAT + reset,
         logging.CRITICAL: bold_red + FORMAT + reset
     }
+    
+    def __init__(self, colorful: bool = True):
+        self.colorful = colorful
 
     def format(self, record):
-        log_fmt = self.FORMATS.get(record.levelno)
+        if self.colorful:
+            log_fmt = self.FORMATS.get(record.levelno)
+        else:
+            log_fmt = self.FORMAT
         formatter = logging.Formatter(log_fmt)
         return formatter.format(record)
 
@@ -36,6 +42,6 @@ def get_logger(name: str, log_dir: str | None = None) -> logging.Logger:
         if log_dir is None:
             log_dir = './logs'
         ch = logging.FileHandler(f'{log_dir}/{name}.log')
-        ch.setFormatter(ColorfulFormatter())
+        ch.setFormatter(ColorfulFormatter(colorful=False))
         logger.addHandler(ch)
     return logger

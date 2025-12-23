@@ -1,7 +1,7 @@
 import json
 from typing import Any
-from dateutil.parser import parse
-
+from datetime import datetime
+import matplotlib.pyplot as plt
 
 def _parse_ha(ha_lines):
     runs = []
@@ -33,8 +33,9 @@ def _parse_ha(ha_lines):
                 "# polls used:"):].strip().strip("\x1b[0m\n").split(",")
             current_run["down_complete"]["used"] = int(
                 used_str[used_str.find("# polls used:") + len("# polls used:"):]) - 1
-            current_run["down_complete"]["time"] = parse(  # type: ignore
-                time_str[time_str.find("current_time:") + len("current_time:"):])
+            ts = time_str[time_str.find("current_time:") + len("current_time:"):]
+            current_run["down_complete"]["time"] = datetime.strptime(  # type: ignore
+                ts.strip(), "%Y-%m-%d %H:%M:%S.%f")
             runs.append(current_run)
             current_run = None
         elif "# polls used" in line and current_run and current_run["status"] == "up_complete":
@@ -42,29 +43,27 @@ def _parse_ha(ha_lines):
                 "# polls used:"):].strip().strip("\x1b[0m\n").split(",")
             current_run["up_complete"]["used"] = int(
                 used_str[used_str.find("# polls used:") + len("# polls used:"):]) - 1
-            current_run["up_complete"]["time"] = parse(  # type: ignore
-                time_str[time_str.find("current_time:") + len("current_time:"):])
+            ts = time_str[time_str.find("current_time:") + len("current_time:"):]
+            current_run["up_complete"]["time"] = datetime.strptime(  # type: ignore
+                ts.strip(), "%Y-%m-%d %H:%M:%S.%f")
 
     return runs
-
 
 def _parse_device(device_lines):
     runs = []
     current_run: dict[str, Any] | None = None
     for line in device_lines:
         line = line.strip()
-        if "Transition from 68 to 69" in line and current_run is None:
-            current_run = {}
-        elif "Transition open starts" in line and current_run is None:
+        if current_run is None and ("Transition from 68 to 69" in line or "Transition open starts" in line):
             current_run = {"status": "up"}
-        elif current_run is not None and current_run["status"] == "up" and "action finished at" in line:
-            current_run["up_time"] = parse(
-                line[line.find("action finished at") + len("action finished at"):])
-        elif "Transition close starts" in line and current_run:
+        elif current_run is not None and current_run["status"] in ("up", "start") and "action finished at" in line:
+            ts = line[line.find("action finished at") + len("action finished at"):].strip()
+            current_run["up_time"] = datetime.strptime(ts, "%Y-%m-%d %H:%M:%S.%f")
+        elif current_run and ("Transition close starts" in line or "Transition from 69 to 68" in line):
             current_run["status"] = "down"
         elif "action finished at" in line and current_run and current_run["status"] == "down":
-            current_run["down_time"] = parse(
-                line[line.find("action finished at") + len("action finished at"):])
+            ts = line[line.find("action finished at") + len("action finished at"):].strip()
+            current_run["down_time"] = datetime.strptime(ts, "%Y-%m-%d %H:%M:%S.%f")
             runs.append(current_run)
             current_run = None
 
@@ -85,7 +84,6 @@ def _parse(ha_runs, device_runs, up=True):
         additional_polls = max(
             0, ha_run[ha_key]["used"] - ha_run[ha_key]["max"])
         max_polls = ha_run[ha_key]["max"]
-        # print(f"{detection_time}, {polls}, {additional_polls}, {max_polls}")
         detection_times.append(detection_time)
         polls_list.append(polls)
         additional_polls_list.append(additional_polls)
@@ -106,7 +104,7 @@ def _partition_ha_lines(ha_lines):
 
     current_section = None
     for line in ha_lines:
-        if "door.rpi_device_door" in line:
+        if "cover.rpi_device_door" in line:
             current_section = "door"
         elif "climate.rpi_device_thermostat" in line:
             current_section = "thermostat"
@@ -123,7 +121,7 @@ def _partition_ha_lines(ha_lines):
     return door_lines, thermostat_lines, shade_lines
 
 
-def parse_result(polling_strategy):
+def _parse_result(polling_strategy):
 
     # the action sequence:
     # 1. door.open/door.close
@@ -155,17 +153,57 @@ def parse_result(polling_strategy):
     shade_ha_runs = _parse_ha(shade_ha_lines)
     shade_runs = _parse_device(shade_lines)
     return {
-        "door.open": _parse(door_ha_runs, door_runs),
-        "door.close": _parse(door_ha_runs, door_runs, False),
-        "thermostat.set_temperature": _parse(thermostat_ha_runs, thermostat_runs),
-        "shade.up": _parse(shade_ha_runs, shade_runs),
-        "shade.down": _parse(shade_ha_runs, shade_runs, False)
+        "door open": _parse(door_ha_runs, door_runs),
+        "door close": _parse(door_ha_runs, door_runs, False),
+        "thermostat": _parse(thermostat_ha_runs, thermostat_runs),
+        "shade up": _parse(shade_ha_runs, shade_runs),
+        "shade down": _parse(shade_ha_runs, shade_runs, False)
     }
 
+def parse_result():
+    results = {}
+    for strategy in ["uniform", "rasc", "vopt"]:
+        result = _parse_result(strategy)
+        results[strategy] = result
+    with open(f"results/7_1.json", "w") as f:
+        json.dump(results, f, indent=4)
+        
+    fig, ax = plt.subplots(figsize=(9, 4))
 
-results = {}
-for strategy in ["uniform", "rasc", "vopt"]:
-    result = parse_result(strategy)
-    results[strategy] = result
-with open(f"results/7_1_result.json", "w") as f:
-    json.dump(results, f, indent=4)
+    # Plot adaptive (blue dots)
+    for label, stats in results["rasc"].items():
+        avg_detection_time = sum(stats["detection_times"]) / len(stats["detection_times"])
+        avg_polls = sum(stats["polls_list"]) / len(stats["polls_list"])
+        x = avg_polls
+        y = avg_detection_time
+        ax.scatter(x, y, color="blue", s=40)
+        ax.text(x * 1.01, y * 1.01, label, fontsize=14)
+
+    # Plot periodic (red x)
+    for label, stats in results["uniform"].items():
+        avg_detection_time = sum(stats["detection_times"]) / len(stats["detection_times"])
+        avg_polls = sum(stats["polls_list"]) / len(stats["polls_list"])
+        x = avg_polls
+        y = avg_detection_time
+        ax.scatter(x, y, color="red", marker="x", s=60)
+        ax.text(x * 1.01, y * 1.01, label, fontsize=14)
+
+    # Log scales
+    ax.set_xscale("log")
+    ax.set_yscale("log")
+
+    # Labels
+    ax.set_xlabel("# Used Polls", fontsize=16)
+    ax.set_ylabel("Detection Time (s)", fontsize=16)
+
+    # Grid
+    ax.grid(True, which="major", linestyle="-", linewidth=0.5)
+
+    # # Legend
+    ax.scatter([], [], color="blue", label="adaptive")
+    ax.scatter([], [], color="red", marker="x", label="periodic")
+    ax.legend(fontsize=14)
+
+    fig.savefig("results/7_1.pdf", bbox_inches="tight")
+
+parse_result()

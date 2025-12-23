@@ -88,6 +88,10 @@ class DeviceServer:
         if args.device == "climate":
             args.device = "thermostat"
         
+        # convert shade.xxx to cover.xxx to match home assistant naming
+        if args.entity_id.startswith("shade."):
+            args.entity_id = args.entity_id.replace("shade.", "cover.")
+        
         config = DeviceServerConfig(
             host=args.host,
             port=args.port,

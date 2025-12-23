@@ -259,8 +259,9 @@ def run_experiments(hass: HomeAssistant, rasc: RASCAbstraction):
             # interruption
             key = "climate.rpi_device_thermostat,set_temperature,68,69"
             for interruption_moment in [0.5, 0.8]:
-                for i, level in enumerate(range(0, 105, 5)):
-                    LOGGER.debug("RUN: %d, level=%d", i + 1, level)
+                LOGGER.info("Interruption moment: %.2f", interruption_moment)
+                for level in range(0, 105, 5):
+                    LOGGER.info("Interruption level=%d", level)
                     avg_complete_time = np.mean(rasc.get_history(key))
                     interruption_time = avg_complete_time * level * 0.01
                     a_coro, s_coro, c_coro = hass.services.rasc_call(
@@ -275,7 +276,7 @@ def run_experiments(hass: HomeAssistant, rasc: RASCAbstraction):
                     await a_coro
                     await s_coro
                     await c_coro
-                    LOGGER.debug("complete!68->69")
+                    LOGGER.info("complete!68->69")
                     a_coro, s_coro, c_coro = hass.services.rasc_call(
                         "climate",
                         "set_temperature",
@@ -284,7 +285,7 @@ def run_experiments(hass: HomeAssistant, rasc: RASCAbstraction):
                     await a_coro
                     await s_coro
                     await c_coro
-                    LOGGER.debug("complete!69->68")
+                    LOGGER.info("complete!69->68")
         hass.stop()
 
     return wrapper

@@ -6,6 +6,7 @@ climate:
 cover:
   worst_q: 1
   slo: 0.9
+rasc_history_filename: rasc_history_exp.json
 detection_time_exps:
   - entity_id: cover.rpi_device_door
     action:

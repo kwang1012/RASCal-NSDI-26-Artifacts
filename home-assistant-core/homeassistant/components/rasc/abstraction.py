@@ -71,7 +71,8 @@ from .log import set_logger
 
 _R = TypeVar("_R")
 LOGGER = set_logger("abstraction")
-LOGGER.setLevel(logging.DEBUG if os.environ.get("RASC_DEBUG") else logging.INFO)
+LOGGER.setLevel(logging.DEBUG if os.environ.get(
+    "RASC_DEBUG") else logging.INFO)
 
 
 class RASCAbstraction:
@@ -471,6 +472,7 @@ class StateDetector:
                 "Only one data in history, polling exactly on that moment.")
             self._polls = [history[0]]
             self._attr_upper_bound = None
+            LOGGER.debug("Max polls: 1")
             return
 
         # TODO: put this in bg # pylint: disable=fixme
@@ -487,7 +489,8 @@ class StateDetector:
                     dist, worst_case_delta=self._worst_Q, SLO=self._slo, use_vopt=use_vopt
                 )
             except Exception as e:
-                LOGGER.warning("Failed to get polls, use uniform polling. Error: %s", e)
+                LOGGER.warning(
+                    "Failed to get polls, use uniform polling. Error: %s", e)
                 self._polls = get_uniform_polls(
                     self._attr_upper_bound, worst_case_delta=self._worst_Q
                 )
@@ -1001,7 +1004,6 @@ class RASCStore:
         async with self._init_lock:
             if (data := await self._store.async_load()) is None:
                 data = cast(dict[str, dict[str, dict[str, list[float]]]], {})
-
             self.histories = {
                 key: RASCHistory(**hist)
                 for key, hist in data.get("history", {}).items()

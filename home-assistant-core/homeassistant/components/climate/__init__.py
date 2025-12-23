@@ -611,7 +611,6 @@ class ClimateEntity(Entity):
         ) -> Callable[[float], bool]:
             @rasc_target_state(target_complete_state)
             def match(value: float) -> bool:
-                print(f"current: {current}, target_complete_state: {target_complete_state}")
                 if current is None:
                     if target_complete_state > self._attr_min_temp:
                         return value == self._attr_min_temp
