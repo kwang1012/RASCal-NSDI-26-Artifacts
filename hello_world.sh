@@ -15,8 +15,8 @@ mkdir -p ./config_tmp
 cp ../rasc_configs/automations.yaml ./config_tmp/automations.yaml
 cp ../rasc_configs/configuration.yaml ./config_tmp/configuration.yaml
 cp ../rasc_configs/routine_setup.yaml ./config_tmp/routine_setup.yaml
-cp ../rasc_configs/rasc_example.yaml ./config_tmp/rasc.yaml
-RASC_IS_EXAMPLE=1 hass -c ./config_tmp
+cp ../rasc_configs/rasc_sched_example.yaml ./config_tmp/rasc.yaml
+hass -c ./config_tmp
 rm -rf ./config_tmp
 deactivate
 cd ..

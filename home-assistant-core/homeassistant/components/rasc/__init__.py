@@ -399,7 +399,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     def handle_measurement_stop(event):
         om.stop()
-        examine_final_state(hass, config)
+        # examine_final_state(hass, config)
         hass.stop()
 
     hass.bus.async_listen_once("rasc_measurement_start", lambda _: om.start())

@@ -4,7 +4,7 @@ from __future__ import annotations
 import asyncio
 from collections.abc import Callable, Coroutine, Sequence
 import copy
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from functools import cmp_to_key
 import json
 import logging
@@ -3495,12 +3495,13 @@ class RascalScheduler(BaseScheduler):
                               action.action_id)
                 return
 
-            if action_lock.start_time > datetime.now():
+            now = datetime.now(timezone.utc)
+            if action_lock.start_time.astimezone(timezone.utc) > now:
                 _LOGGER.warning(
                     "Action %s's start time hasn't come. start time: %s, now: %s",
                     action.action_id,
                     datetime_to_string(action_lock.start_time),
-                    datetime_to_string(datetime.now()),
+                    datetime_to_string(now),
                 )
 
             start_st = datetime.now()
