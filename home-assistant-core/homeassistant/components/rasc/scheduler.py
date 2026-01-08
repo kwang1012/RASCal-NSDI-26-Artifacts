@@ -970,7 +970,7 @@ class LineageTable:
     @property
     def consistent_free_slots(self) -> dict[str, Queue[datetime, datetime]]:
         """Get free slots consistent to lock queue."""
-        current_time = self.last_removed_time or datetime.now()
+        current_time = self.last_removed_time or datetime.now(timezone.utc)
         free_slots = {}
         for entity_id, lock_queue in self._lock_queues.items():
             free_slots[entity_id] = Queue[datetime, datetime]()
@@ -1000,36 +1000,57 @@ class LineageTable:
         filtered_lock_queues = {
             eid: lq for eid, lq in self._lock_queues.items() if len(lq) > 0
         }
-        min_time = min(action_info.start_time for queue in filtered_lock_queues.values()
+        min_time = min(action_info.start_time.astimezone(timezone.utc) for queue in filtered_lock_queues.values()
                        for action_info in queue.values())
-        max_time = max(action_info.end_time for queue in filtered_lock_queues.values()
+        max_time = max(action_info.end_time.astimezone(timezone.utc) for queue in filtered_lock_queues.values()
                        for action_info in queue.values())
+        # print(f"Time range: {min_time} to {max_time}")
 
-        total_slots = int(
-            (max_time - min_time) / granularity) + 1
+        slot_width = 7  # characters per time slot
+        slots_per_line = 30  # number of time slots per line
+        line_title_width = 30  # characters for the entity id column
+        # total_slots = int(
+        #     (max_time - min_time) / granularity) + 1
         # time_labels = [
         #     min_time + i * granularity for i in range(total_slots)]
         # header = "Time:     " + \
         #     " ".join(t.strftime("%H:%M:%S") for t in time_labels)
         # print(header)
 
-        # # Step 3: Render each row
+        # Prepare lines per limited time slots to avoid overly long lines
+        lines = [{key: [" " * slot_width for _ in range(slots_per_line)] for key in filtered_lock_queues}]
         for entity_id, lock_queue in filtered_lock_queues.items():
-            line = [" " for _ in range(total_slots)]
             action_info = next(iter(lock_queue.values()))
             for action_id, action_info in lock_queue.items():
                 action_print_id = f"{get_routine_id(action_id)[-5:]}.{action_id.split('.')[-1]}"
-                start_idx = int(
-                    (action_info.start_time - min_time) / granularity)
-                end_idx = int(
-                    (action_info.end_time - min_time) / granularity)
-                if start_idx <= end_idx:
+                start_idx_overall = int(
+                    (action_info.start_time.astimezone(timezone.utc) - min_time) / granularity)
+                end_idx_overall = int(
+                    (action_info.end_time.astimezone(timezone.utc) - min_time) / granularity)
+                line_no = start_idx_overall // slots_per_line
+                if line_no >= len(lines):
+                    # Add new lines as needed
+                    for _ in range(len(lines), line_no + 1):
+                        lines.append({
+                            key: [" " * slot_width for _ in range(slots_per_line)]
+                            for key in filtered_lock_queues
+                        })
+                start_idx_line = start_idx_overall % slots_per_line
+                end_idx_line = end_idx_overall % slots_per_line
+                if start_idx_line <= end_idx_line:
                     # Put the action ID at the first slot, fill the rest with dashes
-                    line[start_idx] = f"{action_print_id:<7}"[
+                    lines[line_no][entity_id][start_idx_line] = f"{action_print_id:<7}"[
                         :7]  # truncate or pad action id
-                    for i in range(start_idx + 1, end_idx):
-                        line[i] = "-"
-            # print(f"{entity_id:<10}: " + "".join(line))
+                    for i in range(start_idx_line + 1, end_idx_line):
+                        lines[line_no][entity_id][i] = "-" * slot_width
+
+        # # Print all lines
+        # for i, line in enumerate(lines):
+        #     line_slots = "".join(f"{i * slots_per_line + j:<{slot_width}}" for j in range(slots_per_line))
+        #     header = f"{'Slots:':<{line_title_width}}" + line_slots
+        #     print(header)
+        #     for entity_id, line_content in line.items():
+        #         print(f"{entity_id:<{line_title_width}}" + "".join(line_content))
 
     def duplicate(self) -> LineageTable:
         """Get a duplicate of the lineage table."""
@@ -1056,7 +1077,7 @@ class LineageTable:
         self._locks[entity_id] = None
         self._lock_queues[entity_id] = Queue[str, ActionInfo]()
         self._free_slots[entity_id] = Queue[datetime,
-                                            datetime]({datetime.now(): None})
+                                            datetime]({datetime.now(timezone.utc): None})
 
     def delete_entity(self, entity_id: str) -> None:
         """Remove the entity with the entity_id from the lineage table."""
@@ -1633,7 +1654,7 @@ class BaseScheduler:
 
         self._hass.data["rasc_events"].append(
             (
-                datetime.now().strftime("%H:%M:%S.%f")[:-3],
+                datetime.now(timezone.utc).strftime("%H:%M:%S.%f")[:-3],
                 f"Schedule {new_action.action_id} at {new_action_slot}",
             )
         )
@@ -1759,7 +1780,7 @@ class BaseScheduler:
         config[CONF_STEP] = -1
         config[CONF_ROUTINE_ID] = routine.routine_id
 
-        next_end_time: datetime | None = datetime.now()
+        next_end_time: datetime | None = datetime.now(timezone.utc)
         for _, script in enumerate(routine.action_script):
             if not next_end_time:
                 return False, None
@@ -1951,7 +1972,7 @@ class TimeLineScheduler(BaseScheduler):
         # _LOGGER.debug(f"{preset=}, {postset=}")
         target_entities: list[str] = []
         next_start_time: dict[str, datetime] = {
-            entity_id: datetime.now()
+            entity_id: datetime.now(timezone.utc)
             for entity_id in get_routine_targets(self._hass, routine)
         }
 
@@ -2300,7 +2321,7 @@ class TimeLineScheduler(BaseScheduler):
         if not group_action_start_time:
             raise ValueError("No entities to schedule on!")
 
-        actual_start_time = datetime.now()
+        actual_start_time = datetime.now(timezone.utc)
         while not self.same_start_time(group_action_start_time):
             actual_start_time = max(group_action_start_time.values())
             group_action_start_time.clear()
@@ -2367,7 +2388,7 @@ class TimeLineScheduler(BaseScheduler):
 
         if not next_start_time:
             next_start_time = {
-                entity_id: datetime.now()
+                entity_id: datetime.now(timezone.utc)
                 for entity_id in get_routine_targets(self._hass, routine)
             }
 
@@ -3125,7 +3146,7 @@ class RascalScheduler(BaseScheduler):
                 ):
                     self._hass.data["rasc_events"].append(
                         (
-                            datetime.now().strftime("%H:%M:%S.%f")[:-3],
+                            datetime.now(timezone.utc).strftime("%H:%M:%S.%f")[:-3],
                             f"Remove {action_id} from schedule",
                         )
                     )
@@ -3312,7 +3333,7 @@ class RascalScheduler(BaseScheduler):
             for action in routine.sink_actions
         }
         self._metrics.record_routine_arrival(
-            routine.routine_id, datetime.now(), sink_actions
+            routine.routine_id, datetime.now(timezone.utc), sink_actions
         )
 
         if await self._eligibility_test(routine):
@@ -3438,7 +3459,7 @@ class RascalScheduler(BaseScheduler):
                         ATTR_ACTION_ID: prev_action.action_id,
                         ATTR_ENTITY_ID: entity_id,
                     }
-                    event = Event("", event_data, time_fired=datetime.now())
+                    event = Event("", event_data, time_fired=datetime.now(timezone.utc))
                     if self._reschedule_handler:
                         await self._reschedule_handler(event)
             await asyncio.sleep(0.1)
@@ -3447,11 +3468,11 @@ class RascalScheduler(BaseScheduler):
         _LOGGER.debug(
             "Start action %s at %s vs scheduled start time: %s",
             action.action_id,
-            datetime.now(),
+            datetime.now(timezone.utc),
             action_lock.start_time,
         )
         self._hass.data["rasc_events"].append(
-            (datetime.now().strftime("%H:%M:%S.%f")
+            (datetime.now(timezone.utc).strftime("%H:%M:%S.%f")
              [:-3], f"Start {action.action_id}")
         )
         self._hass.async_create_task(
@@ -3486,7 +3507,7 @@ class RascalScheduler(BaseScheduler):
             _LOGGER.debug(
                 "Start action %s at %s vs scheduled start time: %s",
                 action.action_id,
-                datetime.now(),
+                datetime.now(timezone.utc),
                 action_lock.start_time,
             )
 
@@ -3504,7 +3525,7 @@ class RascalScheduler(BaseScheduler):
                     datetime_to_string(now),
                 )
 
-            start_st = datetime.now()
+            start_st = datetime.now(timezone.utc)
             for entity in target_entities:
                 entity_id = get_entity_id_from_number(self._hass, entity)
                 action_info = self.get_action_info(action.action_id, entity_id)
@@ -3530,7 +3551,7 @@ class RascalScheduler(BaseScheduler):
                                 ATTR_ACTION_ID: action.action_id,
                                 ATTR_ENTITY_ID: entity_id,
                             },
-                            time_fired=datetime.now(),
+                            time_fired=datetime.now(timezone.utc),
                         )
                     )
 
@@ -3582,7 +3603,7 @@ class RascalScheduler(BaseScheduler):
                         )
                     )
 
-                if action_lock.start_time > datetime.now():
+                if action_lock.start_time > datetime.now(timezone.utc):
                     _LOGGER.warning(
                         "Action %s's start time %s hasn't come",
                         action.action_id,
@@ -3616,7 +3637,7 @@ class RascalScheduler(BaseScheduler):
                             action.action_id, entity_id
                         )
                     )
-                if action_lock.start_time > datetime.now():
+                if action_lock.start_time > datetime.now(timezone.utc):
                     _LOGGER.debug(
                         "Action %s's start time %s hasn't come",
                         action.action_id,
@@ -3751,11 +3772,11 @@ class RascalScheduler(BaseScheduler):
 
             if event_type == RASC_COMPLETE:
                 self._metrics.record_action_end(
-                    datetime.now(), entity_id, action_id)
+                    datetime.now(timezone.utc), entity_id, action_id)
 
             if self._reschedule_handler is not None:
                 self.remove_time_slots_before_now(
-                    datetime.now(), self._lineage_table.free_slots
+                    datetime.now(timezone.utc), self._lineage_table.free_slots
                 )
                 await self._reschedule_handler(event)
 
@@ -3788,7 +3809,7 @@ class RascalScheduler(BaseScheduler):
             elif event_type == RASC_START:
                 if not self.is_action_start(action, entity_id):
                     self._metrics.record_action_start(
-                        datetime.now(), entity_id, action_id
+                        datetime.now(timezone.utc), entity_id, action_id
                     )
 
                     # update the action state
@@ -3826,7 +3847,7 @@ class RascalScheduler(BaseScheduler):
                 if not self.is_action_complete(action, entity_id):
                     if not self.is_action_start(action, entity_id):
                         self._metrics.record_action_start(
-                            datetime.now(), entity_id, action_id
+                            datetime.now(timezone.utc), entity_id, action_id
                         )
                         _LOGGER.debug(
                             "Action %s on entity %s is started", action_id, entity_id
@@ -4033,7 +4054,7 @@ class RascalScheduler(BaseScheduler):
                 )
             )
         action_start = action_lock.start_time
-        wait_seconds = (action_start - datetime.now()).total_seconds()
+        wait_seconds = (action_start - datetime.now(timezone.utc)).total_seconds()
         _LOGGER.debug("Start the action %s %.2fs later",
                       action_id, wait_seconds)
 
@@ -4050,7 +4071,7 @@ class RascalScheduler(BaseScheduler):
         _LOGGER.debug(
             "Action %s should start now: %s, after sleeping %s s",
             action_id,
-            datetime.now(),
+            datetime.now(timezone.utc),
             end - start,
         )
 
@@ -4060,7 +4081,7 @@ class RascalScheduler(BaseScheduler):
         if not action:
             return
         action_end = action.end_time
-        wait_seconds = (action_end - datetime.now()).total_seconds()
+        wait_seconds = (action_end - datetime.now(timezone.utc)).total_seconds()
 
         if wait_seconds > 0:
             await asyncio.sleep(wait_seconds)

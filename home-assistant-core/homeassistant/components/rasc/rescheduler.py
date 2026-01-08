@@ -2,7 +2,7 @@
 import asyncio
 from collections.abc import Callable
 import copy
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import heapq
 from itertools import product
 import logging
@@ -519,7 +519,7 @@ class BaseRescheduler(TimeLineScheduler):
         return entities
 
     def _is_action_running(
-        self, action_id: str, time: datetime = datetime.now()
+        self, action_id: str, time: datetime = datetime.now(timezone.utc)
     ) -> bool:
         action = self.get_action(action_id)
         if not action:
@@ -1221,7 +1221,7 @@ class BaseRescheduler(TimeLineScheduler):
             # LOGGER.debug("shortest action: %s", shortest_action)
             action_st = self._find_action_start_after(
                 shortest_action, next_slot_st)
-            action_st = max(action_st, datetime.now())
+            action_st = max(action_st, datetime.now(timezone.utc))
             self.reschedule_all_action(
                 shortest_action,
                 action_st,
@@ -2757,7 +2757,7 @@ class RascalRescheduler:
         return high_mi_entity_ids
 
     async def _move_device_schedules(
-        self, time: datetime = datetime.now(), extra: timedelta = timedelta(0)
+        self, time: datetime = datetime.now(timezone.utc), extra: timedelta = timedelta(0)
     ) -> bool:
         old_sched = self._scheduler.lineage_table
         # self._rescheduler.lineage_table = old_sched
@@ -2974,7 +2974,7 @@ class RascalRescheduler:
             if diff_action_ids:
                 self._hass.data["rasc_events"].append(
                     (
-                        datetime.now().strftime("%H:%M:%S.%f")[:-3],
+                        datetime.now(timezone.utc).strftime("%H:%M:%S.%f")[:-3],
                         f"Entity {entity_id} has different actions than the original schedule.",
                     )
                 )
@@ -3000,7 +3000,7 @@ class RascalRescheduler:
                 ):
                     self._hass.data["rasc_events"].append(
                         (
-                            datetime.now().strftime("%H:%M:%S.%f")[:-3],
+                            datetime.now(timezone.utc).strftime("%H:%M:%S.%f")[:-3],
                             f"Action {action_id} on entity {entity_id} has different start requested than the original schedule.",
                         )
                     )
@@ -3107,7 +3107,7 @@ class RascalRescheduler:
             )
         self._hass.data["rasc_events"].append(
             (
-                datetime.now().strftime("%H:%M:%S.%f")[:-3],
+                datetime.now(timezone.utc).strftime("%H:%M:%S.%f")[:-3],
                 f"Handling overtime for {action_id}",
             )
         )
@@ -3190,9 +3190,9 @@ class RascalRescheduler:
             action_id,
             entity_id,
             timer_delay,
-            datetime.fromtimestamp(t.time()),
-            datetime.now(),
-            datetime.fromtimestamp(t.time() + timer_delay),
+            datetime.fromtimestamp(t.time(), timezone.utc),
+            datetime.now(timezone.utc),
+            datetime.fromtimestamp(t.time() + timer_delay, timezone.utc),
             # self._timer_handles,
         )
         output_all(LOGGER, lock_queues=self._scheduler.lineage_table.lock_queues)
@@ -3253,12 +3253,12 @@ class RascalRescheduler:
             return None
         if event_type == RASC_START:
             exp_time = (
-                action_lock.start_time.replace(tzinfo=None)
+                action_lock.start_time.replace(tzinfo=timezone.utc)
                 + action_lock.action.rts[entity_id]
             )
         elif event_type == RASC_COMPLETE:
-            exp_time = action_lock.end_time.replace(tzinfo=None)
-        act_time = event.time_fired.replace(tzinfo=None)
+            exp_time = action_lock.end_time.replace(tzinfo=timezone.utc)
+        act_time = event.time_fired.replace(tzinfo=timezone.utc)
         LOGGER.debug(
             "Expected end time: %s, Actual end time: %s, diff: %s",
             exp_time,
@@ -3287,7 +3287,7 @@ class RascalRescheduler:
         )
         self._hass.data["rasc_events"].append(
             (
-                datetime.now().strftime("%H:%M:%S.%f")[:-3],
+                datetime.now(timezone.utc).strftime("%H:%M:%S.%f")[:-3],
                 f"Handling undertime for {action_id}",
             )
         )
