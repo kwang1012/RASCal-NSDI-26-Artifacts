@@ -287,7 +287,8 @@ class RASCAbstraction:
                 not self._states[entity_id][context.uniq_id].started
                 for entity_id in entity_ids
             ):
-                raise ServiceFailureError("Service failed before started")
+                # raise ServiceFailureError("Service failed before started")
+                return False
             return entity_ids
 
     async def _prepare_compl(

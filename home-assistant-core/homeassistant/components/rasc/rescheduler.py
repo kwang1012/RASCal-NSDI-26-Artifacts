@@ -45,6 +45,7 @@ from homeassistant.const import (
     PROACTIVE,
     RASC_COMPLETE,
     RASC_INCOMPLETE,
+    RASC_SCHEDULED,
     RASC_START,
     REACTIVE,
     RV,
@@ -687,7 +688,7 @@ class BaseRescheduler(TimeLineScheduler):
                     postsets[action_routine_id] = set[str]()
                 for routine_id in previous:
                     postsets[routine_id].add(action_routine_id)
-                if action_lock.start_time < now:
+                if action_lock.action_state != RASC_SCHEDULED:
                     previous.add(action_routine_id)
 
         LOGGER.debug("postsets: %s", postsets)

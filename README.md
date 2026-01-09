@@ -2,10 +2,6 @@
 
 The experiments in the papers use multiple Raspberry PIs and real devices. For the reproducability purpose, in this repo we simulate all the devices in a single node setting. Due to some dependencies of home assistant, the published code can only run on Linux machines.
 
-### TODOs
-- [ ] Fix 7.4 experiments bugs
-
-
 ### 1. Setup Environment
 We use [uv](https://docs.astral.sh/uv/getting-started/installation/) to manage Python environment.
 
