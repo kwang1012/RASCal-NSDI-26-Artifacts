@@ -993,7 +993,7 @@ class LineageTable:
         """Set free slots."""
         self._free_slots = fs
 
-    def visualize(self, granularity=timedelta(seconds=0.5)) -> None:
+    def visualize(self, granularity=timedelta(seconds=0.5)) -> str:
         """Visualize the lock queues in a table format."""
         # print("Visualized Lineage Table:")
         # Find global time bounds
@@ -1004,7 +1004,9 @@ class LineageTable:
                        for action_info in queue.values())
         max_time = max(action_info.end_time.astimezone(timezone.utc) for queue in filtered_lock_queues.values()
                        for action_info in queue.values())
-        # print(f"Time range: {min_time} to {max_time}")
+        now_utc = datetime.now(timezone.utc)
+        now_slot = int((now_utc - min_time) / granularity)
+        timetable_str = f"Time range: {min_time} to {max_time}, now slot: {now_slot}\n"
 
         slot_width = 7  # characters per time slot
         slots_per_line = 30  # number of time slots per line
@@ -1044,13 +1046,15 @@ class LineageTable:
                     for i in range(start_idx_line + 1, end_idx_line):
                         lines[line_no][entity_id][i] = "-" * slot_width
 
-        # # Print all lines
-        # for i, line in enumerate(lines):
-        #     line_slots = "".join(f"{i * slots_per_line + j:<{slot_width}}" for j in range(slots_per_line))
-        #     header = f"{'Slots:':<{line_title_width}}" + line_slots
-        #     print(header)
-        #     for entity_id, line_content in line.items():
-        #         print(f"{entity_id:<{line_title_width}}" + "".join(line_content))
+        # Render all lines
+        for i, line in enumerate(lines):
+            line_slots = "".join(f"{i * slots_per_line + j:<{slot_width}}" for j in range(slots_per_line))
+            header = f"{'Slots:':<{line_title_width}}" + line_slots
+            timetable_str += header + "\n"
+            for entity_id, line_content in line.items():
+                timetable_str += f"{entity_id:<{line_title_width}}" + "".join(line_content) + "\n"
+
+        return timetable_str
 
     def duplicate(self) -> LineageTable:
         """Get a duplicate of the lineage table."""
@@ -1622,11 +1626,12 @@ class BaseScheduler:
                     )
                 )
             if new_action.action_id == action_id:
-                raise ValueError(
-                    "The action {} is already in {}'s lock queue {}".format(
-                        new_action.action_id, entity_id, lock_queues[entity_id]
-                    )
-                )
+                return
+                # raise ValueError(
+                #     "The action {} is already in {}'s lock queue {}".format(
+                #         new_action.action_id, entity_id, lock_queues[entity_id]
+                #     )
+                # )
             if new_action_slot[1] <= action_info.start_time:
                 lock_queues[entity_id].insert_before(
                     action_id, new_action.action_id, new_action_info
@@ -3525,12 +3530,19 @@ class RascalScheduler(BaseScheduler):
                     datetime_to_string(now),
                 )
 
-            start_st = datetime.now(timezone.utc)
+            # start_st = datetime.now(timezone.utc)
             for entity in target_entities:
                 entity_id = get_entity_id_from_number(self._hass, entity)
-                action_info = self.get_action_info(action.action_id, entity_id)
+                # action_info = self.get_action_info(action.action_id, entity_id)
                 # self._return_free_slot(entity_id, action.action_id)
-                action_info.start_time = start_st
+                # if start_st > action_info.end_time:
+                #     _LOGGER.error(
+                #         "Action %s's new start time %s is after end time %s. Adjust start time to end time.",
+                #         action.action_id,
+                #         datetime_to_string(start_st),
+                #         datetime_to_string(action_info.end_time),
+                #     )
+                # action_info.start_time = start_st
                 # free_slot = self._find_slot_including_time_range(
                 #     self._lineage_table.free_slots[entity_id],
                 #     (action_info.start_time, action_info.end_time),
