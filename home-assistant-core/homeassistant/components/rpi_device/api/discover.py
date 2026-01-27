@@ -26,7 +26,7 @@ class Discover:
         """
         devices = []
 
-        try_ports = [9999+i for i in range(30)]
+        try_ports = [9999+i for i in range(120)]
         for host in hosts:
             for port in try_ports:
                 try:

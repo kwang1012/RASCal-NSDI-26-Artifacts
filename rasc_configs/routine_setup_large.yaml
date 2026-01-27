@@ -1,74 +1,284 @@
 light.first_floor_lights:
-  - service: turn_on
-    brightness: 255
+- service: turn_on
+  brightness: 255
+light.first_floor_lights1:
+- service: turn_on
+  brightness: 255
+light.first_floor_lights2:
+- service: turn_on
+  brightness: 255
+light.first_floor_lights3:
+- service: turn_on
+  brightness: 255
 light.ground_floor_lights:
-  - service: turn_on
-    brightness: 1
-  - service: turn_off
+- service: turn_on
+  brightness: 1
+- service: turn_off
+light.ground_floor_lights1:
+- service: turn_on
+  brightness: 1
+- service: turn_off
+light.ground_floor_lights2:
+- service: turn_on
+  brightness: 1
+- service: turn_off
+light.ground_floor_lights3:
+- service: turn_on
+  brightness: 1
+- service: turn_off
 light.living_room:
-  - service: turn_on
-    brightness: 1
+- service: turn_on
+  brightness: 1
+light.living_room1:
+- service: turn_on
+  brightness: 1
+light.living_room2:
+- service: turn_on
+  brightness: 1
+light.living_room3:
+- service: turn_on
+  brightness: 1
 light.bedroom:
-  - service: turn_on
-    brightness: 255
-  - service: turn_off
+- service: turn_on
+  brightness: 255
+- service: turn_off
+light.bedroom1:
+- service: turn_on
+  brightness: 255
+- service: turn_off
+light.bedroom2:
+- service: turn_on
+  brightness: 255
+- service: turn_off
+light.bedroom3:
+- service: turn_on
+  brightness: 255
+- service: turn_off
 light.xmas_tree:
-  - service: turn_on
-    brightness: 1
-  - service: turn_off
+- service: turn_on
+  brightness: 1
+- service: turn_off
+light.xmas_tree1:
+- service: turn_on
+  brightness: 1
+- service: turn_off
+light.xmas_tree2:
+- service: turn_on
+  brightness: 1
+- service: turn_off
+light.xmas_tree3:
+- service: turn_on
+  brightness: 1
+- service: turn_off
 light.slight_firstfl_act01:
-  - service: turn_on
-    brightness: 1
-  - service: turn_off
+- service: turn_on
+  brightness: 1
+- service: turn_off
+light.slight_firstfl_act011:
+- service: turn_on
+  brightness: 1
+- service: turn_off
+light.slight_firstfl_act012:
+- service: turn_on
+  brightness: 1
+- service: turn_off
+light.slight_firstfl_act013:
+- service: turn_on
+  brightness: 1
+- service: turn_off
 light.slight_firstfl_corridor:
-  - service: turn_on
-    brightness_pct: 30
+- service: turn_on
+  brightness_pct: 30
+light.slight_firstfl_corridor1:
+- service: turn_on
+  brightness_pct: 30
+light.slight_firstfl_corridor2:
+- service: turn_on
+  brightness_pct: 30
+light.slight_firstfl_corridor3:
+- service: turn_on
+  brightness_pct: 30
 light.slight_kidsroom_act01:
-  - service: turn_on
-    brightness_pct: 70
-  - service: turn_off
+- service: turn_on
+  brightness_pct: 70
+- service: turn_off
+light.slight_kidsroom_act011:
+- service: turn_on
+  brightness_pct: 70
+- service: turn_off
+light.slight_kidsroom_act012:
+- service: turn_on
+  brightness_pct: 70
+- service: turn_off
+light.slight_kidsroom_act013:
+- service: turn_on
+  brightness_pct: 70
+- service: turn_off
 light.slight_kidsroom_02:
-  - service: turn_on
-    brightness_pct: 50
+- service: turn_on
+  brightness_pct: 50
+light.slight_kidsroom_021:
+- service: turn_on
+  brightness_pct: 50
+light.slight_kidsroom_022:
+- service: turn_on
+  brightness_pct: 50
+light.slight_kidsroom_023:
+- service: turn_on
+  brightness_pct: 50
 light.front_door_light:
-  - service: turn_on
-    brightness_pct: 10
-  - service: turn_off
+- service: turn_on
+  brightness_pct: 10
+- service: turn_off
+light.front_door_light1:
+- service: turn_on
+  brightness_pct: 10
+- service: turn_off
+light.front_door_light2:
+- service: turn_on
+  brightness_pct: 10
+- service: turn_off
+light.front_door_light3:
+- service: turn_on
+  brightness_pct: 10
+- service: turn_off
 light.garden_door_light:
-  - service: turn_on
-    brightness_pct: 90
-  - service: turn_off
+- service: turn_on
+  brightness_pct: 90
+- service: turn_off
+light.garden_door_light1:
+- service: turn_on
+  brightness_pct: 90
+- service: turn_off
+light.garden_door_light2:
+- service: turn_on
+  brightness_pct: 90
+- service: turn_off
+light.garden_door_light3:
+- service: turn_on
+  brightness_pct: 90
+- service: turn_off
 switch.harmony_hub:
-  - service: turn_on
+- service: turn_on
+switch.harmony_hub1:
+- service: turn_on
+switch.harmony_hub2:
+- service: turn_on
+switch.harmony_hub3:
+- service: turn_on
 switch.garage_door_switch:
-  - service: turn_off
+- service: turn_off
+switch.garage_door_switch1:
+- service: turn_off
+switch.garage_door_switch2:
+- service: turn_off
+switch.garage_door_switch3:
+- service: turn_off
 cover.shade_as_trash_can:
-  - service: open_cover
+- service: open_cover
+cover.shade_as_trash_can1:
+- service: open_cover
+cover.shade_as_trash_can2:
+- service: open_cover
+cover.shade_as_trash_can3:
+- service: open_cover
 cover.balcony:
-  - service: close_cover
+- service: close_cover
+cover.balcony1:
+- service: close_cover
+cover.balcony2:
+- service: close_cover
+cover.balcony3:
+- service: close_cover
 cover.second_floor_balcony:
-  - service: close_cover
+- service: close_cover
+cover.second_floor_balcony1:
+- service: close_cover
+cover.second_floor_balcony2:
+- service: close_cover
+cover.second_floor_balcony3:
+- service: close_cover
 cover.garage_door:
-  - service: close_cover
+- service: close_cover
+cover.garage_door1:
+- service: close_cover
+cover.garage_door2:
+- service: close_cover
+cover.garage_door3:
+- service: close_cover
 cover.interior_door:
-  - service: open_cover
+- service: open_cover
+cover.interior_door1:
+- service: open_cover
+cover.interior_door2:
+- service: open_cover
+cover.interior_door3:
+- service: open_cover
 cover.front_door:
-  - service: open_cover
+- service: open_cover
+cover.front_door1:
+- service: open_cover
+cover.front_door2:
+- service: open_cover
+cover.front_door3:
+- service: open_cover
 cover.main_door:
-  - service: open_cover
+- service: open_cover
+cover.main_door1:
+- service: open_cover
+cover.main_door2:
+- service: open_cover
+cover.main_door3:
+- service: open_cover
 cover.living_room_window:
-  - service: close_cover
+- service: close_cover
+cover.living_room_window1:
+- service: close_cover
+cover.living_room_window2:
+- service: close_cover
+cover.living_room_window3:
+- service: close_cover
 lock.main_door_lock:
-  - service: lock
+- service: lock
+lock.main_door_lock1:
+- service: lock
+lock.main_door_lock2:
+- service: lock
+lock.main_door_lock3:
+- service: lock
 lock.garage_door_lock:
-  - service: lock
+- service: lock
+lock.garage_door_lock1:
+- service: lock
+lock.garage_door_lock2:
+- service: lock
+lock.garage_door_lock3:
+- service: lock
 lock.front_door_lock:
-  - service: unlock
+- service: unlock
+lock.front_door_lock1:
+- service: unlock
+lock.front_door_lock2:
+- service: unlock
+lock.front_door_lock3:
+- service: unlock
 lock.interior_door_lock:
-  - service: unlock
-# climate.main_thermostat:
-#   # target_temperature: 68
-#   # current_temperature: 68
+- service: unlock
+lock.interior_door_lock1:
+- service: unlock
+lock.interior_door_lock2:
+- service: unlock
+lock.interior_door_lock3:
+- service: unlock
 fan.living_room_fan:
-  - service: turn_on
-    percentage: 67
+- service: turn_on
+  percentage: 67
+fan.living_room_fan1:
+- service: turn_on
+  percentage: 67
+fan.living_room_fan2:
+- service: turn_on
+  percentage: 67
+fan.living_room_fan3:
+- service: turn_on
+  percentage: 67
