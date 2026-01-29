@@ -278,7 +278,7 @@ def trigger_automations_later(
             if routine_id not in routine_arrivals:
                 routine_arrivals[routine_id] = []
             routine_arrivals[routine_id].append(arrival_time)
-            routine_aliases[routine_id] = f"{routine_alias}({routine_id})"
+            routine_aliases[routine_id] = f"{routine_alias} ({routine_id})"
 
     async def trigger_automation_later(
         automation: BaseAutomationEntity, arrival_time: float
@@ -315,6 +315,7 @@ def trigger_automations_later(
         routine_id = event.data["routine_id"].split("-")[0]
         remained_routines[routine_id] -= 1
         print(
+            "Remaining routines:",
             json.dumps(
                 {
                     routine_aliases[routine_id]: remains
@@ -810,7 +811,7 @@ class AutomationEntity(BaseAutomationEntity, RestoreEntity):
                         routine = self._routine.duplicate(variables, trigger_context)
 
                         # Initialize the routine
-                        await rascal_scheduler.initialize_routine(routine)
+                        rascal_scheduler.initialize_routine(routine)
                     else:
                         await self.action_script.async_run(
                             variables, trigger_context, started_action

@@ -601,6 +601,7 @@ class BaseRescheduler(TimeLineScheduler):
             if (
                 curr_action.action_id not in affected_actions
                 and get_routine_id(curr_action.action_id) != routine_id
+                and not self._scheduler.is_action_complete(curr_action, entity_id)
             ):
                 affected_actions[curr_action.action_id] = curr_action
 
@@ -2771,7 +2772,7 @@ class RascalRescheduler:
         # self._apply_schedule(new_sched)
         return True
 
-    async def _reschedule(
+    def _reschedule(
         self, entity_id: str, action_id: str, diff: timedelta
     ) -> None:
         """Reschedule the entities based on the rescheduling policy."""
@@ -2897,12 +2898,12 @@ class RascalRescheduler:
             # print("Affected actions:", ", ".join(sorted(
             #     f"{aid.split('.')[0][-5:]}.{aid.split('.')[-1]}" for aid in affected_actions)))
 
-            self._rescheduler.deschedule_affected_actions(
+            descheduled_actions = self._rescheduler.deschedule_affected_actions(
                 set(affected_actions.keys())
             )
             if serializability:
                 self._rescheduler.apply_serialization_order_dependencies(
-                    immutable_serialization_order, affected_actions
+                    immutable_serialization_order, descheduled_actions
                 )
             if self._resched_policy in (SJFWO, SJFW):
                 # if self._do_comparision:
@@ -2930,7 +2931,7 @@ class RascalRescheduler:
                 #     )
 
                 new_lt, new_so = self._rescheduler.sjf(
-                    affected_actions,
+                    descheduled_actions,
                     serializability,
                     immutable_serialization_order,
                     metrics,
@@ -2938,7 +2939,7 @@ class RascalRescheduler:
 
             elif self._resched_policy in (OPTIMALW, OPTIMALWO):
                 new_lt, new_so = self._rescheduler.optimal(
-                    affected_actions,
+                    descheduled_actions,
                     serializability,
                     immutable_serialization_order,
                     metrics,
@@ -3080,7 +3081,7 @@ class RascalRescheduler:
                  expected_action_length).total_seconds()
         return extra
 
-    async def _handle_overtime(self, event: Event, diff: float) -> None:
+    def _handle_overtime(self, event: Event, diff: float) -> None:
         """Check if the action is about to go on overtime and adjust the schedule."""
 
         entity_id: Optional[str] = event.data.get(ATTR_ENTITY_ID)
@@ -3153,7 +3154,9 @@ class RascalRescheduler:
             action_lock.end_time,
             action_lock.end_time + extra_dt,
         )
-        await self._reschedule(entity_id, action_id, extra_dt)
+        self._reschedule(entity_id, action_id, extra_dt)
+        # while not self._reschedule(entity_id, action_id, extra_dt):
+        #     pass
 
     async def _wait_and_handle_overtime(
         self, event: Event, timer_delay: timedelta
@@ -3171,7 +3174,7 @@ class RascalRescheduler:
         # except asyncio.CancelledError:
         #     LOGGER.info("CancelledError for %s on %s", action_id, entity_id)
         # return
-        await self._handle_overtime(event, timer_delay)
+        self._handle_overtime(event, timer_delay)
 
     def setup_overtime_check(self, event: Event, timer_delay: timedelta) -> None:
         """Set up the timer for the rescheduler."""
@@ -3268,7 +3271,7 @@ class RascalRescheduler:
         )
         return act_time - exp_time
 
-    async def _handle_undertime(self, event: Event) -> None:
+    def _handle_undertime(self, event: Event) -> None:
         diff = self._action_length_diff(event)
         entity_id: Optional[str] = event.data.get(ATTR_ENTITY_ID)
         action_id: Optional[str] = event.data.get(ATTR_ACTION_ID)
@@ -3292,9 +3295,11 @@ class RascalRescheduler:
                 f"Handling undertime for {action_id}",
             )
         )
-        await self._reschedule(entity_id, action_id, diff)
+        self._reschedule(entity_id, action_id, diff)
+        # while not self._reschedule(entity_id, action_id, diff):
+        #     pass
 
-    async def handle_event(self, event: Event) -> None:
+    def handle_event(self, event: Event) -> None:
         """Handle RASC events. This is called by the scheduler."""
 
         if self._scheduling_policy not in (TIMELINE):
@@ -3312,6 +3317,6 @@ class RascalRescheduler:
             timer_delay = self._init_timer_delay(event)
             self.setup_overtime_check(event, timer_delay)
         elif response == RASC_COMPLETE:
-            await self._handle_undertime(event)
+            self._handle_undertime(event)
         elif response == RASC_INCOMPLETE:
-            await self._handle_overtime(event)
+            self._handle_overtime(event)
