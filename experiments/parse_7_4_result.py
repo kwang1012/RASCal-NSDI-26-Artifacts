@@ -37,7 +37,7 @@ def plot_overhead(data, dataset: str):
 
 def parse_data(filename):
     with open(
-        f"results/{filename}.json",
+        f"home-assistant-core/results/{filename}.json",
         "r",
         encoding="utf-8",
     ) as f:
@@ -50,8 +50,6 @@ def parse_data(filename):
 
 
 def parse_overhead():
-    pass
-
     reschedule_policy = "sjfw"
     estimation = "mean"
     datasets = [
@@ -68,6 +66,20 @@ def parse_overhead():
             f"om_static_tl_{reschedule_policy}_{policy}_{estimation}_arrival_{dataset}")
         data["w/o rasc"] = parse_data(f"om_arrival_{dataset}")
     # print(data)
+    
+
+def parse_scalability():
+    datasets = [
+        "scalability_10",
+        "scalability_50",
+        # "scalability_100",
+        # "scalability_200",
+    ]
+    data = {}
+    for dataset in datasets:
+        data[dataset] = parse_data(
+            f"om_tl_sjfw_proactive_mean_arrival_{dataset}")
+    print(data)
 
 def parse_reschedule_overhead():
 
@@ -250,7 +262,8 @@ def parse_metric():
 
 
 def parse_result():
-    parse_overhead()
+    parse_scalability()
+    # parse_overhead()
     # parse_reschedule_overhead()
     # parse_metric()
 
