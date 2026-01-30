@@ -117,7 +117,7 @@ class LightService:
             return {LightService.LIGHT_SERVICE: {"get_light_state": self._state}}
         if LightService.SET_LIGHT_METHOD in cmd_obj:
             args = cmd_obj[LightService.SET_LIGHT_METHOD]
-            self.logger.debug(f"{self.entity_id}: cmd {args}")
+            # self.logger.debug(f"{self.entity_id}: cmd {args}")
             if args["on_off"] == 1:
                 self.turn_on(**args)
             elif args["on_off"] == 0:

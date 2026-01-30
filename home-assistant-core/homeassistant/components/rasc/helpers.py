@@ -99,6 +99,10 @@ class OverheadMeasurement:
     def stop(self) -> None:
         """Stop the measurement."""
         self._terminate_flag.set()
+        self.save()
+    
+    def save(self) -> None:
+        """Save the measurement."""
         os.makedirs("results", exist_ok=True)
         with open("results/" + str(self) + ".json", "w", encoding="utf-8") as f:
             json.dump(

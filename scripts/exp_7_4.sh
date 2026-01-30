@@ -93,13 +93,14 @@ echo "=============================="
 echo "Running scalability experiments"
 echo "=============================="
 mkdir -p logs/7_4_logs/scalability_logs
-rm logs/7_4_logs/scalability_logs/*.log
+rm -f logs/7_4_logs/scalability_logs/*.log
 # 1. Start the simulated devices
-./scripts/start_device_services.sh entity_ids_large.txt logs/7_4_logs/scalability_logs
+# ./scripts/start_device_services.sh entity_ids_large.txt logs/7_4_logs/scalability_logs
 # 2. Start home assistant
+# sleep 5
 cd home-assistant-core
 source .venv/bin/activate
-rm ../logs/7_4_logs/home_assistant_scalability.log
+rm -f ../logs/7_4_logs/home_assistant_scalability.log
 mkdir -p ./config_tmp
 cp ../rasc_configs/automations_large.yaml ./config_tmp/automations.yaml
 cp ../rasc_configs/configuration.yaml ./config_tmp/configuration.yaml
@@ -109,7 +110,7 @@ hass -c ./config_tmp --log-file ../logs/7_4_logs/home_assistant_scalability.log
 rm -rf ./config_tmp
 deactivate
 cd ..
-pkill -f "uv run -m raspberry_pi.run_service"
+# pkill -f "uv run -m raspberry_pi.run_service"
 
 # 3. Parse the logs to extract
 uv run experiments/parse_7_4_result.py

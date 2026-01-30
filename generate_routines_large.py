@@ -1,8 +1,11 @@
+import json
 import copy
 import yaml
+import csv
 
 INPUT_FILE = "rasc_configs/automations.yaml"
 OUTPUT_FILE = "rasc_configs/automations_large.yaml"
+
 
 def suffix_entity(entity, n):
     if isinstance(entity, str):
@@ -10,6 +13,7 @@ def suffix_entity(entity, n):
     if isinstance(entity, list):
         return [f"{e}{n}" for e in entity]
     return entity
+
 
 def walk(obj, n):
     if isinstance(obj, dict):
@@ -23,6 +27,7 @@ def walk(obj, n):
     elif isinstance(obj, list):
         return [walk(i, n) for i in obj]
     return obj
+
 
 with open(INPUT_FILE) as f:
     automations = yaml.safe_load(f)
@@ -87,7 +92,6 @@ with open(OUTPUT_FILE, "w") as f:
 
 print(f"Expanded {len(lines)} entities → {len(expanded)} total")
 
-import json
 
 INPUT_FILE = "home-assistant-core/homeassistant/components/rasc/datasets/rasc_history_exp.json"
 OUTPUT_FILE = "home-assistant-core/homeassistant/components/rasc/datasets/rasc_history_exp_large.json"
@@ -116,3 +120,49 @@ with open(OUTPUT_FILE, "w") as f:
     json.dump(data, f, indent=2)
 
 print(f"Expanded {len(history)} keys → {len(expanded_history)} keys")
+
+
+INPUT_FILE = "home-assistant-core/homeassistant/components/rasc/datasets/arrival_scalability_50.csv"
+OUTPUT_FILE = "home-assistant-core/homeassistant/components/rasc/datasets/arrival_scalability_100.csv"
+
+with open(INPUT_FILE, newline="", encoding="utf-8") as f_in, \
+        open(OUTPUT_FILE, "w", newline="", encoding="utf-8") as f_out:
+
+    reader = csv.reader(f_in)
+    writer = csv.writer(f_out)
+
+    for ts, id_, alias in reader:
+        writer.writerow([
+            ts,
+            id_,
+            alias
+        ])
+        for i in range(1, 2):  # double
+            writer.writerow([
+                ts,
+                f"{id_}{i}",
+                f"{alias} ({i})"
+            ])
+
+
+INPUT_FILE = "home-assistant-core/homeassistant/components/rasc/datasets/arrival_scalability_50.csv"
+OUTPUT_FILE = "home-assistant-core/homeassistant/components/rasc/datasets/arrival_scalability_200.csv"
+
+with open(INPUT_FILE, newline="", encoding="utf-8") as f_in, \
+        open(OUTPUT_FILE, "w", newline="", encoding="utf-8") as f_out:
+
+    reader = csv.reader(f_in)
+    writer = csv.writer(f_out)
+
+    for ts, id_, alias in reader:
+        writer.writerow([
+            ts,
+            id_,
+            alias
+        ])
+        for i in range(1, 4):  # double
+            writer.writerow([
+                ts,
+                f"{id_}{i}",
+                f"{alias} ({i})"
+            ])

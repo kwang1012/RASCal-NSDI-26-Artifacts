@@ -2,14 +2,14 @@
 
 # Experiment 7.3: RASCal interruption detection performance
 mkdir -p logs/7_3_logs
-rm logs/7_3_logs/*.log
+rm -f logs/7_3_logs/*.log
 
 # 1. Start the simulated devices
 ./scripts/start_device_services.sh entity_ids_7_3.txt logs/7_3_logs &
 
 # 2. Start home assistant
 cd home-assistant-core
-rm ../logs/7_3_logs/home_assistant.log
+rm -f ../logs/7_3_logs/home_assistant.log
 source .venv/bin/activate
 mkdir -p ./config_tmp
 cp ../rasc_configs/automations.yaml ./config_tmp/automations.yaml

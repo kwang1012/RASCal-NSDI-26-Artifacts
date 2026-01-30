@@ -330,6 +330,7 @@ def trigger_automations_later(
         #         json.dump(scheduler.get_real_schedule(), f, indent=2, default=str)
         #     with open("rasc_events.json", "w") as f:
         #         json.dump(hass.data["rasc_events"], f, indent=2, default=str)
+        hass.bus.async_fire("rasc_measurement_update")
         if all(
             remained_routine == 0 for remained_routine in remained_routines.values()
         ):
