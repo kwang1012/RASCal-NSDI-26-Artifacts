@@ -1050,7 +1050,7 @@ class BaseRescheduler(TimeLineScheduler):
         """Insert action to the free slots and lock queues."""
         target_entities = get_target_entities(self._hass, action.action)
         LOGGER.debug(
-            "[Reschedule all action]Move action %s to %s on %s",
+            "[Reschedule all action] Move action %s to %s on %s",
             action.action_id,
             datetime_to_string(action_st),
             target_entities,

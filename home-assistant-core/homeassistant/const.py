@@ -1205,6 +1205,7 @@ class EntityCategory(StrEnum):
     DIAGNOSTIC = "diagnostic"
 
 
+RASC_REQUESTED = "requested"
 RASC_ACK = "ack"
 RASC_START = "start"
 RASC_COMPLETE = "complete"

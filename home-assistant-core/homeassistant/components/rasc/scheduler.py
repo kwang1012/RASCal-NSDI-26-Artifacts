@@ -42,6 +42,7 @@ from homeassistant.const import (
     RASC_ACK,
     RASC_COMPLETE,
     RASC_INCOMPLETE,
+    RASC_REQUESTED,
     RASC_RESPONSE,
     RASC_SCHEDULED,
     RASC_START,
@@ -3471,6 +3472,7 @@ class RascalScheduler(BaseScheduler):
             await asyncio.sleep(0.1)
 
         action.start_requested = True
+        action_lock.action_state = RASC_REQUESTED
         _LOGGER.debug(
             "Start action %s at %s vs scheduled start time: %s",
             action.action_id,
@@ -3570,6 +3572,7 @@ class RascalScheduler(BaseScheduler):
                 )
 
         action.start_requested = True
+        action_lock.action_state = RASC_REQUESTED
         self._hass.async_create_task(
             action.attach_triggered(log_exceptions=False))
 
@@ -3926,7 +3929,7 @@ class RascalScheduler(BaseScheduler):
                 continue
             action = action_lock.action
             # async with action.start_lock:
-            if action.start_requested:
+            if action.start_requested or action_lock.action_state == RASC_REQUESTED:
                 continue
             if self._is_action_ready(action):
                 self._attempt_start_action(action)
@@ -4233,7 +4236,7 @@ class RascalScheduler(BaseScheduler):
         self._hass.bus.async_fire(
             "routine_ended", {CONF_ROUTINE_ID: routine_id})
 
-    async def _start_ready_routines_fcfs(self) -> None:
+    def _start_ready_routines_fcfs(self) -> None:
         """Start the ready routine by fcfs."""
         ready_routines: list[str] = []
         for routine_id in self._wait_queue:
