@@ -29,3 +29,9 @@ To reproduce the results from Section 7.1, for example:
 ```bash
 ./scripts/exp_7_1.sh
 ```
+
+### Approximate time for each experiment to finish
+- 7.1: ~100 minutes
+- 7.2: 
+- 7.3: ~315 minutes
+- 7.4: 
