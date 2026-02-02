@@ -32,6 +32,6 @@ To reproduce the results from Section 7.1, for example:
 
 ### Approximate time for each experiment to finish
 - 7.1: ~100 minutes
-- 7.2: 
+- 7.2: ~10 minutes
 - 7.3: ~315 minutes
-- 7.4: 
+- 7.4: ~150 minutes

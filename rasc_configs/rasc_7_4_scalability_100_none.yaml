@@ -1,0 +1,14 @@
+enabled: false
+scheduling_policy: tl # from tl, jit, fcfs, fcfs_post
+rescheduling_policy: sjfw # from sjfw, sjfwo, optimalw, optimalwo, rv, early_start, none
+rescheduling_trigger: proactive # from reactive, anticipatory, proactive
+optimal_schedule_metric: "min_avg_rtn_latency"
+rescheduling_window: 30
+routine_priority_policy: earliest # from shortest, longest, earliest, latest
+routine_arrival_filename: arrival_scalability_100.csv
+routine_setup_filename: !include routine_setup.yaml
+rasc_history_filename: rasc_history_exp_large.json
+overhead_measurement: true
+action_length_estimation: mean # mean, p50, p70, p80, p90, p95, p99
+do_comparison: false
+record_results: true

@@ -251,6 +251,30 @@ def blueprint_in_automation(hass: HomeAssistant, entity_id: str) -> str | None:
     return automation_entity.referenced_blueprint
 
 
+IDLE_TIMEOUT = 120  # seconds
+_idle_timer_task: asyncio.Task | None = None
+
+
+async def _idle_timeout_handler(hass):
+    try:
+        await asyncio.sleep(IDLE_TIMEOUT)
+        hass.bus.async_fire("rasc_measurement_stop")
+        print("No routine ended for 120s — stopping measurement")
+    except asyncio.CancelledError:
+        # Timer was reset
+        pass
+
+
+def _reset_idle_timer(hass):
+    global _idle_timer_task
+
+    if _idle_timer_task and not _idle_timer_task.done():
+        _idle_timer_task.cancel()
+
+    _idle_timer_task = hass.loop.create_task(
+        _idle_timeout_handler(hass)
+    )
+
 def trigger_automations_later(
     hass: HomeAssistant,
     config: ConfigType,
@@ -319,18 +343,17 @@ def trigger_automations_later(
         print(
             "Remaining routines:", sum(remained_routines.values())
         )
-        print(
-            json.dumps(
-                {
-                    routine_aliases[routine_id]: remains
-                    for routine_id, remains in remained_routines.items()
-                },
-                indent=2,
-            )
-        )
-        if all(
-            remained_routine == 0 for remained_routine in remained_routines.values()
-        ):
+        # print(
+        #     json.dumps(
+        #         {
+        #             routine_aliases[routine_id]: remains
+        #             for routine_id, remains in remained_routines.items()
+        #         },
+        #         indent=2,
+        #     )
+        # )
+        _reset_idle_timer(hass)
+        if not remained_routines:
             hass.bus.async_fire("rasc_measurement_stop")
 
     hass.bus.async_listen("routine_ended", handle_routine_ended)

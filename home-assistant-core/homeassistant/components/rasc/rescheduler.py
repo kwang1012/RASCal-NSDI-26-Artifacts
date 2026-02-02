@@ -2880,7 +2880,7 @@ class RascalRescheduler:
                         action_lock, entity_id, st_time, new_end_time),
                 )
             except ValueError as e:
-                LOGGER.error("Failed to reschedule: %s", e)
+                LOGGER.warning("Failed to reschedule: %s", e)
         elif self._resched_policy in (EARLY_START):
             new_lt = self._rescheduler.early_start()
         elif self._resched_policy in (SJFWO, SJFW, OPTIMALW, OPTIMALWO):

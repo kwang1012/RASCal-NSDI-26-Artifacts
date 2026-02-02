@@ -286,8 +286,7 @@ def parse_metric():
 
 
 def parse_result():
-    parse_scalability()
-    # parse_overhead()
+    parse_overhead()
     # parse_reschedule_overhead()
     # parse_metric()
 
