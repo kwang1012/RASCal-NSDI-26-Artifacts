@@ -14,6 +14,7 @@ fi
 if [[ "$PARSE_ONLY" -eq 0 ]]; then
     # 4. Scalability
     # measure cpu/memory with 4 different concurrency levels of routines
+    printf "%s" "$DEVICE_NODE" > nodes.txt
     for mode in none; do
         for concurrency in 10 50 100 200; do
             echo "=============================="
@@ -29,6 +30,8 @@ if [[ "$PARSE_ONLY" -eq 0 ]]; then
 
             DEVICE_PID=$!
 
+            sleep 5
+
             echo "[LOCAL NODE] Starting Home Assistant..."
             # Start home assistant
             cd home-assistant-core
@@ -36,7 +39,7 @@ if [[ "$PARSE_ONLY" -eq 0 ]]; then
             rm -f ../logs/7_4_logs/home_assistant_scalability.log
             mkdir -p ./config_tmp
             cp ../rasc_configs/automations_large.yaml ./config_tmp/automations.yaml
-            cp ../rasc_configs/configuration.yaml ./config_tmp/configuration.yaml
+            cp ../rasc_configs/configuration_local.yaml ./config_tmp/configuration.yaml
             cp ../rasc_configs/routine_setup_large.yaml ./config_tmp/routine_setup.yaml
             cp ../rasc_configs/rasc_7_4_scalability_${concurrency}_${mode}.yaml ./config_tmp/rasc.yaml
             hass -c ./config_tmp --log-file ../logs/7_4_logs/home_assistant_scalability.log
@@ -50,6 +53,7 @@ if [[ "$PARSE_ONLY" -eq 0 ]]; then
             wait $DEVICE_PID || true
         done
     done
+    rm nodes.txt
 fi
 
-# uv run experiments/parse_scalability.py
+uv run experiments/parse_scalability.py

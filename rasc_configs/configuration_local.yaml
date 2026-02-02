@@ -1,0 +1,14 @@
+# Loads default set of integrations. Do not remove.
+default_config:
+
+homeassistant:
+  unit_system: imperial
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+rasc: !include rasc.yaml
+rpi_device: 
+  nodes_file: ../nodes.txt

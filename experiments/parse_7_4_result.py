@@ -73,6 +73,7 @@ def parse_overhead():
         data["periodic"] = parse_data(
             f"om_static_tl_{reschedule_policy}_{policy}_{estimation}_arrival_{dataset}")
         data["none"] = parse_data(f"om_arrival_{dataset}")
+        results[dataset] = data
     
     print(f"Saving overhead results to results/7_4_overhead.json")
     print("Visualizing overhead results...")
@@ -287,8 +288,8 @@ def parse_metric():
 
 def parse_result():
     parse_overhead()
-    # parse_reschedule_overhead()
-    # parse_metric()
+    parse_reschedule_overhead()
+    parse_metric()
 
 
 parse_result()
