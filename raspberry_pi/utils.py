@@ -1,5 +1,6 @@
 
 import logging
+import os
 
 class ColorfulFormatter(logging.Formatter):
 
@@ -33,7 +34,7 @@ class ColorfulFormatter(logging.Formatter):
 
 def get_logger(name: str, log_dir: str | None = None) -> logging.Logger:
     logger = logging.getLogger(name)
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.DEBUG if os.environ.get("DEBUG") else logging.INFO)
     if not logger.handlers:
         ch = logging.StreamHandler()
         ch.setFormatter(ColorfulFormatter())

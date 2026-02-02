@@ -921,7 +921,7 @@ class RASCState:
         key = self._key
         history = self._store.histories.get(key, RASCHistory())
         use_vopt = self._config.get(CONF_USE_VOPT)
-        self._s_detector = StateDetector(history.st_history, use_vopt=use_vopt)
+        self._s_detector = StateDetector(history.st_history)
         self._c_detector = StateDetector(
             history.ct_history,
             self._complete_state,

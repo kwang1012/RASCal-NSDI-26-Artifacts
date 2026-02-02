@@ -259,7 +259,7 @@ def _get_vopt_interval(
     Returns (poll_times, expected_delay). poll_times has length k with the last exactly U.
     """
 
-    N = int(100 * upper_bound)
+    N = int(10 * upper_bound)
     # 1) Grid
     x = np.linspace(0.0, upper_bound, N)
     f = dist.pdf(x)

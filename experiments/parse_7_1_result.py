@@ -163,7 +163,7 @@ def _parse_result(polling_strategy):
 
 def parse_result():
     results = {}
-    for strategy in ["uniform", "rasc", "vopt"]:
+    for strategy in ["uniform", "rasc"]:
         result = _parse_result(strategy)
         results[strategy] = result
     with open(f"results/7_1.json", "w") as f:

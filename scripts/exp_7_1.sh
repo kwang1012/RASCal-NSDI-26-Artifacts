@@ -3,12 +3,12 @@
 # Experiment 7.1: RASCal detection time on different devices
 mkdir -p logs/7_1_logs
 
-for MODE in uniform rasc vopt; do
+for MODE in uniform rasc; do
     echo "=============================="
     echo "Running mode: $MODE"
     echo "=============================="
     mkdir -p logs/7_1_logs/device_${MODE}_logs
-    rm logs/7_1_logs/device_${MODE}_logs/*.log
+    rm -f logs/7_1_logs/device_${MODE}_logs/*.log
     # 1. Start the simulated devices
     ./scripts/start_device_services.sh entity_ids_7_1.txt logs/7_1_logs/device_${MODE}_logs
 
@@ -16,7 +16,7 @@ for MODE in uniform rasc vopt; do
     cd home-assistant-core
     source .venv/bin/activate
     mkdir -p ./config_tmp
-    rm ../logs/7_1_logs/home_assistant_${MODE}.log
+    rm -f ../logs/7_1_logs/home_assistant_${MODE}.log
     cp ../rasc_configs/automations.yaml ./config_tmp/automations.yaml
     cp ../rasc_configs/configuration.yaml ./config_tmp/configuration.yaml
     cp ../rasc_configs/routine_setup.yaml ./config_tmp/routine_setup.yaml
