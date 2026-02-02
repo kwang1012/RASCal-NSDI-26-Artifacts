@@ -28,7 +28,7 @@ def load_dataset(name: Device, action: str | None = None):
             f"datasets/{name.value}.json",
             encoding="utf-8",
         ) as f:
-            dataset = json.load(f)
+            dataset: dict[str, list[float]] = json.load(f)
 
     if action is None:
         return dataset
@@ -37,10 +37,11 @@ def load_dataset(name: Device, action: str | None = None):
         print(
             "Action not found! Available actions:\n%s", "\n".join(list(dataset.keys()))
         )
+        return None
     return dataset[action]
 
 
-def _get_thermo_datasets():
+def _get_thermo_datasets() -> dict[str, list[float]]:
     with open(
         "datasets/hvac-actions.csv", encoding="utf-8"
     ) as f:
