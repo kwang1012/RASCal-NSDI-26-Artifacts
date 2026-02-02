@@ -38,7 +38,7 @@ def plot_overhead(data, dataset: str):
 
 def parse_data(filename):
     with open(
-        f"results/{filename}.json",
+        f"home-assistant-core/results/{filename}.json",
         "r",
         encoding="utf-8",
     ) as f:
@@ -286,7 +286,8 @@ def parse_metric():
 
 
 def parse_result():
-    parse_overhead()
+    parse_scalability()
+    # parse_overhead()
     # parse_reschedule_overhead()
     # parse_metric()
 

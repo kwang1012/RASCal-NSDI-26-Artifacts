@@ -70,7 +70,7 @@ class DeviceServer:
             log_dir=args.log_dir,
         )
         return cls(config)
-
+    
     async def start(self):
         server = await asyncio.start_server(
             self._handle_connection,

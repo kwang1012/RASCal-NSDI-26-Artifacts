@@ -404,6 +404,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     hass.bus.async_listen_once("rasc_measurement_start", lambda _: om.start())
     hass.bus.async_listen_once(
         "rasc_measurement_stop", handle_measurement_stop)
+    hass.bus.async_listen(
+        "rasc_measurement_update", lambda _: om.save())
 
     if not config[DOMAIN][CONF_ENABLED]:
         hass.bus.async_listen_once(
