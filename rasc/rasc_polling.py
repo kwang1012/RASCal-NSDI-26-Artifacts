@@ -349,6 +349,17 @@ def get_detection_time(dist: st.rv_continuous, L: list[float]) -> float:
     """Get detection time of L."""
     return _examine_Q(dist, L)
 
+def _apply_rate_limit(L: list[float], rate_limit: float) -> list[float]:
+    """Apply rate limit to polling intervals."""
+    if len(L) == 0:
+        return L
+    new_L = [L[0]]
+    for t in L[1:]:
+        if t - new_L[-1] < rate_limit:
+            new_L.append(new_L[-1] + rate_limit)
+        else:
+            new_L.append(t)
+    return new_L
 
 def get_polls(
     dist: st.rv_continuous,
@@ -359,6 +370,7 @@ def get_polls(
     SLO: float = 0.95,
     name: str = "_",
     N: int | None = None,
+    rate_limit: float | None = None, # minimum interval between polls
 ) -> list[float]:
     """Get polls based on distribution."""
     upper_bound = upper_bound or float(dist.ppf(0.99))
@@ -374,9 +386,11 @@ def get_polls(
         if not valid:
             LOGGER.debug("The result for %s is probably not minimized", name)
 
+        if rate_limit is not None:
+            L = _apply_rate_limit(L, rate_limit)
         return L
 
-    return _r_get_polls(
+    L = _r_get_polls(
         dist,
         upper_bound,
         0,
@@ -387,6 +401,9 @@ def get_polls(
         name,
         use_vopt,
     )
+    if rate_limit is not None:
+        L = _apply_rate_limit(L, rate_limit)
+    return L
 
 
 def _r_get_polls(
