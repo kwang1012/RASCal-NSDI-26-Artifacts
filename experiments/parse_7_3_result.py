@@ -44,6 +44,7 @@ def parse_simulated_result():
             results[f"interruption_{level}"], axs[i], level, i == 0, i == 1)
 
     fig.subplots_adjust(wspace=0.05, hspace=0)
+    print("Saving figure to results/7_3_simulated.pdf")
     fig.savefig("results/7_3_simulated.pdf", bbox_inches="tight")
 
 
@@ -205,6 +206,7 @@ def parse_deployed_result():
 
         ax.legend(lns, labs, loc="upper left", fontsize=14)
 
+        print(f"Saving figure to results/7_3_{key}.pdf")
         fig.savefig(f"results/7_3_{key}.pdf", bbox_inches="tight")
 
 

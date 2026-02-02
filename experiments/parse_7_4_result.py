@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import yaml
 
+
 def plot_overhead(data, dataset: str):
 
     fig, ax = plt.subplots(figsize=(8, 4))
@@ -46,57 +47,89 @@ def parse_data(filename):
     cpu = result["cpu"]
     mem = result["mem"]
 
-    return cpu, mem
+    return {
+        "cpu_mean": np.mean(cpu),
+        "cpu_p50": np.percentile(cpu, 50),
+        "cpu_p99": np.percentile(cpu, 99),
+        "mem_mean": np.mean(mem),
+        "mem_p50": np.percentile(mem, 50),
+        "mem_p99": np.percentile(mem, 99),
+    }
 
 
 def parse_overhead():
-    pass
-
     reschedule_policy = "sjfw"
     estimation = "mean"
     datasets = [
         "all",
         "all_hybrid",
-        "all_bursty"
     ]
     policy = "proactive"
+    results = {}
     for dataset in datasets:
         data = {}
-        data[f"rasc--{dataset}"] = parse_data(
+        data["adaptive"] = parse_data(
             f"om_tl_{reschedule_policy}_{policy}_{estimation}_arrival_{dataset}")
-        data[f"uniform--{dataset}"] = parse_data(
+        data["periodic"] = parse_data(
             f"om_static_tl_{reschedule_policy}_{policy}_{estimation}_arrival_{dataset}")
-        data["w/o rasc"] = parse_data(f"om_arrival_{dataset}")
-    # print(data)
+        data["none"] = parse_data(f"om_arrival_{dataset}")
+    
+    print(f"Saving overhead results to results/7_4_overhead.json")
+    print("Visualizing overhead results...")
+    with open("results/7_4_overhead.json", "w") as f:
+        json.dump(results, f, indent=4)
+        
+    # Column widths
+    col_widths = [16, 16, 8, 6, 6, 12, 6, 6]
+
+    # Header
+    headers = ["Dataset", "Strategy",
+               "CPU (%)", "q50", "q99", "Memory (MB)", "q50", "q99"]
+    header_line = "".join(f"{h:<{w}}" for h, w in zip(headers, col_widths))
+    print(header_line)
+    print("-" * sum(col_widths))
+
+    # Rows
+    for dataset, strategies in results.items():
+        first = True
+        for strat, metrics in strategies.items():
+            row = [
+                dataset if first else "",
+                strat,
+                f"{metrics['cpu_mean']:.2f}",
+                f"{metrics['cpu_p50']:.2f}",
+                f"{metrics['cpu_p99']:.2f}",
+                f"{metrics['mem_mean']:.2f}",
+                f"{metrics['mem_p50']:.2f}",
+                f"{metrics['mem_p99']:.2f}"
+            ]
+            print("".join(f"{c:<{w}}" for c, w in zip(row, col_widths)))
+            first = False
+
 
 def parse_reschedule_overhead():
 
-    is_time = "time" in sys.argv
-
-    reschedule_policy = "sjfw"
+    is_time = True
 
     estimations = ["mean", "p50", "p70", "p80", "p90", "p95", "p99"]
     datasets = ["all", "all_hybrid"]
-    policies = ["proactive"]
 
     results = {}
     for dataset in datasets:
         results[dataset] = {}
-        for policy in policies:
-            results[dataset][policy] = {}
-            for estimation in estimations:
-                with open(
-                    f"home-assistant-core/results/om_tl_{reschedule_policy}_{policy}_{estimation}_arrival_{dataset}.json",
-                    "r",
-                    encoding="utf-8",
-                ) as f:
-                    result = json.load(f)
-                    results[dataset][policy][estimation] = {
-                        "reschedule": (
-                            len([r for r in result["reschedule"] if r[2] > 0]),
-                            len([r for r in result["reschedule"] if r[2] < 0]),
-                        )
-                    }
+        for estimation in estimations:
+            with open(
+                f"home-assistant-core/results/om_tl_sjfw_proactive_{estimation}_arrival_{dataset}.json",
+                "r",
+                encoding="utf-8",
+            ) as f:
+                result = json.load(f)
+                results[dataset][estimation] = {
+                    "reschedule": (
+                        len([r for r in result["reschedule"] if r[2] > 0]),
+                        len([r for r in result["reschedule"] if r[2] < 0]),
+                    )
+                }
 
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.set_ylabel(
@@ -109,9 +142,9 @@ def parse_reschedule_overhead():
     width = 0.45
     for i, (dataset, dataset_results) in enumerate(results.items()):
         overtime_schedule = [dataset_result["reschedule"][0]
-                             for dataset_result in dataset_results["proactive"].values()]
+                             for dataset_result in dataset_results.values()]
         undertime_schedule = [dataset_result["reschedule"][1]
-                              for dataset_result in dataset_results["proactive"].values()]
+                              for dataset_result in dataset_results.values()]
         b_under = ax.bar(
             x + i * width, undertime_schedule, width=width, alpha=0.7,
             label=f"{dataset} (under)",
@@ -131,7 +164,7 @@ def parse_reschedule_overhead():
         )
 
     flat_results = [result for dataset_result in results.values()
-                    for result in dataset_result["proactive"].values()]
+                    for result in dataset_result.values()]
     for i, bar in enumerate(ax.patches):
         item = flat_results[(0 if i < 14 else 7) + i % 7]
         overtime = item["reschedule"][0]
@@ -146,9 +179,9 @@ def parse_reschedule_overhead():
     ax.legend(fontsize=18)
     ax.set_ylim(0, max_count * 1.6)
 
-    postfix = "time" if is_time else "count"
+    print("Saving figure to results/7_4_reschedule_overhead.pdf")
     fig.savefig(
-        f"results/7_4_{reschedule_policy}_reschedule_overhead_{postfix}.pdf")
+        f"results/7_4_reschedule_overhead.pdf")
 
 
 name_map = {
@@ -245,8 +278,11 @@ def parse_metric():
         ax.set_yticks(ax.get_yticks(), [round(tick) if tick.is_integer(
         ) else tick for tick in ax.get_yticks()], fontsize=16)
         X = np.arange(len(scheduler_labels))
-        ax.set_xticks(X + (width/2 if double else 0), scheduler_labels, fontsize=16, rotation=20)
-        fig.savefig(f"results/7_4_{metric.replace(' ', '_')}.pdf", bbox_inches="tight")
+        ax.set_xticks(X + (width/2 if double else 0),
+                      scheduler_labels, fontsize=16, rotation=20)
+        print(f"Saving figure to results/7_4_{metric.replace(' ', '_')}.pdf")
+        fig.savefig(
+            f"results/7_4_{metric.replace(' ', '_')}.pdf", bbox_inches="tight")
 
 
 def parse_result():

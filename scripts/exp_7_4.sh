@@ -4,6 +4,36 @@
 mkdir -p logs/7_4_logs
 
 # 1. Overhead
+for DATASET in all hybrid; do
+    for MODE in uniform rasc none; do
+        echo "=============================="
+        echo "Running overhead experiment (dataset: $DATASET, mode: $MODE)"
+        echo "=============================="
+        mkdir -p logs/7_4_logs/device_${DATASET}_${MODE}_logs
+        rm -f logs/7_4_logs/device_${DATASET}_${MODE}_logs/*.log
+        # 1. Start the simulated devices
+        ./scripts/start_device_services.sh entity_ids_all.txt logs/7_4_logs/device_${DATASET}_${MODE}_logs
+
+        # 2. Start home assistant
+        cd home-assistant-core
+        source .venv/bin/activate
+        rm -f ../logs/7_4_logs/home_assistant_${DATASET}_${MODE}.log
+        mkdir -p ./config_tmp
+        cp ../rasc_configs/automations.yaml ./config_tmp/automations.yaml
+        cp ../rasc_configs/configuration.yaml ./config_tmp/configuration.yaml
+        cp ../rasc_configs/routine_setup.yaml ./config_tmp/routine_setup.yaml
+        cp ../rasc_configs/rasc_7_4_${DATASET}_${MODE}.yaml ./config_tmp/rasc.yaml
+        hass -c ./config_tmp --log-file ../logs/7_4_logs/home_assistant_${DATASET}_${MODE}.log
+        rm -rf ./config_tmp
+        deactivate
+        cd ..
+        pkill -f "uv run -m raspberry_pi.run_service"
+    done
+done
+
+uv run experiments/parse_7_4_result.py
+
+# 2. Reschedule Overhead
 # Run reschedule overhead experiments
 estimations=(mean p50 p70 p80 p90 p95 p99)
 
@@ -33,31 +63,7 @@ do
     pkill -f "uv run -m raspberry_pi.run_service"
 done
 
-# Run baseline
-echo "=============================="
-echo "Running overhead experiment (baseline)"
-echo "=============================="
-mkdir -p logs/7_4_baseline_logs
-rm -f logs/7_4_baseline_logs/*.log
-# 1. Start the simulated devices
-./scripts/start_device_services.sh entity_ids_all.txt logs/7_4_baseline_logs
-
-# 2. Start home assistant
-cd home-assistant-core
-source .venv/bin/activate
-rm -f ../logs/7_4_logs/home_assistant_baseline.log
-mkdir -p ./config_tmp
-cp ../rasc_configs/automations.yaml ./config_tmp/automations.yaml
-cp ../rasc_configs/configuration.yaml ./config_tmp/configuration.yaml
-cp ../rasc_configs/routine_setup.yaml ./config_tmp/routine_setup.yaml
-cp ../rasc_configs/rasc_7_4_baseline.yaml ./config_tmp/rasc.yaml
-hass -c ./config_tmp --log-file ../logs/7_4_logs/home_assistant_baseline.log
-rm -rf ./config_tmp
-deactivate
-cd ..
-pkill -f "uv run -m raspberry_pi.run_service"
-
-# 2. Scheduling performance
+# 3. Scheduling performance
 echo "Running scheduling performance experiments"
 scheduling_policies=(jit fcfs fcfs_post rv sjfw)
 
@@ -87,7 +93,9 @@ do
     pkill -f "uv run -m raspberry_pi.run_service"
 done
 
-# 3. Scalability
+uv run experiments/parse_7_4_result.py
+
+# 4. Scalability
 # measure cpu/memory with 3 different concurrency levels of routines
 # echo "=============================="
 # echo "Running scalability experiments"
@@ -110,6 +118,3 @@ done
 # deactivate
 # cd ..
 # pkill -f "uv run -m raspberry_pi.run_service"
-
-# 3. Parse the logs to extract
-uv run experiments/parse_7_4_result.py

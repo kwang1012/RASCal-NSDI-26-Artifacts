@@ -2,7 +2,6 @@ import json
 from typing import Any
 from datetime import datetime
 import matplotlib.pyplot as plt
-import pandas as pd
 
 def _parse_ha(ha_lines):
     runs = []
@@ -205,6 +204,7 @@ def parse_result():
     ax.scatter([], [], color="red", marker="x", label="periodic")
     ax.legend(fontsize=14)
 
+    print("Saving figure to results/7_1.pdf")
     fig.savefig("results/7_1.pdf", bbox_inches="tight")
 
 parse_result()

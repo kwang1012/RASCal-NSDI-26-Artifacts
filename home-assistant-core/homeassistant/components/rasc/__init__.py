@@ -235,7 +235,7 @@ def run_experiments(hass: HomeAssistant, rasc: RASCAbstraction):
                 reset_action = setting["reset_action"]["service"]
                 reset_service_data = setting["reset_action"].get(
                     "service_data", {})
-                for _ in range(10):
+                for _ in range(1 if os.environ.get("RASC_SHORT") else 10):
                     LOGGER.info("Start action %s on %s with data %s",
                                 action, entity_id, service_data)
                     a_coro, s_coro, c_coro = hass.services.rasc_call(

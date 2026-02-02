@@ -314,8 +314,12 @@ def trigger_automations_later(
     def handle_routine_ended(event: Event) -> None:
         routine_id = event.data["routine_id"].split("-")[0]
         remained_routines[routine_id] -= 1
+        if remained_routines[routine_id] == 0:
+            del remained_routines[routine_id]
         print(
-            "Remaining routines:",
+            "Remaining routines:", sum(remained_routines.values())
+        )
+        print(
             json.dumps(
                 {
                     routine_aliases[routine_id]: remains
@@ -324,12 +328,6 @@ def trigger_automations_later(
                 indent=2,
             )
         )
-        # scheduler: RascalScheduler = hass.data.get(DOMAIN_RASCALSCHEDULER)
-        # if scheduler:
-        #     with open(schedule_result, "w") as f:
-        #         json.dump(scheduler.get_real_schedule(), f, indent=2, default=str)
-        #     with open("rasc_events.json", "w") as f:
-        #         json.dump(hass.data["rasc_events"], f, indent=2, default=str)
         if all(
             remained_routine == 0 for remained_routine in remained_routines.values()
         ):

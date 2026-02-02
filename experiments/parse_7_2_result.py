@@ -48,6 +48,7 @@ def _parse_7_2_training():
 
     ax.legend(bars, labs, loc="best", fontsize=14)
 
+    print("Saving figure to results/7_2_training.pdf")
     fig.savefig("results/7_2_training.pdf", bbox_inches="tight")
 
 
@@ -108,6 +109,7 @@ def _parse_7_2_shifting():
 
     _plot_trial(axs, data)
 
+    print("Saving figure to results/7_2_shifting.pdf")
     fig.savefig("results/7_2_shifting.pdf", bbox_inches="tight")
 
 
