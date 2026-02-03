@@ -352,6 +352,7 @@ def trigger_automations_later(
         #         indent=2,
         #     )
         # )
+        hass.bus.async_fire("rasc_measurement_update")
         _reset_idle_timer(hass)
         if not remained_routines:
             hass.bus.async_fire("rasc_measurement_stop")

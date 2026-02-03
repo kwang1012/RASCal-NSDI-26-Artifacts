@@ -15,8 +15,21 @@ if [[ "$PARSE_ONLY" -eq 0 ]]; then
     # 4. Scalability
     # measure cpu/memory with 4 different concurrency levels of routines
     printf "%s" "$DEVICE_NODE" > nodes.txt
-    for mode in none; do
+    for mode in rasc none; do
         for concurrency in 10 50 100 200; do
+            # if file exists, continue
+            if [[ "$mode" == "none" ]]; then
+                if [[ -f home-assistant-core/results/om_arrival_scalability_${concurrency}.json ]]; then
+                    echo "Skipping mode=${mode} concurrency=${concurrency}..."
+                    continue
+                fi
+            fi
+            if [[ "$mode" == "rasc" ]]; then
+                if [[ -f home-assistant-core/results/om_tl_sjfw_proactive_mean_arrival_scalability_${concurrency}.json ]]; then
+                    echo "Skipping mode=${mode} concurrency=${concurrency}..."
+                    continue
+                fi
+            fi
             echo "=============================="
             echo "Running scalability experiments (mode=$mode, concurrency=$concurrency)"
             echo "=============================="
