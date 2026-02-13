@@ -3,6 +3,19 @@ from typing import Any
 from datetime import datetime
 import matplotlib.pyplot as plt
 
+
+def _parse_time(s):
+    s = s.rstrip('.')  # safeguard
+
+    for fmt in ("%Y-%m-%d %H:%M:%S.%f",
+                "%Y-%m-%d %H:%M:%S"):
+        try:
+            return datetime.strptime(s, fmt)
+        except ValueError:
+            pass
+    raise ValueError("Invalid datetime format")
+
+
 def _parse_ha(ha_lines):
     runs = []
     current_run: dict[str, Any] | None = None
@@ -33,9 +46,10 @@ def _parse_ha(ha_lines):
                 "# polls used:"):].strip().strip("\x1b[0m\n").split(",")
             current_run["down_complete"]["used"] = int(
                 used_str[used_str.find("# polls used:") + len("# polls used:"):]) - 1
-            ts = time_str[time_str.find("current_time:") + len("current_time:"):]
-            current_run["down_complete"]["time"] = datetime.strptime(  # type: ignore
-                ts.strip(), "%Y-%m-%d %H:%M:%S.%f")
+            ts = time_str[time_str.find(
+                "current_time:") + len("current_time:"):]
+            current_run["down_complete"]["time"] = _parse_time(  # type: ignore
+                ts.strip())
             runs.append(current_run)
             current_run = None
         elif "# polls used" in line and current_run and current_run["status"] == "up_complete":
@@ -43,11 +57,13 @@ def _parse_ha(ha_lines):
                 "# polls used:"):].strip().strip("\x1b[0m\n").split(",")
             current_run["up_complete"]["used"] = int(
                 used_str[used_str.find("# polls used:") + len("# polls used:"):]) - 1
-            ts = time_str[time_str.find("current_time:") + len("current_time:"):]
-            current_run["up_complete"]["time"] = datetime.strptime(  # type: ignore
-                ts.strip(), "%Y-%m-%d %H:%M:%S.%f")
+            ts = time_str[time_str.find(
+                "current_time:") + len("current_time:"):]
+            current_run["up_complete"]["time"] = _parse_time(  # type: ignore
+                ts.strip())
 
     return runs
+
 
 def _parse_device(device_lines):
     runs = []
@@ -57,13 +73,17 @@ def _parse_device(device_lines):
         if current_run is None and ("Transition from 68 to 69" in line or "Transition open starts" in line):
             current_run = {"status": "up"}
         elif current_run is not None and current_run["status"] in ("up", "start") and "action finished at" in line:
-            ts = line[line.find("action finished at") + len("action finished at"):].strip()
-            current_run["up_time"] = datetime.strptime(ts, "%Y-%m-%d %H:%M:%S.%f")
+            ts = line[line.find("action finished at") +
+                      len("action finished at"):].strip()
+            current_run["up_time"] = datetime.strptime(
+                ts, "%Y-%m-%d %H:%M:%S.%f")
         elif current_run and ("Transition close starts" in line or "Transition from 69 to 68" in line):
             current_run["status"] = "down"
         elif "action finished at" in line and current_run and current_run["status"] == "down":
-            ts = line[line.find("action finished at") + len("action finished at"):].strip()
-            current_run["down_time"] = datetime.strptime(ts, "%Y-%m-%d %H:%M:%S.%f")
+            ts = line[line.find("action finished at") +
+                      len("action finished at"):].strip()
+            current_run["down_time"] = datetime.strptime(
+                ts, "%Y-%m-%d %H:%M:%S.%f")
             runs.append(current_run)
             current_run = None
 
@@ -160,6 +180,7 @@ def _parse_result(polling_strategy):
         "shade down": _parse(shade_ha_runs, shade_runs, False)
     }
 
+
 def parse_result():
     results = {}
     for strategy in ["uniform", "rasc"]:
@@ -167,12 +188,13 @@ def parse_result():
         results[strategy] = result
     with open(f"results/7_1.json", "w") as f:
         json.dump(results, f, indent=4)
-        
+
     fig, ax = plt.subplots(figsize=(8, 3))
 
     # Plot adaptive (blue dots)
     for label, stats in results["rasc"].items():
-        avg_detection_time = sum(stats["detection_times"]) / len(stats["detection_times"])
+        avg_detection_time = sum(
+            stats["detection_times"]) / len(stats["detection_times"])
         avg_polls = sum(stats["polls_list"]) / len(stats["polls_list"])
         x = avg_polls
         y = avg_detection_time
@@ -181,7 +203,8 @@ def parse_result():
 
     # Plot periodic (red x)
     for label, stats in results["uniform"].items():
-        avg_detection_time = sum(stats["detection_times"]) / len(stats["detection_times"])
+        avg_detection_time = sum(
+            stats["detection_times"]) / len(stats["detection_times"])
         avg_polls = sum(stats["polls_list"]) / len(stats["polls_list"])
         x = avg_polls
         y = avg_detection_time
@@ -206,5 +229,6 @@ def parse_result():
 
     print("Saving figure to results/7_1.pdf")
     fig.savefig("results/7_1.pdf", bbox_inches="tight")
+
 
 parse_result()

@@ -4,6 +4,16 @@ from typing import Any
 import matplotlib.pyplot as plt
 import numpy as np
 
+def _parse_time(s):
+    s = s.rstrip('.')  # safeguard
+
+    for fmt in ("%Y-%m-%d %H:%M:%S.%f",
+                "%Y-%m-%d %H:%M:%S"):
+        try:
+            return datetime.strptime(s, fmt)
+        except ValueError:
+            pass
+    raise ValueError("Invalid datetime format")
 
 def _plot_failed_rate(result, ax, level, show_y_label=False, show_x_label=False):
     failed_rate = [r * 100 for r in result["failed_rate"]]
@@ -80,8 +90,8 @@ def _parse_ha(ha_lines):
                 used_str[used_str.find("# polls used:") + len("# polls used:"):]) - 1
             ts = time_str[time_str.find(
                 "current_time:") + len("current_time:"):]
-            current_run["down_complete"]["time"] = datetime.strptime(  # type: ignore
-                ts.strip(), "%Y-%m-%d %H:%M:%S.%f")
+            current_run["down_complete"]["time"] = _parse_time(  # type: ignore
+                ts.strip())
             runs.append(current_run)
             current_run = None
         elif "# polls used" in line and current_run and current_run["status"] == "up_complete":
@@ -91,8 +101,8 @@ def _parse_ha(ha_lines):
                 used_str[used_str.find("# polls used:") + len("# polls used:"):]) - 1
             ts = time_str[time_str.find(
                 "current_time:") + len("current_time:"):]
-            current_run["up_complete"]["time"] = datetime.strptime(  # type: ignore
-                ts.strip(), "%Y-%m-%d %H:%M:%S.%f")
+            current_run["up_complete"]["time"] = _parse_time(  # type: ignore
+                ts.strip())
 
     return runs
 
@@ -212,7 +222,7 @@ def parse_deployed_result():
 
 def parse_result():
     parse_deployed_result()
-    parse_simulated_result()
+    # parse_simulated_result()
 
 
 parse_result()
