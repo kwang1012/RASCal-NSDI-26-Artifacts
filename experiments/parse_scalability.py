@@ -62,6 +62,8 @@ def parse_result():
     estimation = "mean"
     datasets = [
         "scalability_10",
+        "scalability_20",
+        "scalability_30",
         "scalability_50",
         "scalability_100",
         "scalability_200",

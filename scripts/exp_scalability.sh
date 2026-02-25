@@ -2,7 +2,7 @@
 
 # This experiment needs a second node
 
-DEVICE_NODE=amd245.utah.cloudlab.us
+DEVICE_NODE=ms1229.utah.cloudlab.us
 DEVICE_USER=kw37
 DEVICE_BASE_DIR=/users/kw37/RASCal-NSDI-26-Artifacts
 
@@ -13,10 +13,11 @@ fi
 
 if [[ "$PARSE_ONLY" -eq 0 ]]; then
     # 4. Scalability
+    mkdir -p logs/7_4_logs
     # measure cpu/memory with 4 different concurrency levels of routines
     printf "%s" "$DEVICE_NODE" > nodes.txt
     for mode in rasc none; do
-        for concurrency in 10 50 100 200; do
+        for concurrency in 10 20 30 50 100 200; do
             # if file exists, continue
             if [[ "$mode" == "none" ]]; then
                 if [[ -f home-assistant-core/results/om_arrival_scalability_${concurrency}.json ]]; then

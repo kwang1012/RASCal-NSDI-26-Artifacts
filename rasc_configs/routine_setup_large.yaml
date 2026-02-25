@@ -252,8 +252,8 @@ lock.garage_door_lock1:
 - service: lock
 lock.garage_door_lock2:
 - service: lock
-lock.garage_door_lock3:
-- service: lock
+# lock.garage_door_lock3:
+# - service: lock
 lock.front_door_lock:
 - service: unlock
 lock.front_door_lock1:
